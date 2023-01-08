@@ -2,286 +2,327 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://blog.tutuis.me/zh-hk/categories/</loc>
+    <loc>https://tutuis.me/zh-hk/categories/</loc>
     <lastmod>2022-12-06T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://blog.tutuis.me/categories/"
+                href="https://tutuis.me/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-tw"
-                href="https://blog.tutuis.me/zh-tw/categories/"
+                href="https://tutuis.me/zh-tw/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.tutuis.me/en/categories/"
+                href="https://tutuis.me/en/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-hk"
-                href="https://blog.tutuis.me/zh-hk/categories/"
+                href="https://tutuis.me/zh-hk/categories/"
                 />
   </url><url>
-    <loc>https://blog.tutuis.me/zh-hk/tags/MyProjects/</loc>
+    <loc>https://tutuis.me/zh-hk/tags/MyProjects/</loc>
     <lastmod>2022-12-06T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://blog.tutuis.me/tags/MyProjects/"
+                href="https://tutuis.me/tags/MyProjects/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-tw"
-                href="https://blog.tutuis.me/zh-tw/tags/MyProjects/"
+                href="https://tutuis.me/zh-tw/tags/MyProjects/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.tutuis.me/en/tags/MyProjects/"
+                href="https://tutuis.me/en/tags/MyProjects/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-hk"
-                href="https://blog.tutuis.me/zh-hk/tags/MyProjects/"
+                href="https://tutuis.me/zh-hk/tags/MyProjects/"
                 />
   </url><url>
-    <loc>https://blog.tutuis.me/zh-hk/categories/MyProjects/</loc>
+    <loc>https://tutuis.me/zh-hk/categories/MyProjects/</loc>
     <lastmod>2022-12-06T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://blog.tutuis.me/categories/MyProjects/"
+                href="https://tutuis.me/categories/MyProjects/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-tw"
-                href="https://blog.tutuis.me/zh-tw/categories/MyProjects/"
+                href="https://tutuis.me/zh-tw/categories/MyProjects/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.tutuis.me/en/categories/MyProjects/"
+                href="https://tutuis.me/en/categories/MyProjects/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-hk"
-                href="https://blog.tutuis.me/zh-hk/categories/MyProjects/"
+                href="https://tutuis.me/zh-hk/categories/MyProjects/"
                 />
   </url><url>
-    <loc>https://blog.tutuis.me/zh-hk/post/</loc>
+    <loc>https://tutuis.me/zh-hk/page/</loc>
     <lastmod>2022-12-06T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://blog.tutuis.me/post/"
+                href="https://tutuis.me/page/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-tw"
-                href="https://blog.tutuis.me/zh-tw/post/"
+                href="https://tutuis.me/zh-tw/page/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.tutuis.me/en/post/"
+                href="https://tutuis.me/en/page/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-hk"
-                href="https://blog.tutuis.me/zh-hk/post/"
+                href="https://tutuis.me/zh-hk/page/"
                 />
   </url><url>
-    <loc>https://blog.tutuis.me/zh-hk/tags/</loc>
+    <loc>https://tutuis.me/zh-hk/post/</loc>
     <lastmod>2022-12-06T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://blog.tutuis.me/tags/"
+                href="https://tutuis.me/post/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-tw"
-                href="https://blog.tutuis.me/zh-tw/tags/"
+                href="https://tutuis.me/zh-tw/post/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.tutuis.me/en/tags/"
+                href="https://tutuis.me/en/post/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-hk"
-                href="https://blog.tutuis.me/zh-hk/tags/"
+                href="https://tutuis.me/zh-hk/post/"
                 />
   </url><url>
-    <loc>https://blog.tutuis.me/zh-hk/</loc>
+    <loc>https://tutuis.me/zh-hk/tags/</loc>
     <lastmod>2022-12-06T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://blog.tutuis.me/"
+                href="https://tutuis.me/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-tw"
-                href="https://blog.tutuis.me/zh-tw/"
+                href="https://tutuis.me/zh-tw/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.tutuis.me/en/"
+                href="https://tutuis.me/en/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-hk"
-                href="https://blog.tutuis.me/zh-hk/"
+                href="https://tutuis.me/zh-hk/tags/"
                 />
   </url><url>
-    <loc>https://blog.tutuis.me/zh-hk/tags/Toolbox/</loc>
+    <loc>https://tutuis.me/zh-hk/</loc>
     <lastmod>2022-12-06T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://blog.tutuis.me/tags/Toolbox/"
+                href="https://tutuis.me/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-tw"
-                href="https://blog.tutuis.me/zh-tw/tags/Toolbox/"
+                href="https://tutuis.me/zh-tw/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.tutuis.me/en/tags/Toolbox/"
+                href="https://tutuis.me/en/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-hk"
-                href="https://blog.tutuis.me/zh-hk/tags/Toolbox/"
+                href="https://tutuis.me/zh-hk/"
                 />
   </url><url>
-    <loc>https://blog.tutuis.me/zh-hk/MyProject/</loc>
+    <loc>https://tutuis.me/zh-hk/tags/Toolbox/</loc>
     <lastmod>2022-12-06T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://blog.tutuis.me/MyProject/"
+                href="https://tutuis.me/tags/Toolbox/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-tw"
-                href="https://blog.tutuis.me/zh-tw/MyProject/"
+                href="https://tutuis.me/zh-tw/tags/Toolbox/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.tutuis.me/en/MyProject/"
+                href="https://tutuis.me/en/tags/Toolbox/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-hk"
-                href="https://blog.tutuis.me/zh-hk/MyProject/"
+                href="https://tutuis.me/zh-hk/tags/Toolbox/"
                 />
   </url><url>
-    <loc>https://blog.tutuis.me/zh-hk/categories/%E6%95%B4%E9%BB%9E%E6%96%B0%E6%B4%BB/</loc>
+    <loc>https://tutuis.me/zh-hk/Mine/</loc>
     <lastmod>2022-12-06T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-tw"
-                href="https://blog.tutuis.me/zh-tw/categories/%E6%95%B4%E9%BB%9E%E6%96%B0%E6%B4%BB/"
+                href="https://tutuis.me/zh-tw/Mine/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tutuis.me/en/Mine/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-hk"
-                href="https://blog.tutuis.me/zh-hk/categories/%E6%95%B4%E9%BB%9E%E6%96%B0%E6%B4%BB/"
+                href="https://tutuis.me/zh-hk/Mine/"
                 />
   </url><url>
-    <loc>https://blog.tutuis.me/zh-hk/categories/Linux/</loc>
+    <loc>https://tutuis.me/zh-hk/MyProject/</loc>
+    <lastmod>2022-12-06T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://tutuis.me/MyProject/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://tutuis.me/zh-tw/MyProject/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tutuis.me/en/MyProject/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-hk"
+                href="https://tutuis.me/zh-hk/MyProject/"
+                />
+  </url><url>
+    <loc>https://tutuis.me/zh-hk/categories/%E6%95%B4%E9%BB%9E%E6%96%B0%E6%B4%BB/</loc>
+    <lastmod>2022-12-06T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://tutuis.me/zh-tw/categories/%E6%95%B4%E9%BB%9E%E6%96%B0%E6%B4%BB/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-hk"
+                href="https://tutuis.me/zh-hk/categories/%E6%95%B4%E9%BB%9E%E6%96%B0%E6%B4%BB/"
+                />
+  </url><url>
+    <loc>https://tutuis.me/zh-hk/categories/Linux/</loc>
     <lastmod>2022-10-02T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://blog.tutuis.me/categories/Linux/"
+                href="https://tutuis.me/categories/Linux/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-tw"
-                href="https://blog.tutuis.me/zh-tw/categories/Linux/"
+                href="https://tutuis.me/zh-tw/categories/Linux/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-hk"
-                href="https://blog.tutuis.me/zh-hk/categories/Linux/"
+                href="https://tutuis.me/zh-hk/categories/Linux/"
                 />
   </url><url>
-    <loc>https://blog.tutuis.me/zh-hk/tags/Pagermaid/</loc>
+    <loc>https://tutuis.me/zh-hk/tags/Pagermaid/</loc>
     <lastmod>2022-10-02T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://blog.tutuis.me/tags/Pagermaid/"
+                href="https://tutuis.me/tags/Pagermaid/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-tw"
-                href="https://blog.tutuis.me/zh-tw/tags/Pagermaid/"
+                href="https://tutuis.me/zh-tw/tags/Pagermaid/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-hk"
-                href="https://blog.tutuis.me/zh-hk/tags/Pagermaid/"
+                href="https://tutuis.me/zh-hk/tags/Pagermaid/"
                 />
   </url><url>
-    <loc>https://blog.tutuis.me/zh-hk/categories/%E6%8A%98%E9%A8%B0%E5%95%A5/</loc>
+    <loc>https://tutuis.me/zh-hk/categories/%E6%8A%98%E9%A8%B0%E5%95%A5/</loc>
     <lastmod>2022-10-02T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-tw"
-                href="https://blog.tutuis.me/zh-tw/categories/%E6%8A%98%E9%A8%B0%E5%95%A5/"
+                href="https://tutuis.me/zh-tw/categories/%E6%8A%98%E9%A8%B0%E5%95%A5/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-hk"
-                href="https://blog.tutuis.me/zh-hk/categories/%E6%8A%98%E9%A8%B0%E5%95%A5/"
+                href="https://tutuis.me/zh-hk/categories/%E6%8A%98%E9%A8%B0%E5%95%A5/"
                 />
   </url><url>
-    <loc>https://blog.tutuis.me/zh-hk/tags/%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2022-10-02T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://blog.tutuis.me/tags/%E6%95%99%E7%A8%8B/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-tw"
-                href="https://blog.tutuis.me/zh-tw/tags/%E6%95%99%E7%A8%8B/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-hk"
-                href="https://blog.tutuis.me/zh-hk/tags/%E6%95%99%E7%A8%8B/"
-                />
-  </url><url>
-    <loc>https://blog.tutuis.me/zh-hk/My-First-Post/</loc>
+    <loc>https://tutuis.me/zh-hk/tags/%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2022-10-02T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://blog.tutuis.me/My-First-Post/"
+                href="https://tutuis.me/tags/%E6%95%99%E7%A8%8B/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-tw"
-                href="https://blog.tutuis.me/zh-tw/My-First-Post/"
+                href="https://tutuis.me/zh-tw/tags/%E6%95%99%E7%A8%8B/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-hk"
-                href="https://blog.tutuis.me/zh-hk/My-First-Post/"
+                href="https://tutuis.me/zh-hk/tags/%E6%95%99%E7%A8%8B/"
+                />
+  </url><url>
+    <loc>https://tutuis.me/zh-hk/My-First-Post/</loc>
+    <lastmod>2022-10-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://tutuis.me/My-First-Post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://tutuis.me/zh-tw/My-First-Post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-hk"
+                href="https://tutuis.me/zh-hk/My-First-Post/"
                 />
   </url>
 </urlset>

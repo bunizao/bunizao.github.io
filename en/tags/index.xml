@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Tags on tutuのBlog</title>
-        <link>https://blog.tutuis.me/en/tags/</link>
+        <link>https://tutuis.me/en/tags/</link>
         <description>Recent content in Tags on tutuのBlog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Tue, 06 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tutuis.me/en/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 06 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tutuis.me/en/tags/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>MyProjects</title>
-        <link>https://blog.tutuis.me/en/tags/MyProjects/</link>
+        <link>https://tutuis.me/en/tags/MyProjects/</link>
         <pubDate>Tue, 06 Dec 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://blog.tutuis.me/en/tags/MyProjects/</guid>
+        <guid>https://tutuis.me/en/tags/MyProjects/</guid>
         <description></description>
         </item>
         <item>
         <title>🧰Toolbox</title>
-        <link>https://blog.tutuis.me/en/tags/Toolbox/</link>
+        <link>https://tutuis.me/en/tags/Toolbox/</link>
         <pubDate>Tue, 06 Dec 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://blog.tutuis.me/en/tags/Toolbox/</guid>
+        <guid>https://tutuis.me/en/tags/Toolbox/</guid>
         <description></description>
         </item>
         <item>
         <title>Me</title>
-        <link>https://blog.tutuis.me/en/tags/Me/</link>
+        <link>https://tutuis.me/en/tags/Me/</link>
         <pubDate>Sun, 02 Oct 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://blog.tutuis.me/en/tags/Me/</guid>
+        <guid>https://tutuis.me/en/tags/Me/</guid>
         <description></description>
         </item>
         <item>
         <title>碎碎念</title>
-        <link>https://blog.tutuis.me/en/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/</link>
+        <link>https://tutuis.me/en/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/</link>
         <pubDate>Sun, 02 Oct 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://blog.tutuis.me/en/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/</guid>
+        <guid>https://tutuis.me/en/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/</guid>
         <description></description>
         </item>
         

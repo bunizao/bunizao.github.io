@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>🧰Toolbox on tutuのBlog</title>
-        <link>https://blog.tutuis.me/tags/Toolbox/</link>
+        <link>https://tutuis.me/tags/Toolbox/</link>
         <description>Recent content in 🧰Toolbox on tutuのBlog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Tue, 06 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tutuis.me/tags/Toolbox/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 06 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tutuis.me/tags/Toolbox/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>私の折腾项目大公開!</title>
-        <link>https://blog.tutuis.me/MyProject/</link>
+        <link>https://tutuis.me/MyProject/</link>
         <pubDate>Tue, 06 Dec 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://blog.tutuis.me/MyProject/</guid>
-        <description>&lt;img src="https://blog.tutuis.me/102424922_p0_master1200.webp" alt="Featured image of post 私の折腾项目大公開!" /&gt;&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;
+        <guid>https://tutuis.me/MyProject/</guid>
+        <description>&lt;img src="https://tutuis.me/102424922_p0_master1200.webp" alt="Featured image of post 私の折腾项目大公開!" /&gt;&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;本人非常喜欢折腾，于是有了这些项目。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;这些项目的链接都放在这篇文章的大标题里面&lt;/strong&gt;，也可以通过右边的目录快速导航。&lt;/li&gt;
@@ -106,11 +106,11 @@
         </item>
         <item>
         <title>🧰工具箱｜一些常用的Linux命令</title>
-        <link>https://blog.tutuis.me/Command-on-Ubuntu/</link>
+        <link>https://tutuis.me/Command-on-Ubuntu/</link>
         <pubDate>Thu, 01 Dec 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://blog.tutuis.me/Command-on-Ubuntu/</guid>
-        <description>&lt;img src="https://blog.tutuis.me/jammy-jellyfish-wallpaper.png" alt="Featured image of post 🧰工具箱｜一些常用的Linux命令" /&gt;&lt;blockquote&gt;
+        <guid>https://tutuis.me/Command-on-Ubuntu/</guid>
+        <description>&lt;img src="https://tutuis.me/jammy-jellyfish-wallpaper.png" alt="Featured image of post 🧰工具箱｜一些常用的Linux命令" /&gt;&lt;blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;以下命令适用于Ubuntu 22.04系统，其他系统自行修改。&lt;/li&gt;
 &lt;li&gt;可以透过右侧Widget目录快速查找。&lt;/li&gt;

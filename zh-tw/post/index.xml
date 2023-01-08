@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Posts on tutuのBlog</title>
-        <link>https://blog.tutuis.me/zh-tw/post/</link>
+        <link>https://tutuis.me/zh-tw/post/</link>
         <description>Recent content in Posts on tutuのBlog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-tw</language>
-        <lastBuildDate>Tue, 06 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tutuis.me/zh-tw/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 06 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tutuis.me/zh-tw/post/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>私の折騰專案大公開!</title>
-        <link>https://blog.tutuis.me/zh-tw/MyProject/</link>
+        <link>https://tutuis.me/zh-tw/MyProject/</link>
         <pubDate>Tue, 06 Dec 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://blog.tutuis.me/zh-tw/MyProject/</guid>
-        <description>&lt;img src="https://blog.tutuis.me/102424922_p0_master1200.webp" alt="Featured image of post 私の折騰專案大公開!" /&gt;&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;
+        <guid>https://tutuis.me/zh-tw/MyProject/</guid>
+        <description>&lt;img src="https://tutuis.me/102424922_p0_master1200.webp" alt="Featured image of post 私の折騰專案大公開!" /&gt;&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;本人非常喜歡折騰，於是有了這些專案。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;這些專案的連結都放在這篇文章的大標題裡面&lt;/strong&gt;，也可以透過右邊的目錄快速導航。&lt;/li&gt;
@@ -106,11 +106,11 @@
         </item>
         <item>
         <title>搭建開源的Telegram人形Bot👾｜PagerMaid-Pyro</title>
-        <link>https://blog.tutuis.me/zh-tw/My-First-Post/</link>
+        <link>https://tutuis.me/zh-tw/My-First-Post/</link>
         <pubDate>Sun, 02 Oct 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://blog.tutuis.me/zh-tw/My-First-Post/</guid>
-        <description>&lt;img src="https://blog.tutuis.me/set-up-pagermaid-pyro.webp" alt="Featured image of post 搭建開源的Telegram人形Bot👾｜PagerMaid-Pyro" /&gt;&lt;blockquote&gt;
+        <guid>https://tutuis.me/zh-tw/My-First-Post/</guid>
+        <description>&lt;img src="https://tutuis.me/set-up-pagermaid-pyro.webp" alt="Featured image of post 搭建開源的Telegram人形Bot👾｜PagerMaid-Pyro" /&gt;&lt;blockquote&gt;
 &lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;最近的Telegram私聊廣告莫名很多，使用這個bot的防私聊插件可以很好的&lt;strong&gt;緩解廣告的打擾&lt;/strong&gt;。剛好手頭有閒置的VPS，索性按照教程簡單搭建下。 （其實好早就搭建好了🤪&lt;/li&gt;
