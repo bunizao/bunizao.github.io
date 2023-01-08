@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Categories on tutuのBlog</title>
-        <link>https://tutuis.me/categories/</link>
+        <link>https://blog.tutuis.me/categories/</link>
         <description>Recent content in Categories on tutuのBlog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Fri, 09 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tutuis.me/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 09 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tutuis.me/categories/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>折腾啥</title>
-        <link>https://tutuis.me/categories/%E6%8A%98%E8%85%BE%E5%95%A5/</link>
+        <link>https://blog.tutuis.me/categories/%E6%8A%98%E8%85%BE%E5%95%A5/</link>
         <pubDate>Fri, 09 Dec 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://tutuis.me/categories/%E6%8A%98%E8%85%BE%E5%95%A5/</guid>
+        <guid>https://blog.tutuis.me/categories/%E6%8A%98%E8%85%BE%E5%95%A5/</guid>
         <description></description>
         </item>
         <item>
         <title>MyProjects</title>
-        <link>https://tutuis.me/categories/MyProjects/</link>
+        <link>https://blog.tutuis.me/categories/MyProjects/</link>
         <pubDate>Tue, 06 Dec 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://tutuis.me/categories/MyProjects/</guid>
+        <guid>https://blog.tutuis.me/categories/MyProjects/</guid>
         <description></description>
         </item>
         <item>
         <title>整点新活</title>
-        <link>https://tutuis.me/categories/%E6%95%B4%E7%82%B9%E6%96%B0%E6%B4%BB/</link>
+        <link>https://blog.tutuis.me/categories/%E6%95%B4%E7%82%B9%E6%96%B0%E6%B4%BB/</link>
         <pubDate>Tue, 06 Dec 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://tutuis.me/categories/%E6%95%B4%E7%82%B9%E6%96%B0%E6%B4%BB/</guid>
+        <guid>https://blog.tutuis.me/categories/%E6%95%B4%E7%82%B9%E6%96%B0%E6%B4%BB/</guid>
         <description></description>
         </item>
         <item>
         <title>Linux</title>
-        <link>https://tutuis.me/categories/Linux/</link>
+        <link>https://blog.tutuis.me/categories/Linux/</link>
         <pubDate>Thu, 01 Dec 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://tutuis.me/categories/Linux/</guid>
+        <guid>https://blog.tutuis.me/categories/Linux/</guid>
         <description></description>
         </item>
         

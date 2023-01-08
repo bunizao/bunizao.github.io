@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>思考 on tutuのBlog</title>
-        <link>https://tutuis.me/en/categories/%E6%80%9D%E8%80%83/</link>
+        <link>https://blog.tutuis.me/en/categories/%E6%80%9D%E8%80%83/</link>
         <description>Recent content in 思考 on tutuのBlog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Sun, 02 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tutuis.me/en/categories/%E6%80%9D%E8%80%83/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 02 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tutuis.me/en/categories/%E6%80%9D%E8%80%83/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>It&#39;s..about ME</title>
-        <link>https://tutuis.me/en/AboutMe/</link>
+        <link>https://blog.tutuis.me/en/AboutMe/</link>
         <pubDate>Sun, 02 Oct 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://tutuis.me/en/AboutMe/</guid>
+        <guid>https://blog.tutuis.me/en/AboutMe/</guid>
         <description>&lt;img src="https://bing.img.run/1920x1080.php" alt="Featured image of post It&#39;s..about ME" /&gt;&lt;blockquote&gt;
 &lt;p&gt;Welcome to my Blog.  Hello and sincere greetings from the north of Mainland China.&lt;/p&gt;
 &lt;/blockquote&gt;

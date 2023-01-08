@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Posts on tutuのBlog</title>
-        <link>https://tutuis.me/post/</link>
+        <link>https://blog.tutuis.me/post/</link>
         <description>Recent content in Posts on tutuのBlog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Fri, 09 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tutuis.me/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 09 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tutuis.me/post/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>关于一台老旧Mac变成了最强软路由的这档事</title>
-        <link>https://tutuis.me/OldMacRelive/</link>
+        <link>https://blog.tutuis.me/OldMacRelive/</link>
         <pubDate>Fri, 09 Dec 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://tutuis.me/OldMacRelive/</guid>
-        <description>&lt;img src="https://tutuis.me/ce5792552b8a496daecc793dccbfeadd.webp" alt="Featured image of post 关于一台老旧Mac变成了最强软路由的这档事" /&gt;&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;
+        <guid>https://blog.tutuis.me/OldMacRelive/</guid>
+        <description>&lt;img src="https://blog.tutuis.me/ce5792552b8a496daecc793dccbfeadd.webp" alt="Featured image of post 关于一台老旧Mac变成了最强软路由的这档事" /&gt;&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;
 &lt;h3 id=&#34;前言的前言&#34;&gt;前言的前言&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;p&gt;此篇文章的图片以WebP格式托管在中国大陆的服务器上，WebP格式可以以很小的体积展示出惊艳的显示效果。这极大地减轻了您的设备的加载负担。我们已经尽最大努力保证您的访问体验。&lt;/p&gt;
@@ -200,11 +200,11 @@
         </item>
         <item>
         <title>私の折腾项目大公開!</title>
-        <link>https://tutuis.me/MyProject/</link>
+        <link>https://blog.tutuis.me/MyProject/</link>
         <pubDate>Tue, 06 Dec 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://tutuis.me/MyProject/</guid>
-        <description>&lt;img src="https://tutuis.me/102424922_p0_master1200.webp" alt="Featured image of post 私の折腾项目大公開!" /&gt;&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;
+        <guid>https://blog.tutuis.me/MyProject/</guid>
+        <description>&lt;img src="https://blog.tutuis.me/102424922_p0_master1200.webp" alt="Featured image of post 私の折腾项目大公開!" /&gt;&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;本人非常喜欢折腾，于是有了这些项目。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;这些项目的链接都放在这篇文章的大标题里面&lt;/strong&gt;，也可以通过右边的目录快速导航。&lt;/li&gt;
@@ -298,11 +298,11 @@
         </item>
         <item>
         <title>🧰工具箱｜一些常用的Linux命令</title>
-        <link>https://tutuis.me/Command-on-Ubuntu/</link>
+        <link>https://blog.tutuis.me/Command-on-Ubuntu/</link>
         <pubDate>Thu, 01 Dec 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://tutuis.me/Command-on-Ubuntu/</guid>
-        <description>&lt;img src="https://tutuis.me/jammy-jellyfish-wallpaper.png" alt="Featured image of post 🧰工具箱｜一些常用的Linux命令" /&gt;&lt;blockquote&gt;
+        <guid>https://blog.tutuis.me/Command-on-Ubuntu/</guid>
+        <description>&lt;img src="https://blog.tutuis.me/jammy-jellyfish-wallpaper.png" alt="Featured image of post 🧰工具箱｜一些常用的Linux命令" /&gt;&lt;blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;以下命令适用于Ubuntu 22.04系统，其他系统自行修改。&lt;/li&gt;
 &lt;li&gt;可以透过右侧Widget目录快速查找。&lt;/li&gt;
@@ -468,11 +468,11 @@ wget &amp;ndash;no-check-certificate -O NewReinstall.sh &lt;a class=&#34;link&#3
         </item>
         <item>
         <title>搭建开源的Telegram人形Bot👾｜PagerMaid-Pyro</title>
-        <link>https://tutuis.me/My-First-Post/</link>
+        <link>https://blog.tutuis.me/My-First-Post/</link>
         <pubDate>Sun, 02 Oct 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://tutuis.me/My-First-Post/</guid>
-        <description>&lt;img src="https://tutuis.me/set-up-pagermaid-pyro.webp" alt="Featured image of post 搭建开源的Telegram人形Bot👾｜PagerMaid-Pyro" /&gt;&lt;blockquote&gt;
+        <guid>https://blog.tutuis.me/My-First-Post/</guid>
+        <description>&lt;img src="https://blog.tutuis.me/set-up-pagermaid-pyro.webp" alt="Featured image of post 搭建开源的Telegram人形Bot👾｜PagerMaid-Pyro" /&gt;&lt;blockquote&gt;
 &lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;最近的Telegram私聊广告莫名很多，使用这个bot的防私聊插件可以很好的&lt;strong&gt;缓解广告的打扰&lt;/strong&gt;。刚好手头有闲置的VPS，索性按照教程简单搭建下。（其实好早就搭建好了🤪&lt;/li&gt;

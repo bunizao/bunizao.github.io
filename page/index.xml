@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Pages on tutuのBlog</title>
-        <link>https://tutuis.me/page/</link>
+        <link>https://blog.tutuis.me/page/</link>
         <description>Recent content in Pages on tutuのBlog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Sun, 08 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://tutuis.me/page/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 08 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tutuis.me/page/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>🛸 Link Space</title>
-        <link>https://tutuis.me/links/</link>
+        <link>https://blog.tutuis.me/links/</link>
         <pubDate>Sun, 08 Jan 2023 00:00:00 +0000</pubDate>
         
-        <guid>https://tutuis.me/links/</guid>
+        <guid>https://blog.tutuis.me/links/</guid>
         <description>&lt;h2 id=&#34;himy-friends&#34;&gt;Hi!My Friends!👋&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://isagood.day&#34; title=&#34;Sebastian Luo&#34; class=&#34;friend-link&#34; target=&#34;_blank&#34; rel=&#34;friend&#34;&gt;
     &lt;div class=&#34;friend-link-div&#34;&gt;
@@ -43,18 +43,18 @@
         </item>
         <item>
         <title>Archives</title>
-        <link>https://tutuis.me/archives/</link>
+        <link>https://blog.tutuis.me/archives/</link>
         <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://tutuis.me/archives/</guid>
+        <guid>https://blog.tutuis.me/archives/</guid>
         <description></description>
         </item>
         <item>
         <title>About</title>
-        <link>https://tutuis.me/About/</link>
+        <link>https://blog.tutuis.me/About/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://tutuis.me/About/</guid>
+        <guid>https://blog.tutuis.me/About/</guid>
         <description>&lt;img src=&#34;https://bing.img.run/1920x1080.php&#34; /&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Welcome to my Blog.  Hello and sincere greetings from the north of Mainland China.&lt;/p&gt;
@@ -91,10 +91,10 @@ Also, you can track me via the links below:&lt;/p&gt;
         </item>
         <item>
         <title>Search</title>
-        <link>https://tutuis.me/search/</link>
+        <link>https://blog.tutuis.me/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://tutuis.me/search/</guid>
+        <guid>https://blog.tutuis.me/search/</guid>
         <description></description>
         </item>
         

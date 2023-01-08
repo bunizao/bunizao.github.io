@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Categories on tutuのBlog</title>
-        <link>https://tutuis.me/zh-tw/categories/</link>
+        <link>https://blog.tutuis.me/zh-tw/categories/</link>
         <description>Recent content in Categories on tutuのBlog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-tw</language>
-        <lastBuildDate>Tue, 06 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tutuis.me/zh-tw/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 06 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tutuis.me/zh-tw/categories/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>MyProjects</title>
-        <link>https://tutuis.me/zh-tw/categories/MyProjects/</link>
+        <link>https://blog.tutuis.me/zh-tw/categories/MyProjects/</link>
         <pubDate>Tue, 06 Dec 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://tutuis.me/zh-tw/categories/MyProjects/</guid>
+        <guid>https://blog.tutuis.me/zh-tw/categories/MyProjects/</guid>
         <description></description>
         </item>
         <item>
         <title>整點新活</title>
-        <link>https://tutuis.me/zh-tw/categories/%E6%95%B4%E9%BB%9E%E6%96%B0%E6%B4%BB/</link>
+        <link>https://blog.tutuis.me/zh-tw/categories/%E6%95%B4%E9%BB%9E%E6%96%B0%E6%B4%BB/</link>
         <pubDate>Tue, 06 Dec 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://tutuis.me/zh-tw/categories/%E6%95%B4%E9%BB%9E%E6%96%B0%E6%B4%BB/</guid>
+        <guid>https://blog.tutuis.me/zh-tw/categories/%E6%95%B4%E9%BB%9E%E6%96%B0%E6%B4%BB/</guid>
         <description></description>
         </item>
         <item>
         <title>Linux</title>
-        <link>https://tutuis.me/zh-tw/categories/Linux/</link>
+        <link>https://blog.tutuis.me/zh-tw/categories/Linux/</link>
         <pubDate>Sun, 02 Oct 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://tutuis.me/zh-tw/categories/Linux/</guid>
+        <guid>https://blog.tutuis.me/zh-tw/categories/Linux/</guid>
         <description></description>
         </item>
         <item>
         <title>折騰啥</title>
-        <link>https://tutuis.me/zh-tw/categories/%E6%8A%98%E9%A8%B0%E5%95%A5/</link>
+        <link>https://blog.tutuis.me/zh-tw/categories/%E6%8A%98%E9%A8%B0%E5%95%A5/</link>
         <pubDate>Sun, 02 Oct 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://tutuis.me/zh-tw/categories/%E6%8A%98%E9%A8%B0%E5%95%A5/</guid>
+        <guid>https://blog.tutuis.me/zh-tw/categories/%E6%8A%98%E9%A8%B0%E5%95%A5/</guid>
         <description></description>
         </item>
         
