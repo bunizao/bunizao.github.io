@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Pagermaid on tutuのBlog</title>
+        <link>https://tutuis.me/zh-tw/tags/pagermaid/</link>
+        <description>Recent content in Pagermaid on tutuのBlog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-tw</language>
+        <lastBuildDate>Sun, 02 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tutuis.me/zh-tw/tags/pagermaid/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>搭建開源的Telegram人形Bot👾｜PagerMaid-Pyro</title>
+        <link>https://tutuis.me/zh-tw/p/%E6%90%AD%E5%BB%BA%E9%96%8B%E6%BA%90%E7%9A%84telegram%E4%BA%BA%E5%BD%A2botpagermaid-pyro/</link>
+        <pubDate>Sun, 02 Oct 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://tutuis.me/zh-tw/p/%E6%90%AD%E5%BB%BA%E9%96%8B%E6%BA%90%E7%9A%84telegram%E4%BA%BA%E5%BD%A2botpagermaid-pyro/</guid>
+        <description>&lt;img src="https://m1.im5i.com/2022/12/09/U5JltY.webp" alt="Featured image of post 搭建開源的Telegram人形Bot👾｜PagerMaid-Pyro" /&gt;&lt;blockquote&gt;
+&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;最近的Telegram私聊廣告莫名很多，使用這個bot的防私聊插件可以很好的&lt;strong&gt;緩解廣告的打擾&lt;/strong&gt;。剛好手頭有閒置的VPS，索性按照教程簡單搭建下。 （其實好早就搭建好了🤪&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本教程基於 &lt;strong&gt;Ubuntu 22.04&lt;/strong&gt; 系統，搭建 Pagermaid-Pyro 的演示環境為AWS-Lightsail機器，其他系統或IDC請自行修改命令安裝。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Github 開源地址：&lt;code&gt;https://github.com/TeamPGM/PagerMaid-Pyro&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;官方博客：&lt;code&gt;https://xtaolabs.com&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;官方 Telegram 頻道：&lt;code&gt;@PagerMaid_Modify&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;h3 id=&#34;在搭建之前您需要知道&#34;&gt;在搭建之前您需要知道&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Telegram沒有明確說明支持Userbot的行為，被杜叔叔分遺產以及導致的任何損失和後果均與PagerMaid項目作者和&lt;a class=&#34;link&#34; href=&#34;https://tutuis.me&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;本站&lt;/strong&gt;&lt;/a&gt;無關。&lt;/li&gt;
+&lt;li&gt;您在使用本項目代碼時即表示您已經同意本隱私協議並且允許我們以評估負載和修復代碼的目的記錄您 Bot 的在線狀態和報錯文件（除可能使用的信息之外，我們不會記錄與收集任何信息）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;您需要的基礎知識&#34;&gt;您需要的基礎知識&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;SSH 連接Linux服務器&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;切換用戶為 root  &lt;code&gt;sudo -i&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;略懂一些 &lt;code&gt;Vim&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;讓我們開始吧&#34;&gt;讓我們開始吧!&lt;/h2&gt;
+&lt;h3 id=&#34;開放端口&#34;&gt;開放端口&lt;/h3&gt;
+&lt;p&gt;由於需要和telegram服務器通信，我們需要關閉系統內部的防火牆。執行以下代碼關閉：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo iptables -P INPUT ACCEPT
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo iptables -P FORWARD ACCEPT
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo iptables -P OUTPUT ACCEPT
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo iptables -F
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果您使用了雲服務，請去您的雲服務商控制台裡開放所有端口。 （以AWS-Lightsail為例）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://3o.hk/images/2022/10/02/2022-10-02-10.09.17.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;截屏2022 10 02 下午10.09.17&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Oracle請移步 &lt;code&gt;網絡&lt;/code&gt;-&lt;code&gt;虛擬云網絡&lt;/code&gt;-&lt;code&gt;vcn-2022xxxx-xxxx&lt;/code&gt;-&lt;code&gt;安全列表詳細信息&lt;/code&gt;-&lt;code&gt;入站規則&lt;/code&gt;-&lt;code&gt;添加入站規則&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;請你像我這樣寫：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://3o.hk/images/2022/10/02/2022-10-02-10.16.23.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;截屏2022 10 02 下午10.16.23&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Azure在&lt;code&gt;設置&lt;/code&gt;-&lt;code&gt;網絡&lt;/code&gt;-&lt;code&gt;入站端口規則&lt;/code&gt;，請添加：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;源：Any&lt;/li&gt;
+&lt;li&gt;源端口範圍：*&lt;/li&gt;
+&lt;li&gt;目標：Any&lt;/li&gt;
+&lt;li&gt;服務：Custom&lt;/li&gt;
+&lt;li&gt;目標端口範圍：*&lt;/li&gt;
+&lt;li&gt;協議：Any&lt;/li&gt;
+&lt;li&gt;操作：允許&lt;/li&gt;
+&lt;li&gt;優先級：100&lt;/li&gt;
+&lt;li&gt;名稱：隨便寫&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;其他的IDC請自行探索規律尋找，有些IDC是默認給開的。&lt;/p&gt;
+&lt;h3 id=&#34;拉取項目&#34;&gt;拉取項目&lt;/h3&gt;
+&lt;p&gt;先切換為Root用戶。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo -i
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在拉取項目之前，首先更新 git ，否則之後可能出現無法更新的情況。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install --upgrade git -y
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;這步就報錯請自行Google：&lt;code&gt;Ubuntu安裝git&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;拉取項目至 /var/lib/pagermaid_pyro 目錄。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cd /var/lib &amp;amp;&amp;amp; git clone https://github.com/TeamPGM/PagerMaid-Pyro.git pagermaid_pyro &amp;amp;&amp;amp; cd pagermaid_pyro
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;很快就拉取完了。
+&lt;a class=&#34;link&#34; href=&#34;https://3o.hk/image/0mIrT&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;img src=&#34;https://3o.hk/images/2022/10/02/2022-10-02-10.28.18.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;2022-10-02-10.28.18.png&#34;
+	
+	
+&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;安裝依賴&#34;&gt;安裝依賴&lt;/h3&gt;
+&lt;p&gt;首先更新下apt軟件包，安裝過程中可能會出現OK確認界面，直接確認即可，如果出現斷開連接，必須重新登錄root訪問pagermaid_pyro目錄。
+（命令 &lt;code&gt;cd /var/lib/pagermaid_pyro&lt;/code&gt;)&lt;/p&gt;
+&lt;h4 id=&#34;完整安裝依賴包&#34;&gt;完整安裝依賴包&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install python3-pip imagemagick libwebp-dev neofetch libzbar-dev libxml2-dev libxslt-dev tesseract-ocr tesseract-ocr-all -y
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安裝軟件包過程中，請喝杯咖啡稍等一會兒，安裝完成後，繼續安裝 Python 依賴包，所有的操作都是在&lt;code&gt;/var/lib/pagermaid_pyro&lt;/code&gt;目錄下進行的，出現報錯檢查是否在此目錄中。
+&lt;a class=&#34;link&#34; href=&#34;https://3o.hk/image/0mbom&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;img src=&#34;https://3o.hk/images/2022/10/02/2022-10-02-10.38.46.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;2022-10-02-10.38.46.png&#34;
+	
+	
+&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;done&lt;/p&gt;
+&lt;h4 id=&#34;繼續安裝python依賴&#34;&gt;繼續安裝Python依賴&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pip3 install -r requirements.txt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;如果出現 &lt;code&gt;ERROR: Could not open requirements file: [Errno 2] No such file or directory: &#39;requirements.txt&#39;&lt;/code&gt; 報錯，請先檢查當前目錄是否為 &lt;code&gt;/var/lib/pagermaid_pyro&lt;/code&gt; ，如果位於該目錄仍然報錯，請重新執行 &lt;strong&gt;拉取項目&lt;/strong&gt; 步驟。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://3o.hk/images/2022/10/02/2022-10-02-10.42.12.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;2022-10-02-10.42.12.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Success!&lt;/p&gt;
+&lt;h3 id=&#34;修改配置文件&#34;&gt;修改配置文件&lt;/h3&gt;
+&lt;p&gt;執行以下命令，將配置文件 &lt;code&gt;config.gen.yml&lt;/code&gt; 複製一份並且命名為 &lt;code&gt;config.yml&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cp config.gen.yml config.yml
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;申請telegram-api&#34;&gt;申請Telegram API&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;在 &lt;a class=&#34;link&#34; href=&#34;https://my.telegram.org&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://my.telegram.org&lt;/a&gt; 登陸後點擊&lt;code&gt;API development tools&lt;/code&gt;
+&lt;img src=&#34;https://3o.hk/images/2022/10/02/2022-10-02-10.48.40.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;2022-10-02-10.48.40.png&#34;
+	
+	
+&gt;&lt;/li&gt;
+&lt;li&gt;按圖中這樣非常隨意的填好（越隨意越好），然後點擊&lt;code&gt;Create appication&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;保存好得到的&lt;code&gt;App api_id&lt;/code&gt; 和&lt;code&gt;App api_hash&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;回到ssh工具裡面，執行命令：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cd /var/lib/pagermaid_pyro &amp;amp;&amp;amp; vim config.yml
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;不會vim的請自行Google:&lt;code&gt;Vim使用教程&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果你看到的是一片空白：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;你可能不是root用戶&lt;/li&gt;
+&lt;li&gt;你可能不在正確目錄&lt;/li&gt;
+&lt;li&gt;確定你執行過&lt;code&gt;cp config.gen.yml config.yml&lt;/code&gt;?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;使用你強大的Vim基礎知識，將這裡替換成你剛剛獲取的。 （&lt;strong&gt;千萬不要刪除引號&lt;/strong&gt;！）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://3o.hk/images/2022/10/02/2022-10-02-10.57.34.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;2022-10-02-10.57.34.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;運行pagermaid_pyro&#34;&gt;運行Pagermaid_Pyro&lt;/h3&gt;
+&lt;p&gt;輸入以下指令：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  python3 -m pagermaid
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;此步需要填入完整的電話號碼（eg：+8611451419198，&lt;strong&gt;需要帶上國際區號&lt;/strong&gt;）然後 Telegram 會向你的其他客戶端發送驗證碼，填入驗證碼後，回車，如有兩步驗證密碼，則再輸入兩步驗證密碼即可。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Enter phone number or bot token:    #此處填入手機號
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Is &amp;#34;+8611451419198&amp;#34; correct? (y/N): y   # 號碼顯示正確輸入 y ,錯誤輸入 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;The confirmation code has been sent via Telegram app
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Enter confirmation code:    # 此處輸入 Telegram APP 中收到的驗證碼
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 如果設置了兩步驗證，則會出現以下提示
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;The two-step verification is enabled and a password is required
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Password hint: None
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Enter password (empty to recover):    # 此處輸入兩步驗證密碼
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;出現已啟動提示，代表登錄成功，此時可以去 Telegram 任意聊天發送 &lt;code&gt;,help&lt;/code&gt; 進行測試。
+&lt;a class=&#34;link&#34; href=&#34;https://3o.hk/image/0mMIj&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;img src=&#34;https://3o.hk/images/2022/10/02/2022-10-02-11.03.18.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;2022-10-02-11.03.18.png&#34;
+	
+	
+&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;你的應該沒有我這麼多，查看 &lt;a class=&#34;link&#34; href=&#34;https://telegra.ph/PagerMaid-Plugins-11-27&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;官方插件列表&lt;/strong&gt;&lt;/a&gt; 按需安裝。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;**請選擇 v2 分支，master 分支為 Pagermaid-Modify（舊版）的插件，二者插件不兼容。 **&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;命令是 &lt;code&gt;,apt install xxxx&lt;/code&gt;，發在tg任意一個聊天中即可。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;防私聊插件的名字是 &lt;code&gt;pmcaptcha&lt;/code&gt;，我們可以用&lt;code&gt;,apt install pmcaptcha&lt;/code&gt;的命令發送到任何聊天中來安裝它。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;寫入守護進程&#34;&gt;寫入守護進程&lt;/h3&gt;
+&lt;p&gt;首先按下 &lt;code&gt;Ctrl&lt;/code&gt; 鍵和 &lt;code&gt;C&lt;/code&gt; 鍵停止運行，然後輸入以下命令：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cat &amp;lt;&amp;lt;&amp;#39;TEXT&amp;#39; &amp;gt; /etc/systemd/system/pagermaid_pyro.service
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[Unit]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Description=PagerMaid-Pyro telegram utility daemon
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;After=network.target
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[Install]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;WantedBy=multi-user.target
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[Service]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Type=simple
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;WorkingDirectory=/var/lib/pagermaid_pyro
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ExecStart=/usr/bin/python3 -m pagermaid
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Restart=always
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;TEXT
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;設置完成後啟動程序：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;systemctl start pagermaid_pyro
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;設置為開機自啟：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;systemctl enable pagermaid_pyro
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;至此-pagermaid-pyro-搭建完成enjoy-it&#34;&gt;至此 Pagermaid-Pyro 搭建完成，enjoy it~🤪&lt;/h4&gt;
+&lt;p&gt;如需停止程序，使用以下命令即可：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;systemctl stop pagermaid_pyro
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;h2 id=&#34;插件說明&#34;&gt;插件說明&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如安裝插件後遇到插件加載失敗的情況，請按照以下步驟解決：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;重新安裝插件。&lt;/li&gt;
+&lt;li&gt;使用 &lt;code&gt;,restart&lt;/code&gt; 命令或在終端中輸入 &lt;code&gt;systemctl restart pagermaid_pyro&lt;/code&gt; 使程序重啟。&lt;/li&gt;
+&lt;li&gt;在任意對話中發送 &lt;code&gt;,sh rm -rf ./plugins/*&lt;/code&gt; ，然後重新安裝插件。&lt;/li&gt;
+&lt;li&gt;檢查環境 Python 版本是否為 Python 3.8+ 。&lt;/li&gt;
+&lt;li&gt;如仍然不能解決，請重新搭建 PagerMaid-Pyro 。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;感謝閱讀我是tutu歡迎加入我的telegram聊天群httpstmehututu000-&#34;&gt;感謝閱讀，我是Tutu，歡迎加入我的Telegram聊天群：&lt;a class=&#34;link&#34; href=&#34;https://t.me/hututu000&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://t.me/hututu000&lt;/a&gt; 😻&lt;/h2&gt;
+&lt;h2 id=&#34;感謝&#34;&gt;感謝&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;本文的featured image(pagermaid-logo) 來自 &lt;a class=&#34;link&#34; href=&#34;https://daydayday.day/posts/3282828936/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wow&amp;rsquo;s Studio&lt;/strong&gt;&lt;/a&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

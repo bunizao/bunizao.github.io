@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>折腾啥 on tutuのBlog</title>
+        <link>https://tutuis.me/categories/%E6%8A%98%E8%85%BE%E5%95%A5/</link>
+        <description>Recent content in 折腾啥 on tutuのBlog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Fri, 09 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tutuis.me/categories/%E6%8A%98%E8%85%BE%E5%95%A5/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>关于一台老旧Mac变成了最强软路由的这档事</title>
+        <link>https://tutuis.me/p/%E5%85%B3%E4%BA%8E%E4%B8%80%E5%8F%B0%E8%80%81%E6%97%A7mac%E5%8F%98%E6%88%90%E4%BA%86%E6%9C%80%E5%BC%BA%E8%BD%AF%E8%B7%AF%E7%94%B1%E7%9A%84%E8%BF%99%E6%A1%A3%E4%BA%8B/</link>
+        <pubDate>Fri, 09 Dec 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://tutuis.me/p/%E5%85%B3%E4%BA%8E%E4%B8%80%E5%8F%B0%E8%80%81%E6%97%A7mac%E5%8F%98%E6%88%90%E4%BA%86%E6%9C%80%E5%BC%BA%E8%BD%AF%E8%B7%AF%E7%94%B1%E7%9A%84%E8%BF%99%E6%A1%A3%E4%BA%8B/</guid>
+        <description>&lt;img src="https://tutuis.me/ce5792552b8a496daecc793dccbfeadd.webp" alt="Featured image of post 关于一台老旧Mac变成了最强软路由的这档事" /&gt;&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;
+&lt;h3 id=&#34;前言的前言&#34;&gt;前言的前言&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;此篇文章的图片以WebP格式托管在中国大陆的服务器上，WebP格式可以以很小的体积展示出惊艳的显示效果。这极大地减轻了您的设备的加载负担。我们已经尽最大努力保证您的访问体验。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本篇博客也是一个测试项目。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://dribbble.com/shots/2557494-Surge-for-Mac-redesign&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Featured image&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;进入正题&#34;&gt;进入正题&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;由于疫情隔离在家很是无聊，突然在压箱底儿找到了个屏幕坏掉的Macbook。经过在&lt;a class=&#34;link&#34; href=&#34;https://t.me/GetSomeFries&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;🍟整点薯条&lt;/strong&gt;&lt;/a&gt;群组内的灵魂交流，突然灵感迸发。调试了一段时间很是满意。下面我将会介绍我是如何利用 &lt;a class=&#34;link&#34; href=&#34;https://nssurge.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Surge for Mac&lt;/strong&gt;&lt;/a&gt; 这个 SUPER POWERFUL 的代理软件优化我家里的网络，以及遇到的一些困难，并且我是如何解决的。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;我准备了什么&#34;&gt;我准备了什么&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;一台 Macbook Pro 2013 ｜CNY 0&lt;/li&gt;
+&lt;li&gt;Apple官网购买的 &lt;a class=&#34;link&#34; href=&#34;https://store.apple.com/cn/xc/product/MD463FE/A&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;雷雳2转千兆以太网转换器&lt;/strong&gt;&lt;/a&gt; | CNY 223&lt;/li&gt;
+&lt;li&gt;Surge for Mac License ｜ CNY 145&lt;/li&gt;
+&lt;li&gt;这是我电脑的配置&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img src=&#34;https://m1.im5i.com/2022/12/09/U5fu6M.webp&#34; alt=&#34;U5fu6M.webp&#34; border=&#34;0&#34; /&gt;
+&lt;h3 id=&#34;我的部署方案&#34;&gt;我的部署方案&lt;/h3&gt;
+&lt;p&gt;因为我们是想让这台旧Mac作旁路由， 所以直接将Mac连到路由器上就OK。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;我的MacBook屏幕是坏掉的，所以在初次部署的时候会有很多困难！&lt;/li&gt;
+&lt;li&gt;为了方便以后操控电脑，我推荐使用Apple官方推出的VNC工具：&lt;a class=&#34;link&#34; href=&#34;https://apps.apple.com/tw/app/apple-remote-desktop/id409907375?mt=12&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Apple Remote Desktop&lt;/strong&gt;&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;这个工具超级超级好用，延迟很低很丝滑。&lt;/li&gt;
+&lt;li&gt;别看到价格就劝退，要勤于Google。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;surge网关&#34;&gt;Surge网关&lt;/h2&gt;
+&lt;p&gt;相信看到我这篇文章的你已经是一位 &lt;strong&gt;power user of Surge&lt;/strong&gt;。所以我们不对具体细节进行介绍。&lt;/p&gt;
+&lt;h3 id=&#34;在有显示器的条件下操作&#34;&gt;在有显示器的条件下操作：&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;去官网获取&lt;a class=&#34;link&#34; href=&#34;https://dl.nssurge.com/mac/v4/Surge-latest.zip&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;free trial&lt;/strong&gt;&lt;/a&gt;安装包&lt;/li&gt;
+&lt;li&gt;倒入配置
+&lt;ul&gt;
+&lt;li&gt;推荐使用 &lt;a class=&#34;link&#34; href=&#34;https://github.com/bunizao/TutuBetterRules/blob/tutu/Surge/README.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;TutuBetterRules&lt;/strong&gt;&lt;/a&gt;！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;MacOS仅在熄屏时才会开启VNC通道，所以你需要将其熄屏才能脱离显示器操作。&lt;/li&gt;
+&lt;li&gt;记得关闭所有电池选项
+&lt;ul&gt;
+&lt;li&gt;低电量模式选择 &lt;code&gt;永不&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;点击右下角的&lt;code&gt;选项...&lt;/code&gt;，请按下图设置：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img src=&#34;https://m1.im5i.com/2022/12/09/U5JKFF.webp&#34; alt=&#34;U5JKFF.webp&#34; border=&#34;0&#34;&gt;
+&lt;h3 id=&#34;在vnc上操作&#34;&gt;在VNC上操作：&lt;/h3&gt;
+&lt;p&gt;把电脑和路由器连接好后：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;进入Surge主界面，按照指引开启Surge的DHCP服务器。&lt;/li&gt;
+&lt;li&gt;网络设备选择：&lt;code&gt;Ethernet&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;根据指引关闭路由器的DHCP服务器。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;推荐观看这个视频，了解更详细的Surge部署技巧，本文不作详细介绍。
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;iframe loading=&#34;lazy&#34; 
+            src=&#34;https://www.youtube.com/embed/68lcT7ItyP4&#34; 
+            allowfullscreen 
+            title=&#34;YouTube Video&#34;
+    &gt;
+    &lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;增强内容&#34;&gt;增强内容&lt;/h3&gt;
+&lt;h4 id=&#34;surge远程控制器&#34;&gt;Surge远程控制器&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;我们可以在&lt;code&gt;Surge主界面&lt;/code&gt; -&amp;gt; &lt;code&gt;更多&lt;/code&gt; -&amp;gt; &lt;code&gt;通用&lt;/code&gt; -&amp;gt; &lt;code&gt;远程控制器&lt;/code&gt; 内设置。&lt;/li&gt;
+&lt;li&gt;然后在Surge iOS内，通过UI操作控制你的Surge网关。&lt;/li&gt;
+&lt;li&gt;出门在外怎么办？自行google搭建&lt;code&gt;FRP&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;web-dashboard&#34;&gt;Web Dashboard&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Surge for Mac 提供了一个网页管理面板，这个面板可以比远程控制器操作更多内容。&lt;/li&gt;
+&lt;li&gt;同样在&lt;code&gt;Surge主界面&lt;/code&gt; -&amp;gt; &lt;code&gt;更多&lt;/code&gt; -&amp;gt; &lt;code&gt;通用&lt;/code&gt; -&amp;gt; &lt;code&gt;远程控制器&lt;/code&gt; 内设置。&lt;/li&gt;
+&lt;li&gt;出门在外怎么办？自行google搭建&lt;code&gt;FRP&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;mitm&#34;&gt;MitM&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Surge网关可以作为一个amazing MitM Tool，我们需要先给想要被MitM的设备安装与网关相同的根证书。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;这里我推荐使用Airdrop安装（因为他不需要多余的步骤，直接就可以安装）。&lt;/li&gt;
+&lt;li&gt;Apple TV可以借助Surge网关的MitM功能，运行脚本为流媒体开启双字幕。这里不详细介绍。（因为我没有Apple TV！）
+&lt;ul&gt;
+&lt;li&gt;How to?  &lt;a class=&#34;link&#34; href=&#34;https://github.com/DualSubs/DualSubs&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🍿️DualSubs&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;我遇到的问题和解决办法&#34;&gt;我遇到的问题和解决办法&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;在Surge网关下观看YouTube会变得超级无敌慢，目前探索出了以下影响因素：
+&lt;ul&gt;
+&lt;li&gt;模块：&lt;code&gt;Block HTTP/3 &amp;amp; QUIC&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;如果有类似问题的可以试试反复开关这个模块，观察是否有变化。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;规则：&lt;code&gt;AND,((PROTOCOL,UDP), (DOMAIN-SUFFIX,googlevideo.com)),REJECT-NO-DROP&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;这曾是老刘在推特力推的规则，但我观察到我的问题出现在这条规则上。&lt;/li&gt;
+&lt;li&gt;同样的，如果有类似问题的可以试试反复开关这个模块，观察是否有变化。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;参数：&lt;code&gt;udp-policy-not-supported-behaviour = REJECT&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;援引官方文档：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;如果没有代理服务器支持 UDP 转发，可修改为「 direct 」或注释下条，但需注意同一目标主机名 TCP 请求与 UDP 请求的源地址不同所造成的隐私及安全风险。
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这些问题显然都与&lt;code&gt;UDP&lt;/code&gt;有关，如果还有问题出现，请自检本地或者咨询代理提供商。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;nas-mini&#34;&gt;NAS Mini&lt;/h2&gt;
+&lt;h3 id=&#34;timemachine&#34;&gt;TimeMachine&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;在同一个局域网下，你的另外一台Mac上的&lt;code&gt;Finder&lt;/code&gt; -&amp;gt; &lt;code&gt;位置&lt;/code&gt; 应该会显示作为Surge网关Mac的名称。&lt;/li&gt;
+&lt;li&gt;打开 &lt;code&gt;TimeMachine设置&lt;/code&gt; -&amp;gt; &lt;code&gt;添加备份磁盘..&lt;/code&gt; ，Mac会自动检索到备份位置。&lt;/li&gt;
+&lt;li&gt;这里有两个位置即两个注册用户，我们以 &lt;code&gt;tutu&lt;/code&gt; 为例。
+&lt;img src=&#34;https://3o.hk/images/2022/12/09/2022-12-09-9.30.15.jpg&#34; alt=&#34;截屏2022 12 09 上午9.30.15&#34; border=&#34;0&#34;&gt;&lt;/li&gt;
+&lt;li&gt;输入密码。这里的密码即为&lt;code&gt;tutu&lt;/code&gt;用户的锁屏密码。
+&lt;img src=&#34;https://m1.im5i.com/2022/12/09/U5JOOd.webp&#34; alt=&#34;U5JOOd.webp&#34; border=&#34;0&#34;&gt;&lt;/li&gt;
+&lt;li&gt;输入密码之后就会自动配置时间机器，我们等待即可。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;常见问题&#34;&gt;常见问题&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;如果你的被备份电脑开启了Surge而显示&lt;code&gt;连接失败&lt;/code&gt;，请尝试在Surge配置文件增加：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tun-excluded-routes = 239.255.255.250/32
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;239.255.255.250/32&lt;/code&gt;是组播地址，如果在连接VNC出现问题，也应尝试配置该参数。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;docker&#34;&gt;Docker&lt;/h2&gt;
+&lt;p&gt;MacOS可以完美运行Docker，所以运行一些脚本，搭建私人影音库等等NAS能做的事他也能做到。&lt;/p&gt;
+&lt;h3 id=&#34;安装&#34;&gt;安装&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;我们首先需要&lt;strong&gt;连接SSH&lt;/strong&gt;，我这里使用&lt;code&gt;NextSSH&lt;/code&gt;为例，&lt;code&gt;FinalShell&lt;/code&gt;同理。
+&lt;img src=&#34;https://m1.im5i.com/2022/12/09/U5JNfH.webp&#34; alt=&#34;U5JNfH.webp&#34; border=&#34;0&#34; /&gt;
+&lt;ul&gt;
+&lt;li&gt;地址为Surge网关在内网中的地址，你的可能和我不一样。&lt;/li&gt;
+&lt;li&gt;端口填写默认的22端口，如果使用&lt;code&gt;FRP&lt;/code&gt;工具，我不建议在公网暴露22端口。&lt;/li&gt;
+&lt;li&gt;密码即为锁屏密码。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;我们使用&lt;code&gt;homebrew&lt;/code&gt;安装&lt;code&gt;docker&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;brew install docker
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;什么？你还没有&lt;code&gt;homebrew&lt;/code&gt;?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/bin/bash -c &amp;#34;$(curl -fsSL https://raw.iqiq.io/Homebrew/install/HEAD/install.sh)&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;使用&#34;&gt;使用&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;和其他系统一样，我们可以通过命令行控制docker。不过MacOS提供了一个图形管理界面（就是一个app）。&lt;/li&gt;
+&lt;li&gt;自己折腾吧！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;后记&#34;&gt;后记&lt;/h2&gt;
+&lt;h3 id=&#34;欢迎加入我的telegram交流群图图の翻斗後花園httpstmehututu000&#34;&gt;欢迎加入我的telegram交流群:&lt;a class=&#34;link&#34; href=&#34;https://t.me/hututu000&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;图图の翻斗後花園&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;本文只是提供一种思路，所有项目均为学习和研究目的，不得将本项目中任何内容用于违反国家/地区/组织等的法律法规或相关规定的其他用途。&lt;/li&gt;
+&lt;li&gt;所有直接或间接使用本项目的个人和组织，应24小时内完成学习和研究，并及时删除本项目中的所有内容。如对本项目的功能有需求，应自行开发相关功能。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>搭建开源的Telegram人形Bot👾｜PagerMaid-Pyro</title>
+        <link>https://tutuis.me/p/%E6%90%AD%E5%BB%BA%E5%BC%80%E6%BA%90%E7%9A%84telegram%E4%BA%BA%E5%BD%A2botpagermaid-pyro/</link>
+        <pubDate>Sun, 02 Oct 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://tutuis.me/p/%E6%90%AD%E5%BB%BA%E5%BC%80%E6%BA%90%E7%9A%84telegram%E4%BA%BA%E5%BD%A2botpagermaid-pyro/</guid>
+        <description>&lt;img src="https://m1.im5i.com/2022/12/09/U5JltY.webp" alt="Featured image of post 搭建开源的Telegram人形Bot👾｜PagerMaid-Pyro" /&gt;&lt;blockquote&gt;
+&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;最近的Telegram私聊广告莫名很多，使用这个bot的防私聊插件可以很好的&lt;strong&gt;缓解广告的打扰&lt;/strong&gt;。刚好手头有闲置的VPS，索性按照教程简单搭建下。（其实好早就搭建好了🤪&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本教程基于 &lt;strong&gt;Ubuntu 22.04&lt;/strong&gt; 系统，搭建 Pagermaid-Pyro 的演示环境为AWS-Lightsail机器，其他系统或IDC请自行修改命令安装。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Github 开源地址：&lt;code&gt;https://github.com/TeamPGM/PagerMaid-Pyro&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;官方博客：&lt;code&gt;https://xtaolabs.com&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;官方 Telegram 频道：&lt;code&gt;@PagerMaid_Modify&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;h3 id=&#34;在搭建之前您需要知道&#34;&gt;在搭建之前您需要知道&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Telegram没有明确说明支持Userbot的行为，被杜叔叔分遗产以及导致的任何损失和后果均与PagerMaid项目作者和&lt;a class=&#34;link&#34; href=&#34;https://tutuis.me&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;本站&lt;/strong&gt;&lt;/a&gt;无关。&lt;/li&gt;
+&lt;li&gt;您在使用本项目代码时即表示您已经同意本隐私协议并且允许我们以评估负载和修复代码的目的记录您 Bot 的在线状态和报错文件（除可能使用的信息之外，我们不会记录与收集任何信息）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;您需要的基础知识&#34;&gt;您需要的基础知识&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;SSH 连接Linux服务器&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;切换用户为 root  &lt;code&gt;sudo -i&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;略懂一些 &lt;code&gt;Vim&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;让我们开始吧&#34;&gt;让我们开始吧!&lt;/h2&gt;
+&lt;h3 id=&#34;开放端口&#34;&gt;开放端口&lt;/h3&gt;
+&lt;p&gt;由于需要和telegram服务器通信，我们需要关闭系统内部的防火墙。执行以下代码关闭：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo iptables -P INPUT ACCEPT
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo iptables -P FORWARD ACCEPT
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo iptables -P OUTPUT ACCEPT
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo iptables -F
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果您使用了云服务，请去您的云服务商控制台里开放所有端口。（以AWS-Lightsail为例）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://3o.hk/images/2022/10/02/2022-10-02-10.09.17.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;截屏2022 10 02 下午10.09.17&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Oracle请移步 &lt;code&gt;网络&lt;/code&gt;-&lt;code&gt;虚拟云网络&lt;/code&gt;-&lt;code&gt;vcn-2022xxxx-xxxx&lt;/code&gt;-&lt;code&gt;安全列表详细信息&lt;/code&gt;-&lt;code&gt;入站规则&lt;/code&gt;-&lt;code&gt;添加入站规则&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;请你像我这样写：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://3o.hk/images/2022/10/02/2022-10-02-10.16.23.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;截屏2022 10 02 下午10.16.23&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Azure在&lt;code&gt;设置&lt;/code&gt;-&lt;code&gt;网络&lt;/code&gt;-&lt;code&gt;入站端口规则&lt;/code&gt;，请添加：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;源：Any&lt;/li&gt;
+&lt;li&gt;源端口范围：*&lt;/li&gt;
+&lt;li&gt;目标：Any&lt;/li&gt;
+&lt;li&gt;服务：Custom&lt;/li&gt;
+&lt;li&gt;目标端口范围：*&lt;/li&gt;
+&lt;li&gt;协议：Any&lt;/li&gt;
+&lt;li&gt;操作：允许&lt;/li&gt;
+&lt;li&gt;优先级：100&lt;/li&gt;
+&lt;li&gt;名称：随便写&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;其他的IDC请自行探索规律寻找，有些IDC是默认给开的。&lt;/p&gt;
+&lt;h3 id=&#34;拉取项目&#34;&gt;拉取项目&lt;/h3&gt;
+&lt;p&gt;先切换为Root用户。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo -i
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在拉取项目之前，首先更新 git ，否则之后可能出现无法更新的情况。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install --upgrade git -y
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这步就报错请自行Google：&lt;code&gt;Ubuntu安装git&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;拉取项目至 /var/lib/pagermaid_pyro 目录。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cd /var/lib &amp;amp;&amp;amp; git clone https://github.com/TeamPGM/PagerMaid-Pyro.git pagermaid_pyro &amp;amp;&amp;amp; cd pagermaid_pyro
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;很快就拉取完了。
+&lt;a class=&#34;link&#34; href=&#34;https://3o.hk/image/0mIrT&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;img src=&#34;https://3o.hk/images/2022/10/02/2022-10-02-10.28.18.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;2022-10-02-10.28.18.png&#34;
+	
+	
+&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;安装依赖&#34;&gt;安装依赖&lt;/h3&gt;
+&lt;p&gt;首先更新下apt软件包，安装过程中可能会出现OK确认界面，直接确认即可，如果出现断开连接，必须重新登录root访问pagermaid_pyro目录。
+（命令 &lt;code&gt;cd /var/lib/pagermaid_pyro&lt;/code&gt;)&lt;/p&gt;
+&lt;h4 id=&#34;完整安装依赖包&#34;&gt;完整安装依赖包&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install python3-pip imagemagick libwebp-dev neofetch libzbar-dev libxml2-dev libxslt-dev tesseract-ocr tesseract-ocr-all -y
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装软件包过程中，请喝杯咖啡稍等一会儿，安装完成后，继续安装 Python 依赖包，所有的操作都是在&lt;code&gt;/var/lib/pagermaid_pyro&lt;/code&gt;目录下进行的，出现报错检查是否在此目录中。
+&lt;a class=&#34;link&#34; href=&#34;https://3o.hk/image/0mbom&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;img src=&#34;https://3o.hk/images/2022/10/02/2022-10-02-10.38.46.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;2022-10-02-10.38.46.png&#34;
+	
+	
+&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;done&lt;/p&gt;
+&lt;h4 id=&#34;继续安装python依赖&#34;&gt;继续安装Python依赖&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pip3 install -r requirements.txt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;如果出现 &lt;code&gt;ERROR: Could not open requirements file: [Errno 2] No such file or directory: &#39;requirements.txt&#39;&lt;/code&gt; 报错，请先检查当前目录是否为 &lt;code&gt;/var/lib/pagermaid_pyro&lt;/code&gt; ，如果位于该目录仍然报错，请重新执行 &lt;strong&gt;拉取项目&lt;/strong&gt; 步骤。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://3o.hk/images/2022/10/02/2022-10-02-10.42.12.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;2022-10-02-10.42.12.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Success!&lt;/p&gt;
+&lt;h3 id=&#34;修改配置文件&#34;&gt;修改配置文件&lt;/h3&gt;
+&lt;p&gt;执行以下命令，将配置文件 &lt;code&gt;config.gen.yml&lt;/code&gt; 复制一份并且命名为 &lt;code&gt;config.yml&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cp config.gen.yml config.yml
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;申请telegram-api&#34;&gt;申请Telegram API&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;在 &lt;a class=&#34;link&#34; href=&#34;https://my.telegram.org&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://my.telegram.org&lt;/a&gt; 登陆后点击&lt;code&gt;API development tools&lt;/code&gt;
+&lt;img src=&#34;https://3o.hk/images/2022/10/02/2022-10-02-10.48.40.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;2022-10-02-10.48.40.png&#34;
+	
+	
+&gt;&lt;/li&gt;
+&lt;li&gt;按图中这样非常随意的填好（越随意越好），然后点击&lt;code&gt;Create appication&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;保存好得到的&lt;code&gt;App api_id&lt;/code&gt; 和&lt;code&gt;App api_hash&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;回到ssh工具里面，执行命令：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cd /var/lib/pagermaid_pyro &amp;amp;&amp;amp; vim config.yml
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;不会vim的请自行Google:&lt;code&gt;Vim使用教程&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果你看到的是一片空白：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;你可能不是root用户&lt;/li&gt;
+&lt;li&gt;你可能不在正确目录&lt;/li&gt;
+&lt;li&gt;确定你执行过&lt;code&gt;cp config.gen.yml config.yml&lt;/code&gt;?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;使用你强大的Vim基础知识，将这里替换成你刚刚获取的。（&lt;strong&gt;千万不要删除引号&lt;/strong&gt;！）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://3o.hk/images/2022/10/02/2022-10-02-10.57.34.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;2022-10-02-10.57.34.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;运行pagermaid_pyro&#34;&gt;运行Pagermaid_Pyro&lt;/h3&gt;
+&lt;p&gt;输入以下指令：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  python3 -m pagermaid
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;此步需要填入完整的电话号码（eg：+8611451419198，&lt;strong&gt;需要带上国际区号&lt;/strong&gt;）然后 Telegram 会向你的其他客户端发送验证码，填入验证码后，回车，如有两步验证密码，则再输入两步验证密码即可。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Enter phone number or bot token:    #此处填入手机号
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Is &amp;#34;+8611451419198&amp;#34; correct? (y/N): y   # 号码显示正确输入 y ,错误输入 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;The confirmation code has been sent via Telegram app
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Enter confirmation code:    # 此处输入 Telegram APP 中收到的验证码
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 如果设置了两步验证，则会出现以下提示
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;The two-step verification is enabled and a password is required
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Password hint: None
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Enter password (empty to recover):    # 此处输入两步验证密码
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;出现已启动提示，代表登录成功，此时可以去 Telegram 任意聊天发送 &lt;code&gt;,help&lt;/code&gt; 进行测试。
+&lt;a class=&#34;link&#34; href=&#34;https://3o.hk/image/0mMIj&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;img src=&#34;https://3o.hk/images/2022/10/02/2022-10-02-11.03.18.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;2022-10-02-11.03.18.png&#34;
+	
+	
+&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;你的应该没有我这么多，查看 &lt;a class=&#34;link&#34; href=&#34;https://telegra.ph/PagerMaid-Plugins-11-27&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;官方插件列表&lt;/strong&gt;&lt;/a&gt; 按需安装。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;请选择 v2 分支，master 分支为 Pagermaid-Modify（旧版）的插件，二者插件不兼容。&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;命令是 &lt;code&gt;,apt install xxxx&lt;/code&gt;，发在tg任意一个聊天中即可。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;防私聊插件的名字是 &lt;code&gt;pmcaptcha&lt;/code&gt;，我们可以用&lt;code&gt;,apt install pmcaptcha&lt;/code&gt;的命令发送到任何聊天中来安装它。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;写入守护进程&#34;&gt;写入守护进程&lt;/h3&gt;
+&lt;p&gt;首先按下 &lt;code&gt;Ctrl&lt;/code&gt; 键和 &lt;code&gt;C&lt;/code&gt; 键停止运行，然后输入以下命令：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cat &amp;lt;&amp;lt;&amp;#39;TEXT&amp;#39; &amp;gt; /etc/systemd/system/pagermaid_pyro.service
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[Unit]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Description=PagerMaid-Pyro telegram utility daemon
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;After=network.target
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[Install]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;WantedBy=multi-user.target
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[Service]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Type=simple
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;WorkingDirectory=/var/lib/pagermaid_pyro
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ExecStart=/usr/bin/python3 -m pagermaid
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Restart=always
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;TEXT
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;设置完成后启动程序：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;systemctl start pagermaid_pyro
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;设置为开机自启：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;systemctl enable pagermaid_pyro
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;至此-pagermaid-pyro-搭建完成enjoy-it&#34;&gt;至此 Pagermaid-Pyro 搭建完成，enjoy it~🤪&lt;/h4&gt;
+&lt;p&gt;如需停止程序，使用以下命令即可：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;systemctl stop pagermaid_pyro
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;h2 id=&#34;插件说明&#34;&gt;插件说明&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如安装插件后遇到插件加载失败的情况，请按照以下步骤解决：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;重新安装插件。&lt;/li&gt;
+&lt;li&gt;使用 &lt;code&gt;,restart&lt;/code&gt; 命令或在终端中输入 &lt;code&gt;systemctl restart pagermaid_pyro&lt;/code&gt; 使程序重启。&lt;/li&gt;
+&lt;li&gt;在任意对话中发送 &lt;code&gt;,sh rm -rf ./plugins/*&lt;/code&gt; ，然后重新安装插件。&lt;/li&gt;
+&lt;li&gt;检查环境 Python 版本是否为 Python 3.8+ 。&lt;/li&gt;
+&lt;li&gt;如仍然不能解决，请重新搭建 PagerMaid-Pyro 。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;感谢阅读我是tutu欢迎加入我的telegram聊天群httpstmehututu000-&#34;&gt;感谢阅读，我是Tutu，欢迎加入我的Telegram聊天群：&lt;a class=&#34;link&#34; href=&#34;https://t.me/hututu000&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://t.me/hututu000&lt;/a&gt; 😻&lt;/h2&gt;
+&lt;h2 id=&#34;感谢&#34;&gt;感谢&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;本文的featured image(pagermaid-logo) 来自 &lt;a class=&#34;link&#34; href=&#34;https://daydayday.day/posts/3282828936/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wow&amp;rsquo;s Studio&lt;/strong&gt;&lt;/a&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
