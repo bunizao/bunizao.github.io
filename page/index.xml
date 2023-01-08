@@ -6,7 +6,42 @@
         <description>Recent content in Pages on tutuのBlog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Tue, 28 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://tutuis.me/page/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 08 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://tutuis.me/page/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>🛸 Link Space</title>
+        <link>https://tutuis.me/links/</link>
+        <pubDate>Sun, 08 Jan 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://tutuis.me/links/</guid>
+        <description>&lt;h2 id=&#34;himy-friends&#34;&gt;Hi!My Friends!👋&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://isagood.day&#34; title=&#34;Sebastian Luo&#34; class=&#34;friend-link&#34; target=&#34;_blank&#34; rel=&#34;friend&#34;&gt;
+    &lt;div class=&#34;friend-link-div&#34;&gt;
+        &lt;div class=&#34;friend-link-avatar&#34;&gt;
+            &lt;img src=https://isagood.day/img/mc.JPG class=&#34;friend-avatar&#34; loading=&#34;lazy&#34; alt=&#34;Avatar&#34;&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;friend-link-info&#34;&gt;
+            &lt;i class=&#34;fa fa-link&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;
+            &lt;i class=&#34;friend-name&#34;&gt;Sebastian Luo&lt;/i&gt;
+            &lt;p class=&#34;friend-bio&#34;&gt;🧏 go stupid go crazy&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/a&gt;
+
+&lt;a href=&#34;https://qwerzl.me&#34; title=&#34;qwerzl&#34; class=&#34;friend-link&#34; target=&#34;_blank&#34; rel=&#34;friend&#34;&gt;
+    &lt;div class=&#34;friend-link-div&#34;&gt;
+        &lt;div class=&#34;friend-link-avatar&#34;&gt;
+            &lt;img src=https://www.gravatar.com/avatar/eba1004eb9d6d2592abbac767ddb4f5b?s&amp;#61;250&amp;amp;r&amp;#61;x&amp;amp;d&amp;#61;mp class=&#34;friend-avatar&#34; loading=&#34;lazy&#34; alt=&#34;Avatar&#34;&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;friend-link-info&#34;&gt;
+            &lt;i class=&#34;fa fa-link&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;
+            &lt;i class=&#34;friend-name&#34;&gt;qwerzl&lt;/i&gt;
+            &lt;p class=&#34;friend-bio&#34;&gt;大家好我是blu, 快来看看我的博客吧！&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/a&gt;
+&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Archives</title>
         <link>https://tutuis.me/archives/</link>
         <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
@@ -16,10 +51,10 @@
         </item>
         <item>
         <title>About</title>
-        <link>https://tutuis.me/about/</link>
+        <link>https://tutuis.me/About/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://tutuis.me/about/</guid>
+        <guid>https://tutuis.me/About/</guid>
         <description>&lt;img src=&#34;https://bing.img.run/1920x1080.php&#34; /&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Welcome to my Blog.  Hello and sincere greetings from the north of Mainland China.&lt;/p&gt;
