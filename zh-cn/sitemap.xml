@@ -120,9 +120,6 @@
                 href="https://tutuis.me/tags/"
                 />
   </url><url>
-    <loc>https://tutuis.me/SurgeGateway/</loc>
-    <lastmod>2022-12-09T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://tutuis.me/tags/%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2022-12-09T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -140,6 +137,12 @@
                 hreflang="zh-cn"
                 href="https://tutuis.me/tags/%E6%95%99%E7%A8%8B/"
                 />
+  </url><url>
+    <loc>https://tutuis.me/T-Mobile-Esim/</loc>
+    <lastmod>2022-12-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tutuis.me/SurgeGateway/</loc>
+    <lastmod>2022-12-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://tutuis.me/categories/%E6%8A%98%E8%85%BE%E5%95%A5/</loc>
     <lastmod>2022-12-09T00:00:00+00:00</lastmod>
