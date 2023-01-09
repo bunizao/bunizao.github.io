@@ -2,8 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://tutuis.me/FlushDNS/</loc>
+    <lastmod>2023-01-09T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://tutuis.me/</loc>
-    <lastmod>2023-01-08T00:00:00+00:00</lastmod>
+    <lastmod>2023-01-09T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-hk"
@@ -23,6 +26,70 @@
                 rel="alternate"
                 hreflang="zh-cn"
                 href="https://tutuis.me/"
+                />
+  </url><url>
+    <loc>https://tutuis.me/post/</loc>
+    <lastmod>2023-01-09T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-hk"
+                href="https://tutuis.me/zh-hk/post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://tutuis.me/zh-tw/post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tutuis.me/en/post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://tutuis.me/post/"
+                />
+  </url><url>
+    <loc>https://tutuis.me/tags/</loc>
+    <lastmod>2023-01-09T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-hk"
+                href="https://tutuis.me/zh-hk/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://tutuis.me/zh-tw/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tutuis.me/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://tutuis.me/tags/"
+                />
+  </url><url>
+    <loc>https://tutuis.me/tags/%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2023-01-09T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-hk"
+                href="https://tutuis.me/zh-hk/tags/%E6%95%99%E7%A8%8B/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://tutuis.me/zh-tw/tags/%E6%95%99%E7%A8%8B/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://tutuis.me/tags/%E6%95%99%E7%A8%8B/"
                 />
   </url><url>
     <loc>https://tutuis.me/page/</loc>
@@ -72,70 +139,6 @@
                 rel="alternate"
                 hreflang="zh-cn"
                 href="https://tutuis.me/categories/"
-                />
-  </url><url>
-    <loc>https://tutuis.me/post/</loc>
-    <lastmod>2022-12-09T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-hk"
-                href="https://tutuis.me/zh-hk/post/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-tw"
-                href="https://tutuis.me/zh-tw/post/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://tutuis.me/en/post/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://tutuis.me/post/"
-                />
-  </url><url>
-    <loc>https://tutuis.me/tags/</loc>
-    <lastmod>2022-12-09T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-hk"
-                href="https://tutuis.me/zh-hk/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-tw"
-                href="https://tutuis.me/zh-tw/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://tutuis.me/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://tutuis.me/tags/"
-                />
-  </url><url>
-    <loc>https://tutuis.me/tags/%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2022-12-09T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-hk"
-                href="https://tutuis.me/zh-hk/tags/%E6%95%99%E7%A8%8B/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-tw"
-                href="https://tutuis.me/zh-tw/tags/%E6%95%99%E7%A8%8B/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://tutuis.me/tags/%E6%95%99%E7%A8%8B/"
                 />
   </url><url>
     <loc>https://tutuis.me/SurgeGateway/</loc>
@@ -308,9 +311,6 @@
                 hreflang="zh-cn"
                 href="https://tutuis.me/My-First-Post/"
                 />
-  </url><url>
-    <loc>https://tutuis.me/FlushDNS/</loc>
-    <lastmod>2022-01-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://tutuis.me/archives/</loc>
     <lastmod>2019-05-28T00:00:00+00:00</lastmod>

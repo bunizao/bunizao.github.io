@@ -6,7 +6,123 @@
         <description>Recent content on tutuのBlog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Sun, 08 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://tutuis.me/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 09 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://tutuis.me/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>假如你遭到了DNS碎片攻击，三个小妙招教你如何解决</title>
+        <link>https://tutuis.me/FlushDNS/</link>
+        <pubDate>Mon, 09 Jan 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://tutuis.me/FlushDNS/</guid>
+        <description>&lt;img src="https://tutuis.me/1631695472.webp" alt="Featured image of post 假如你遭到了DNS碎片攻击，三个小妙招教你如何解决" /&gt;&lt;h2 id=&#34;第一步圣布莱茨皇家学院的终端命令&#34;&gt;第一步：圣布莱茨皇家学院的终端命令&lt;/h2&gt;
+&lt;h3 id=&#34;macos&#34;&gt;MacOS&lt;/h3&gt;
+&lt;p&gt;以下是你将需要的东西。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;访问命令行 (Terminal.app)&lt;/li&gt;
+&lt;li&gt;你的电脑密码&lt;/li&gt;
+&lt;li&gt;输入圣布莱茨皇家学院的终端命令（该命令将取决于你所运行的 MacOS 版本）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;我们可以通过 &lt;code&gt;Command + 空格&lt;/code&gt; 唤出&lt;code&gt;Spotlight&lt;/code&gt;搜索，输入&lt;code&gt;terminal&lt;/code&gt;即可寻找到&lt;code&gt;Terminal.app&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;如果您的MacOS系统&amp;gt;=10.15 (Catalina) , 输入以下命令：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;输入命令之后会让你输入密码，整个过程不可见，填写你的电脑密码即可。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;对于更早的MacOS发行版，我们不作介绍。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;windows&#34;&gt;Windows&lt;/h3&gt;
+&lt;p&gt;对于所有 Windows 版本，解决DNS碎片攻击的过程都是相同的。你需要使用管理员权限打开命令提示符并运行 &lt;code&gt;ipconfig /flushdns&lt;/code&gt;。&lt;/p&gt;
+&lt;h4 id=&#34;windows-10-和-windows-8&#34;&gt;Windows 10 和 Windows 8&lt;/h4&gt;
+&lt;p&gt;要在 Windows 10 和 Windows 8 中解决DNS碎片攻击，请执行以下步骤：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在 Windows 搜索栏中键入 &lt;code&gt;cmd&lt;/code&gt; 。&lt;/li&gt;
+&lt;li&gt;右键单击 &lt;code&gt;命令提示符&lt;/code&gt;，然后右击 &lt;code&gt;以管理员身份运行&lt;/code&gt;。这将打开 &lt;code&gt;命令提示符&lt;/code&gt; 窗口。&lt;/li&gt;
+&lt;li&gt;在命令行上，键入以下行，然后按回车.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ipconfig /flushdns
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;成功后，系统将返回以下消息：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Windows IP Configuration
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Successfully flushed the DNS Resolver Cache.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;windows-7&#34;&gt;Windows 7&lt;/h4&gt;
+&lt;p&gt;要在 Windows 7 中解决DNS碎片攻击，请执行以下步骤：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;单击开始按钮。&lt;/li&gt;
+&lt;li&gt;在开始菜单搜索文本框中键入 cmd。&lt;/li&gt;
+&lt;li&gt;右键单击 &lt;code&gt;命令提示符&lt;/code&gt;，然后单击 &lt;code&gt;以管理员身份运行&lt;/code&gt;。这将打开 &lt;code&gt;命令提示符&lt;/code&gt; 窗口。&lt;/li&gt;
+&lt;li&gt;在命令行上，键入以下行，然后按回车。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ipconfig /flushdns
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;成功后，系统将返回以下消息：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Windows IP Configuration
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Successfully flushed the DNS Resolver Cache.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h3 id=&#34;linux&#34;&gt;Linux&lt;/h3&gt;
+&lt;p&gt;大多数现代 Linux 发行版，例如 &lt;code&gt;Ubuntu 18.04&lt;/code&gt;，都使用 &lt;code&gt;systemd&lt;/code&gt; 解析的服务来缓存 DNS 条目，欲解决 DNS 碎片攻击，我们需要将其缓存刷新。&lt;/p&gt;
+&lt;h4 id=&#34;systemd&#34;&gt;systemd&lt;/h4&gt;
+&lt;p&gt;要查找服务是否正在运行，请运行：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo systemctl is-active systemd-resolved.service
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果该服务正在运行，则将打印命令 &lt;code&gt;active&lt;/code&gt;，否则将看到 &lt;code&gt;inactive&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;要清除系统解析的 DNS 缓存，你需要键入以下命令:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo systemd-resolve --flush-caches
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;dnsmasq&#34;&gt;DNSMasq&lt;/h4&gt;
+&lt;p&gt;如果你的系统使用 &lt;code&gt;DNSMasq&lt;/code&gt; 作为缓存服务器，则要清除 DNS 缓存，需要重新启动 &lt;code&gt;Dnsmasq&lt;/code&gt; 服务：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo systemctl restart dnsmasq.service
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;也可以使用以下命令:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo service dnsmasq restart
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;ncsd&#34;&gt;NCSD&lt;/h4&gt;
+&lt;p&gt;如果系统使用 &lt;code&gt;NSCD&lt;/code&gt; 来清除 DNS 缓存，则需要重新启动 &lt;code&gt;NSCD&lt;/code&gt; 服务：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo systemctl restart nscd.service
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;也可以使用以下命令:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo service nscd restart
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;第二步联系您所在地区的-&#34;&gt;第二步：联系您所在地区的 👮&lt;/h2&gt;
+&lt;p&gt;我们给出一些常用国家或地区的报警电话，以便于您报案 DNS 碎片攻击：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;国家/地区&lt;/th&gt;
+&lt;th&gt;电话&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;中国/台湾/日本&lt;/td&gt;
+&lt;td&gt;110&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;香港/澳门/马来西亚&lt;/td&gt;
+&lt;td&gt;999&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;欧洲大部分地区/新西兰&lt;/td&gt;
+&lt;td&gt;112&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;澳大利亚&lt;/td&gt;
+&lt;td&gt;000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;美国/加拿大&lt;/td&gt;
+&lt;td&gt;911&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;南极洲&lt;/td&gt;
+&lt;td&gt;/&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;查看更详细的信息可以参照 &lt;a class=&#34;link&#34; href=&#34;https://zh.m.wikipedia.org/zh-hans/%E7%B7%8A%E6%80%A5%E6%95%91%E9%9B%A3%E9%9B%BB%E8%A9%B1%E8%99%9F%E7%A2%BC&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;WikiPedia:紧急救难电话号码&lt;/strong&gt;&lt;/a&gt; 寻求援助。&lt;/p&gt;
+&lt;h2 id=&#34;第三步根本没有-dns-碎片攻击&#34;&gt;第三步：根本没有 DNS 碎片攻击&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;读了这么多，你可能觉得你被骗了。这可以是一个愚人节玩笑，但是我前面写的都是真的。&lt;/li&gt;
+&lt;li&gt;您可以通过&lt;code&gt;第一步&lt;/code&gt;的教程清理你对应设备的&lt;code&gt;DNS缓存&lt;/code&gt;，但凡与 DNS 相关的问题，不妨试试。&lt;/li&gt;
+&lt;li&gt;您可以通过&lt;code&gt;第二步&lt;/code&gt;的教程寻求对应地区的报警电话，如果这个春节想要出去旅行，记住对应国家的报警电话为安全添一分保障也没什么不好。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;第三步&lt;/code&gt;想要说的是：&lt;strong&gt;永远不要以一个高傲的态度面对一个乐于帮助你的人，没人欠你。&lt;/strong&gt; 也不要自以为是。&lt;/li&gt;
+&lt;li&gt;希望这篇博客能对大家有所帮助。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
         <title>🛸 Link Space</title>
         <link>https://tutuis.me/links/</link>
         <pubDate>Sun, 08 Jan 2023 00:00:00 +0000</pubDate>
@@ -865,122 +981,6 @@ wget &amp;ndash;no-check-certificate -O NewReinstall.sh &lt;a class=&#34;link&#3
 &lt;ul&gt;
 &lt;li&gt;本文的featured image(pagermaid-logo) 来自 &lt;a class=&#34;link&#34; href=&#34;https://daydayday.day/posts/3282828936/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;&lt;strong&gt;Wow&amp;rsquo;s Studio&lt;/strong&gt;&lt;/a&gt;。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        </item>
-        <item>
-        <title>假如你遭到了DNS碎片攻击，三个小妙招教你如何解决</title>
-        <link>https://tutuis.me/FlushDNS/</link>
-        <pubDate>Sun, 09 Jan 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://tutuis.me/FlushDNS/</guid>
-        <description>&lt;img src="https://tutuis.me/1631695472.webp" alt="Featured image of post 假如你遭到了DNS碎片攻击，三个小妙招教你如何解决" /&gt;&lt;h2 id=&#34;第一步圣布莱茨皇家学院的终端命令&#34;&gt;第一步：圣布莱茨皇家学院的终端命令&lt;/h2&gt;
-&lt;h3 id=&#34;macos&#34;&gt;MacOS&lt;/h3&gt;
-&lt;p&gt;以下是你将需要的东西。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;访问命令行 (Terminal.app)&lt;/li&gt;
-&lt;li&gt;你的电脑密码&lt;/li&gt;
-&lt;li&gt;输入圣布莱茨皇家学院的终端命令（该命令将取决于你所运行的 MacOS 版本）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;我们可以通过 &lt;code&gt;Command + 空格&lt;/code&gt; 唤出&lt;code&gt;Spotlight&lt;/code&gt;搜索，输入&lt;code&gt;terminal&lt;/code&gt;即可寻找到&lt;code&gt;Terminal.app&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;如果您的MacOS系统&amp;gt;=10.15 (Catalina) , 输入以下命令：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;输入命令之后会让你输入密码，整个过程不可见，填写你的电脑密码即可。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;对于更早的MacOS发行版，我们不作介绍。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h3 id=&#34;windows&#34;&gt;Windows&lt;/h3&gt;
-&lt;p&gt;对于所有 Windows 版本，解决DNS碎片攻击的过程都是相同的。你需要使用管理员权限打开命令提示符并运行 &lt;code&gt;ipconfig /flushdns&lt;/code&gt;。&lt;/p&gt;
-&lt;h4 id=&#34;windows-10-和-windows-8&#34;&gt;Windows 10 和 Windows 8&lt;/h4&gt;
-&lt;p&gt;要在 Windows 10 和 Windows 8 中解决DNS碎片攻击，请执行以下步骤：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;在 Windows 搜索栏中键入 &lt;code&gt;cmd&lt;/code&gt; 。&lt;/li&gt;
-&lt;li&gt;右键单击 &lt;code&gt;命令提示符&lt;/code&gt;，然后右击 &lt;code&gt;以管理员身份运行&lt;/code&gt;。这将打开 &lt;code&gt;命令提示符&lt;/code&gt; 窗口。&lt;/li&gt;
-&lt;li&gt;在命令行上，键入以下行，然后按回车.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ipconfig /flushdns
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;成功后，系统将返回以下消息：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Windows IP Configuration
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Successfully flushed the DNS Resolver Cache.
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;windows-7&#34;&gt;Windows 7&lt;/h4&gt;
-&lt;p&gt;要在 Windows 7 中解决DNS碎片攻击，请执行以下步骤：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;单击开始按钮。&lt;/li&gt;
-&lt;li&gt;在开始菜单搜索文本框中键入 cmd。&lt;/li&gt;
-&lt;li&gt;右键单击 &lt;code&gt;命令提示符&lt;/code&gt;，然后单击 &lt;code&gt;以管理员身份运行&lt;/code&gt;。这将打开 &lt;code&gt;命令提示符&lt;/code&gt; 窗口。&lt;/li&gt;
-&lt;li&gt;在命令行上，键入以下行，然后按回车。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ipconfig /flushdns
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;成功后，系统将返回以下消息：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Windows IP Configuration
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Successfully flushed the DNS Resolver Cache.
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h3 id=&#34;linux&#34;&gt;Linux&lt;/h3&gt;
-&lt;p&gt;大多数现代 Linux 发行版，例如 &lt;code&gt;Ubuntu 18.04&lt;/code&gt;，都使用 &lt;code&gt;systemd&lt;/code&gt; 解析的服务来缓存 DNS 条目，欲解决 DNS 碎片攻击，我们需要将其缓存刷新。&lt;/p&gt;
-&lt;h4 id=&#34;systemd&#34;&gt;systemd&lt;/h4&gt;
-&lt;p&gt;要查找服务是否正在运行，请运行：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo systemctl is-active systemd-resolved.service
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果该服务正在运行，则将打印命令 &lt;code&gt;active&lt;/code&gt;，否则将看到 &lt;code&gt;inactive&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;要清除系统解析的 DNS 缓存，你需要键入以下命令:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo systemd-resolve --flush-caches
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;dnsmasq&#34;&gt;DNSMasq&lt;/h4&gt;
-&lt;p&gt;如果你的系统使用 &lt;code&gt;DNSMasq&lt;/code&gt; 作为缓存服务器，则要清除 DNS 缓存，需要重新启动 &lt;code&gt;Dnsmasq&lt;/code&gt; 服务：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo systemctl restart dnsmasq.service
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;也可以使用以下命令:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo service dnsmasq restart
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;ncsd&#34;&gt;NCSD&lt;/h4&gt;
-&lt;p&gt;如果系统使用 &lt;code&gt;NSCD&lt;/code&gt; 来清除 DNS 缓存，则需要重新启动 &lt;code&gt;NSCD&lt;/code&gt; 服务：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo systemctl restart nscd.service
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;也可以使用以下命令:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo service nscd restart
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;第二步联系您所在地区的-&#34;&gt;第二步：联系您所在地区的 👮&lt;/h2&gt;
-&lt;p&gt;我们给出一些常用国家或地区的报警电话，以便于您报案 DNS 碎片攻击：&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;国家/地区&lt;/th&gt;
-&lt;th&gt;电话&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;中国/台湾/日本&lt;/td&gt;
-&lt;td&gt;110&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;香港/澳门/马来西亚&lt;/td&gt;
-&lt;td&gt;999&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;欧洲大部分地区/新西兰&lt;/td&gt;
-&lt;td&gt;112&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;澳大利亚&lt;/td&gt;
-&lt;td&gt;000&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;美国/加拿大&lt;/td&gt;
-&lt;td&gt;911&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;南极洲&lt;/td&gt;
-&lt;td&gt;/&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;查看更详细的信息可以参照 &lt;a class=&#34;link&#34; href=&#34;https://zh.m.wikipedia.org/zh-hans/%E7%B7%8A%E6%80%A5%E6%95%91%E9%9B%A3%E9%9B%BB%E8%A9%B1%E8%99%9F%E7%A2%BC&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;&lt;strong&gt;WikiPedia:紧急救难电话号码&lt;/strong&gt;&lt;/a&gt; 寻求援助。&lt;/p&gt;
-&lt;h2 id=&#34;第三步根本没有-dns-碎片攻击&#34;&gt;第三步：根本没有 DNS 碎片攻击&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;这可以是一个愚人节玩笑，但是我前面写的都是真的。&lt;/li&gt;
-&lt;li&gt;您可以通过&lt;code&gt;第一步&lt;/code&gt;的教程清理你对应设备的&lt;code&gt;DNS缓存&lt;/code&gt;，但凡与 DNS 相关的问题，不妨试试。&lt;/li&gt;
-&lt;li&gt;您可以通过&lt;code&gt;第二步&lt;/code&gt;的教程寻求对应地区的报警电话，如果这个春节想要出去旅行，记住对应国家的报警电话为安全添一分保障也没什么不好。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;第三步&lt;/code&gt;想要说的是：&lt;strong&gt;永远不要以一个高傲的态度面对一个乐于帮助你的人，没人欠你。&lt;/strong&gt; 也不要自以为是。&lt;/li&gt;
-&lt;li&gt;希望这篇博客能对大家有所帮助。&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         </item>
