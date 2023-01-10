@@ -6,7 +6,212 @@
         <description>Recent content in 折腾啥 on tutuのBlog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Fri, 09 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tutuis.me/categories/%E6%8A%98%E8%85%BE%E5%95%A5/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 09 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://tutuis.me/categories/%E6%8A%98%E8%85%BE%E5%95%A5/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>美国T-Mobile保号卡获取攻略 | 免费无限换号0月租</title>
+        <link>https://tutuis.me/T-Mobile-Esim/</link>
+        <pubDate>Mon, 09 Jan 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://tutuis.me/T-Mobile-Esim/</guid>
+        <description>&lt;img src="https://tutuis.me/tmo.webp" alt="Featured image of post 美国T-Mobile保号卡获取攻略 | 免费无限换号0月租" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;T-Mobile是美国第三大移动通信运营商，其产品可谓是&lt;strong&gt;非常良心&lt;/strong&gt;。支持&lt;strong&gt;国际漫游&lt;/strong&gt;以及&lt;strong&gt;漫游 WiFi-Calling&lt;/strong&gt;，使得你在美国境外，只要有Wi-Fi存在或者接收到漫游信号也可以等同于在美国境内拨打电话、收发短信。这让我们这些☁️用户能够以非常低廉的成本维持一个美国实体号码。&lt;/p&gt;
+&lt;p&gt;本文将介绍两大良心套餐：&lt;code&gt;$0 Lagacy Pay As You Go&lt;/code&gt; 以及 &lt;code&gt;$3 Prepaid Pay Go&lt;/code&gt;。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;0-lagacy-pay-as-you-go&#34;&gt;$0 Lagacy Pay As You Go&lt;/h2&gt;
+&lt;p&gt;这个套餐又名&lt;code&gt;老爷爷套餐&lt;/code&gt;，基本介绍：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;月租 &lt;code&gt;$0&lt;/code&gt;，只要账户有余额即可保号&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;每90天在余额过期前至少充值一次，每次充值至少 &lt;code&gt;$1&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;收发短信、接打电话都要钱&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;（WiFi Calling）$.10/min, $.10/text, $.25/mms&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;支持漫游&lt;/strong&gt;，不支持流量漫游&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;中国大陆漫游&lt;code&gt;中国移动&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;短信：收$0.1/条，发$0.5/条&lt;/li&gt;
+&lt;li&gt;通话：$3.59/分钟&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;支持漫游 &lt;code&gt;WiFi Calling&lt;/code&gt;、&lt;code&gt;WiFi Calling over Cellular Data&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;但是被墙了，通过&lt;code&gt;网关代理&lt;/code&gt;可以开启 WiFi Calling。
+&lt;ul&gt;
+&lt;li&gt;我整理的规则集：&lt;a class=&#34;link&#34; href=&#34;https://raw.githubusercontent.com/bunizao/TutuBetterRules/tutu/RuleList/DOMAlN/T-Mobile.list&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;T-Mobile.list&lt;/strong&gt;&lt;/a&gt; （适用于&lt;code&gt;Surge Gateway&lt;/code&gt;和&lt;code&gt;OpenClash&lt;/code&gt;）&lt;/li&gt;
+&lt;li&gt;为什么不去看看我写的文章： &lt;a class=&#34;link&#34; href=&#34;https://tutuis.me/SurgeGateway/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;配置Surge网关接管家庭网络，让老旧Mac也能成为 Homelab&lt;/strong&gt;&lt;/a&gt; 呢？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这个套餐适用于三个月内接收短信在10条左右的人。如果没有频繁的接码 / 电话 需求，这个套餐无疑是最优选择。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;3-prepaid-paygo&#34;&gt;$3 Prepaid PayGo&lt;/h2&gt;
+&lt;p&gt;这个套餐在下架之前卖给了大家熟悉的&lt;code&gt;Ultra Mobile&lt;/code&gt;，基本介绍：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;月租&lt;code&gt;$3&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;套餐自带&lt;code&gt;30条短信&lt;/code&gt;和&lt;code&gt;30条通话&lt;/code&gt; (WiFi Calling)&lt;/li&gt;
+&lt;li&gt;超出限制后收&lt;code&gt;$0.1/条&lt;/code&gt;，发&lt;code&gt;$0.5/条&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;余额足够套餐费即可保号，也可以设置 &lt;code&gt;Autopay&lt;/code&gt; 保号，当余额不足 &lt;code&gt;$3&lt;/code&gt;抵扣月租时，自动充值 &lt;code&gt;$10&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;支持漫游&lt;/strong&gt;，不支持流量漫游
+&lt;ul&gt;
+&lt;li&gt;中国大陆漫游&lt;code&gt;中国移动&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;短信：收$0.1/条，发$0.5/条&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;支持漫游 &lt;code&gt;WiFi Calling&lt;/code&gt;、&lt;code&gt;WiFi Calling over Cellular Data&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;同上 被墙&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;和&lt;code&gt;$3 Ultra Mobile&lt;/code&gt;相比，优势在哪？对比一下这两个套餐：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;项目&lt;/th&gt;
+&lt;th&gt;$3 T-Mobile&lt;/th&gt;
+&lt;th&gt;$3 Ultra Mobile&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;月租&lt;/td&gt;
+&lt;td&gt;$3&lt;/td&gt;
+&lt;td&gt;$3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;短信&lt;/td&gt;
+&lt;td&gt;30&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;100&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;通话&lt;/td&gt;
+&lt;td&gt;30min&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;100min&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;漫游&lt;/td&gt;
+&lt;td&gt;China Mobile&lt;/td&gt;
+&lt;td&gt;Ultra(China Mobile)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;WiFi Calling&lt;/td&gt;
+&lt;td&gt;被墙&lt;/td&gt;
+&lt;td&gt;被墙&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;更换号码&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Free&amp;amp;Unlimited&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;需付费&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;esim&lt;/td&gt;
+&lt;td&gt;✔️&lt;/td&gt;
+&lt;td&gt;仅支持实体卡转移&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;最终资费&lt;/td&gt;
+&lt;td&gt;✔️&lt;/td&gt;
+&lt;td&gt;🥵&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;由于&lt;code&gt;Ultra Mobile&lt;/code&gt;需要购买卡板才能使用，所以最终资费 &lt;strong&gt;T-Mobile WIN&lt;/strong&gt;。（首先我觉得30条已经够用）&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;开通教程&#34;&gt;开通教程&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;对于&lt;strong&gt;iOS且具有Esim的设备&lt;/strong&gt;，我们可以下载 &lt;a class=&#34;link&#34; href=&#34;https://apps.apple.com/us/app/t-mobile-prepaid-esim/id1437014693&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;T-Mobile Prepaid eSIM app&lt;/strong&gt;&lt;/a&gt; 开通 &lt;code&gt;$10 Prepaid Connect eSIM Plan&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;我们也可以去 &lt;a class=&#34;link&#34; href=&#34;https://prepaid.t-mobile.com/prepaid-plans/connect&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;官网&lt;/strong&gt;&lt;/a&gt; 开通这个套餐，但是官网&lt;strong&gt;仅支持部分大陆卡。&lt;/strong&gt;（实际测试广发银行的Lucky连通借记卡可以正常付款）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;如果你没有Esim设备&lt;/strong&gt;，你需要去 &lt;a class=&#34;link&#34; href=&#34;https://prepaid.t-mobile.com/prepaid-plans/connect&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Amazon&lt;/strong&gt;&lt;/a&gt; 上购买卡板使用。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;sim设备&#34;&gt;Sim设备&lt;/h3&gt;
+&lt;p&gt;拿到卡板之后，我们使用 &lt;code&gt;Google Voice&lt;/code&gt; 拨打卡板背面的电话联系T-Mobile客服激活。根据客服引导报给Sim card number，之后客服会要求设置PIN码，这个PIN非常重要一定要保存好。激活后立马开通 WiFi-Calling 注册账号查看套餐。&lt;/p&gt;
+&lt;p&gt;直接打电话告知客服，直接要求客服开通对应套餐。你可能会遇到4种情况：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;直接帮你开出&lt;code&gt;$0 Lagacy Pay As You Go&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;直接帮你开出&lt;code&gt;$3 Prepaid PayGo&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;表明可以帮你先激活一个月$10的，下个月再转为&lt;code&gt;$3 Prepaid PayGo&lt;/code&gt;，你需要再存$3
+&lt;ul&gt;
+&lt;li&gt;个别热心的客服会把第一个月的$10再退给你（遇到了，记得主动提要求）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;表明已经无效，无法帮你
+&lt;ul&gt;
+&lt;li&gt;Hang Up and Call Again&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;遇到第一种和第二种客服简直是宝，第三种也不差。抓住他开下一张。如果遇到第四种客服也没关系，直接挂断重拨换客服。T-Mobile的客服咖喱味居多，听口音选择美国客服成功率较高（但是几率较少）。&lt;/p&gt;
+&lt;p&gt;成功率（根据 &lt;a class=&#34;link&#34; href=&#34;https://usccstrategy.com/t-mobile-paygo/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;usccstrategy.com&lt;/a&gt; ）：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;第一种：直接激活&lt;code&gt;$0 Lagacy Pay As You Go&lt;/code&gt;，目前只成功过2次&lt;/li&gt;
+&lt;li&gt;第二种：直接激活&lt;code&gt;$3 Prepaid PayGo&lt;/code&gt;，目前只成功过大概5次&lt;/li&gt;
+&lt;li&gt;第三种：首月10刀，次月转&lt;code&gt;$3 Prepaid PayGo&lt;/code&gt;，客服大概能50%操作成功，有些客服要提交申请。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果英语不好可以要求 T-Mobile 提供中文翻译。&lt;/p&gt;
+&lt;p&gt;还有一种懒人躺平法，直接在 &lt;a class=&#34;link&#34; href=&#34;https://prepaid.t-mobile.com/bring-your-own-device&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;T-Mobile官网&lt;/strong&gt;&lt;/a&gt; 自行激活 &lt;code&gt;$10&lt;/code&gt; 套餐，根据 T-Mobile ToS,  T-Mobile Prepaid 话费非零但连续4个月余额不足缴纳套餐费的话，第5个月会被自动转成&lt;code&gt;$3 Prepaid PayGo&lt;/code&gt;这个已下线套餐。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If balance is insufficient to renew all lines on your account for 120 days, all lines will be suspended for 30 days.&lt;br&gt;
+If you have an account balance, all lines will convert to Pay As You Go for 30 day increments with $3/mo. for 30 voice min./SMS messages per line. After your account balance is depleted, then account is suspended.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Esim同理。这个懒人办法非常适合英语不好或者社恐的朋友使用。但是谈心能力好的还是建议联系客服更换套餐。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;esim-设备&#34;&gt;Esim 设备&lt;/h3&gt;
+&lt;p&gt;假如你有一台支持Esim的iPhone，整个过程就会简单很多。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;根据 &lt;a class=&#34;link&#34; href=&#34;https://tutuis.me/T-Mobile-Esim/#%e5%bc%80%e9%80%9a%e6%95%99%e7%a8%8b&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;开通教程&lt;/strong&gt;&lt;/a&gt; 里面讲的，你需要在App或者网站注册好&lt;code&gt;$10&lt;/code&gt;的套餐。
+&lt;ul&gt;
+&lt;li&gt;Taxes &amp;amp; Fees：911填&lt;code&gt;77050&lt;/code&gt;地址，PPU填&lt;code&gt;89012&lt;/code&gt;地址，有奇效&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;首次付费 &lt;code&gt;$10&lt;/code&gt;，在这一个月内拨打611或者联系 &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/tmobilehelp?s=21&amp;amp;t=Q2-VTiE1f5CkouHRWmA4ng&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;TForce&lt;/strong&gt;&lt;/a&gt; 更改套餐到&lt;code&gt;$0 Lagacy Pay As You Go&lt;/code&gt;或者&lt;code&gt;$3 Prepaid PayGo&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;联系客服的过程和前面一样。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在 &lt;code&gt;$10&lt;/code&gt; Plan 的这一个月内，不可以使用国际漫游服务，也就是只有在 WiFi Calling 才能接收短信。下一个月转换套餐即可使用国际漫游。&lt;/p&gt;
+&lt;p&gt;在App端开通套餐会随机分配一个号码，如果嫌这个号码太烂，可以在官网自助免费更换。&lt;/p&gt;
+&lt;p&gt;2023年仍然有DP开通成功，还不去试试？&lt;/p&gt;
+&lt;h3 id=&#34;reference&#34;&gt;reference&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://usccstrategy.com/t-mobile-paygo/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;美国信用卡攻略&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://t.me/DocOfCard&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;85.60×53.98卡粉订阅/提醒&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
         <title>配置Surge网关接管家庭网络，让老旧Mac也能成为Homelab</title>
         <link>https://tutuis.me/SurgeGateway/</link>
         <pubDate>Fri, 09 Dec 2022 00:00:00 +0000</pubDate>
