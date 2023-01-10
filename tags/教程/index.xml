@@ -6,7 +6,7 @@
         <description>Recent content in 教程 on tutuのBlog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Mon, 09 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://tutuis.me/tags/%E6%95%99%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 10 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://tutuis.me/tags/%E6%95%99%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>假如你遭到了DNS碎片攻击，三个小妙招教你如何解决</title>
         <link>https://tutuis.me/FlushDNS/</link>
         <pubDate>Mon, 09 Jan 2023 00:00:00 +0000</pubDate>
@@ -120,6 +120,83 @@
 &lt;li&gt;&lt;code&gt;第三步&lt;/code&gt;想要说的是：&lt;strong&gt;永远不要以一个高傲的态度面对一个乐于帮助你的人，没人欠你。&lt;/strong&gt; 也不要自以为是。&lt;/li&gt;
 &lt;li&gt;希望这篇博客能对大家有所帮助。&lt;/li&gt;
 &lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>美国T-Mobile保号卡获取攻略 | 免费无限换号0月租</title>
+        <link>https://tutuis.me/T-Mobile-Esim/</link>
+        <pubDate>Tue, 10 Jan 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://tutuis.me/T-Mobile-Esim/</guid>
+        <description>&lt;img src="https://tutuis.me/tmo.webp" alt="Featured image of post 美国T-Mobile保号卡获取攻略 | 免费无限换号0月租" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;T-Mobile是美国第三大移动通信运营商，其产品可谓是&lt;strong&gt;非常良心&lt;/strong&gt;。支持&lt;strong&gt;国际漫游&lt;/strong&gt;以及&lt;strong&gt;漫游 WiFi-Calling&lt;/strong&gt;，使得你在美国境外，只要有Wi-Fi存在或者接收到漫游信号也可以等同于在美国境内拨打电话、收发短信。这让我们这些☁️用户能够以非常低廉的成本维持一个美国实体号码。&lt;/p&gt;
+&lt;p&gt;本文将介绍两大良心套餐：&lt;code&gt;$0 Lagacy Pay As You Go&lt;/code&gt; 以及 &lt;code&gt;$3 Prepaid Pay Go&lt;/code&gt;。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;0-lagacy-pay-as-you-go&#34;&gt;$0 Lagacy Pay As You Go&lt;/h2&gt;
+&lt;p&gt;这个套餐又名&lt;code&gt;老爷爷套餐&lt;/code&gt;，基本介绍：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;月租 &lt;code&gt;$0&lt;/code&gt;，只要账户有余额即可保号&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;每90天在余额过期前至少充值一次，每次充值至少 &lt;code&gt;$1&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;收发短信、接打电话都要钱&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;（WiFi Calling）$.10/min, $.10/text, $.25/mms&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;支持漫游&lt;/strong&gt;，不支持流量漫游&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;中国大陆漫游&lt;code&gt;中国移动&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;短信：收$0.1/条，发$0.5/条&lt;/li&gt;
+&lt;li&gt;通话：$3.59/分钟&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;支持漫游 &lt;code&gt;WiFi Calling&lt;/code&gt;、&lt;code&gt;WiFi Calling over Cellular Data&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;但是被墙了，通过&lt;code&gt;网关代理&lt;/code&gt;可以开启 WiFi Calling。&lt;/li&gt;
+&lt;li&gt;我整理的规则集：&lt;a class=&#34;link&#34; href=&#34;https://raw.githubusercontent.com/bunizao/TutuBetterRules/tutu/RuleList/DOMAlN/T-Mobile.list&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;T-Mobile.list&lt;/strong&gt;&lt;/a&gt; （适用于&lt;code&gt;Surge Gateway&lt;/code&gt;和&lt;code&gt;软路由&lt;/code&gt;）
+&lt;ul&gt;
+&lt;li&gt;为什么不去看看我写的 &lt;a class=&#34;link&#34; href=&#34;https://tutuis.me/SurgeGateway/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;配置Surge网关接管家庭网络，让老旧Mac也能成为Homelab&lt;/strong&gt;&lt;/a&gt; 呢？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;还没写完但是我急着发布，看到这的人有福了哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈&lt;/p&gt;
 </description>
         </item>
         <item>
