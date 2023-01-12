@@ -631,8 +631,14 @@ if (!doNotTrack) {
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">tun-excluded-routes = 239.255.255.250/32
 </span></span></code></pre></div><ul>
 <li><code>239.255.255.250/32</code>是组播地址，如果在连接VNC出现问题，也应尝试配置该参数。</li>
+<li>如果你嫌备份太慢，这是因为 MacOS 本身对其进行了限流的措施, 使用以下命令解除限制：</li>
 </ul>
-<h2 id="docker">Docker</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo sysctl debug.lowpri_throttle_enabled=0
+</span></span></code></pre></div><ul>
+<li>推荐第一次备份结束后重新开启限流，以免出现硬盘读写高占用影响正常使用的情况。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo sysctl debug.lowpri_throttle_enabled=1
+</span></span></code></pre></div><h2 id="docker">Docker</h2>
 <p>MacOS可以完美运行Docker，所以运行一些脚本，搭建私人影音库等等NAS能做的事他也能做到。</p>
 <h3 id="安装">安装</h3>
 <ul>

@@ -368,8 +368,14 @@ If you have an account balance, all lines will convert to Pay As You Go for 30 d
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tun-excluded-routes = 239.255.255.250/32
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;239.255.255.250/32&lt;/code&gt;是组播地址，如果在连接VNC出现问题，也应尝试配置该参数。&lt;/li&gt;
+&lt;li&gt;如果你嫌备份太慢，这是因为 MacOS 本身对其进行了限流的措施, 使用以下命令解除限制：&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;docker&#34;&gt;Docker&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo sysctl debug.lowpri_throttle_enabled=0
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;推荐第一次备份结束后重新开启限流，以免出现硬盘读写高占用影响正常使用的情况。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo sysctl debug.lowpri_throttle_enabled=1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;docker&#34;&gt;Docker&lt;/h2&gt;
 &lt;p&gt;MacOS可以完美运行Docker，所以运行一些脚本，搭建私人影音库等等NAS能做的事他也能做到。&lt;/p&gt;
 &lt;h3 id=&#34;安装&#34;&gt;安装&lt;/h3&gt;
 &lt;ul&gt;
