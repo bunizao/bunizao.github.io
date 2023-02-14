@@ -6,182 +6,12 @@
         <description>Recent content in Linux on tutuのBlog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Thu, 01 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tutuis.me/categories/Linux/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>🧰工具箱｜一些常用的Linux命令</title>
-        <link>https://tutuis.me/Command-on-Ubuntu/</link>
-        <pubDate>Thu, 01 Dec 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://tutuis.me/Command-on-Ubuntu/</guid>
-        <description>&lt;img src="https://tutuis.me/jammy-jellyfish-wallpaper.png" alt="Featured image of post 🧰工具箱｜一些常用的Linux命令" /&gt;&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;以下命令适用于Ubuntu 22.04系统，其他系统自行修改。&lt;/li&gt;
-&lt;li&gt;可以透过右侧Widget目录快速查找。&lt;/li&gt;
-&lt;li&gt;本文的命令大多是一键脚本，有其他顾虑请自行打开脚本审阅。&lt;/li&gt;
-&lt;li&gt;因为要常更新，所以不做多语言支持。&lt;/li&gt;
-&lt;li&gt;来源于互联网，有侵权请联系我删除。&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://149366088.v2.pressablecdn.com/wp-content/uploads/2022/03/jammy-jellyfish-wallpaper.jpg&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;&lt;strong&gt;featured image&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;开机&#34;&gt;开机&lt;/h2&gt;
-&lt;h3 id=&#34;修改为root密码登录ssh&#34;&gt;修改为root密码登录ssh&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;#!/bin/bash
-echo root:改我 |sudo chpasswd root
-sudo sed -i &#39;s/^#\?PermitRootLogin.*/PermitRootLogin yes/g&#39; /etc/ssh/sshd_config;
-sudo sed -i &#39;s/^#\?PasswordAuthentication.*/PasswordAuthentication yes/g&#39; /etc/ssh/sshd_config;
-sudo service sshd restart
-&lt;/code&gt;&lt;/pre&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;将汉字部分替换成你要修改的ssh登录密码，建议使用密码管理器生成随机强密码。&lt;/li&gt;
-&lt;li&gt;「适用于甲骨文」: 粘贴到开机页面 &lt;code&gt;高级选项&lt;/code&gt; &amp;ndash;&amp;gt; &lt;code&gt;粘贴Cloud-init脚本&lt;/code&gt; 里面&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;h3 id=&#34;关闭系统防火墙&#34;&gt;关闭系统防火墙&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;iptables -P INPUT ACCEPT
-iptables -P OUTPUT ACCEPT
-iptables -P FORWARD ACCEPT
-iptables -F
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;一般的VPS输入这四行就行，甲骨文还要输入下面两行：
-iptables-save &amp;gt; /etc/iptables/rules.v4   &lt;br&gt;
-ip6tables-save &amp;gt; /etc/iptables/rules.v6&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h3 id=&#34;修改ssh端口&#34;&gt;修改ssh端口&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;公网高强度扫描爆破ssh主要针对默认的22端口，为了防止一些不必要的损失，按照下面的指令修改为35768端口吧！&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;pre&gt;&lt;code&gt;sed -i &#39;s/#Port 22/Port 35768/&#39; /etc/ssh/sshd_config
-service ssh restart
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;Port 35768&lt;/code&gt; 可替换为 1-65535 之间的任何数字&lt;/p&gt;
-&lt;p&gt;sudo apt install netstat
-netstat -antp |grep ssh&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;如果没把握，可以再处理一遍防火墙。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;如果操作iptables后发现和docker相关的服务不能访问，记得运行 &lt;code&gt;systemctl stop docker&lt;/code&gt; &lt;code&gt;systemctl start docker&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;增强&#34;&gt;增强&lt;/h2&gt;
-&lt;h3 id=&#34;bbr加速&#34;&gt;BBR加速&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;wget -N --no-check-certificate &amp;quot;https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh&amp;quot; &amp;amp;&amp;amp; chmod +x tcp.sh &amp;amp;&amp;amp; ./tcp.sh
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;如果没效果可以试试下面的不卸载内核版本：&lt;/p&gt;
-&lt;p&gt;wget -N &amp;ndash;no-check-certificate &amp;ldquo;&lt;a class=&#34;link&#34; href=&#34;https://github.000060000.xyz/tcpx.sh%22&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://github.000060000.xyz/tcpx.sh&#34;&lt;/a&gt; &amp;amp;&amp;amp; chmod +x tcpx.sh &amp;amp;&amp;amp; ./tcpx.sh&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/google/bbr&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;&lt;strong&gt;什么是BBR加速?&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h3 id=&#34;宝塔面板&#34;&gt;宝塔面板&lt;/h3&gt;
-&lt;h4 id=&#34;官方版&#34;&gt;官方版&lt;/h4&gt;
-&lt;pre&gt;&lt;code&gt;wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh &amp;amp;&amp;amp; sudo bash install.sh ed8484bec
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id=&#34;开心版&#34;&gt;开心版&lt;/h4&gt;
-&lt;pre&gt;&lt;code&gt;wget -O install.sh http://io.bt.sy/install/install-ubuntu_6.0.sh &amp;amp;&amp;amp; sudo bash install.sh
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id=&#34;国外版aapanel&#34;&gt;国外版（aaPanel）&lt;/h4&gt;
-&lt;pre&gt;&lt;code&gt;wget -O install.sh http://www.aapanel.com/script/install-ubuntu_6.0_en.sh &amp;amp;&amp;amp; sudo bash install.sh aapanel
-&lt;/code&gt;&lt;/pre&gt;
-&lt;hr&gt;
-&lt;h3 id=&#34;dd&#34;&gt;DD&lt;/h3&gt;
-&lt;p&gt;先安装必需依赖
-apt-get install -y xz-utils openssl gawk file wget screen &amp;amp;&amp;amp; screen -S os
-然后在screen下运行
-wget &amp;ndash;no-check-certificate -O NewReinstall.sh &lt;a class=&#34;link&#34; href=&#34;https://git.io/newbetags&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://git.io/newbetags&lt;/a&gt; &amp;amp;&amp;amp; chmod a+x NewReinstall.sh &amp;amp;&amp;amp; bash NewReinstall.sh&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;脚本里面有很多系统版本，按照脚本注释选择。&lt;/li&gt;
-&lt;li&gt;如果10分钟以后连不上主机，请去控制台处理一遍防火墙。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h3 id=&#34;查看流媒体解锁情况&#34;&gt;查看流媒体解锁情况&lt;/h3&gt;
-&lt;h4 id=&#34;经典永流传版&#34;&gt;经典永流传版&lt;/h4&gt;
-&lt;pre&gt;&lt;code&gt;bash &amp;lt;(curl -L -s https://raw.githubusercontent.com/lmc999/RegionRestrictionCheck/main/check.sh)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id=&#34;由neko提供的更快的脚本&#34;&gt;由Neko提供的更快的脚本&lt;/h4&gt;
-&lt;pre&gt;&lt;code&gt;bash &amp;lt;(curl -Ls unlock.moe)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;只检测IPv4结果:  &lt;code&gt;bash &amp;lt;(curl -Ls unlock.moe) -m 4&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;只检测IPv6结果:  &lt;code&gt;bash &amp;lt;(curl -Ls unlock.moe) -m 6&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h3 id=&#34;测速&#34;&gt;测速&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;wget -qO- --no-check-certificate https://raw.githubusercontent.com/oooldking/script/master/superbench.sh | bash
-&lt;/code&gt;&lt;/pre&gt;
-&lt;hr&gt;
-&lt;h3 id=&#34;查看线路信息&#34;&gt;查看线路信息&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;curl https://raw.githubusercontent.com/zhucaidan/mtr_trace/main/mtr_trace.sh|bash
-&lt;/code&gt;&lt;/pre&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;安全&#34;&gt;安全&lt;/h2&gt;
-&lt;h3 id=&#34;查看ssh登陆日志&#34;&gt;查看SSH登陆日志&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;grep &amp;quot;Failed password&amp;quot; /var/log/auth.log | wc -l
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;这个命令的输出即为SSH登陆失败的次数。&lt;/li&gt;
-&lt;li&gt;更多推荐阅读： &lt;a class=&#34;link&#34; href=&#34;https://blog.hlhasd.com/archives/skill/18/830/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;&lt;strong&gt;记一次树莓派(Raspbetty)系统ssh被爆破攻击日志分析&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;搭建&#34;&gt;搭建&lt;/h2&gt;
-&lt;h3 id=&#34;mtproto代理&#34;&gt;MTProto代理&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;curl -o MTProtoProxyInstall.sh -L https://git.io/fjo34 &amp;amp;&amp;amp; bash MTProtoProxyInstall.sh
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;http代理&#34;&gt;http代理&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;curl -L https://raw.githubusercontent.com/snail007/proxy_admin_free/master/install_auto.sh | bash
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;socks5代理&#34;&gt;Socks5代理&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;wget -q -N --no-check-certificate https://raw.githubusercontent.com/wyx176/nps-socks5/master/install.sh &amp;amp;&amp;amp; chmod 777 install.sh &amp;amp;&amp;amp; bash install.sh
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;附带管理面板
-&lt;ul&gt;
-&lt;li&gt;面板地址：yourIP:18080&lt;/li&gt;
-&lt;li&gt;默认账号密码：admin admin&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;GitHub地址：&lt;a class=&#34;link&#34; href=&#34;https://github.com/wyx176/nps-socks5&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;&lt;strong&gt;NPS-Socks5&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;一键转发&#34;&gt;一键转发&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;wget --no-check-certificate -qO natcfg.sh https://raw.githubusercontent.com/arloor/iptablesUtils/master/natcfg.sh &amp;amp;&amp;amp; bash natcfg.sh
-&lt;/code&gt;&lt;/pre&gt;
-&lt;hr&gt;
-&lt;h1 id=&#34;more-to-be-continued&#34;&gt;More to be continued..&lt;/h1&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;欢迎加入我的telegram聊天群httpstmehututu0005-&#34;&gt;欢迎加入我的Telegram聊天群：&lt;a class=&#34;link&#34; href=&#34;https://t.me/hututu000&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://t.me/hututu000&lt;/a&gt; 😻&lt;/h2&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;感谢&#34;&gt;感谢&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://t.me/Luca_VPS&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Luca的频道&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://t.me/rsakuras&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;rSakuras&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        </item>
-        <item>
+        <lastBuildDate>Sun, 02 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tutuis.me/categories/Linux/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>搭建开源的Telegram人形Bot👾｜PagerMaid-Pyro</title>
-        <link>https://tutuis.me/My-First-Post/</link>
+        <link>https://tutuis.me/set-up-pagermaid-pyro/</link>
         <pubDate>Sun, 02 Oct 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://tutuis.me/My-First-Post/</guid>
+        <guid>https://tutuis.me/set-up-pagermaid-pyro/</guid>
         <description>&lt;img src="https://tutuis.me/set-up-pagermaid-pyro.webp" alt="Featured image of post 搭建开源的Telegram人形Bot👾｜PagerMaid-Pyro" /&gt;&lt;blockquote&gt;
 &lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;ul&gt;
@@ -442,6 +272,176 @@ wget &amp;ndash;no-check-certificate -O NewReinstall.sh &lt;a class=&#34;link&#3
 &lt;ul&gt;
 &lt;li&gt;本文的featured image(pagermaid-logo) 来自 &lt;a class=&#34;link&#34; href=&#34;https://daydayday.day/posts/3282828936/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;&lt;strong&gt;Wow&amp;rsquo;s Studio&lt;/strong&gt;&lt;/a&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>🧰工具箱｜一些常用的Linux命令</title>
+        <link>https://tutuis.me/Command-on-Ubuntu/</link>
+        <pubDate>Mon, 14 Feb 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://tutuis.me/Command-on-Ubuntu/</guid>
+        <description>&lt;img src="https://tutuis.me/jammy-jellyfish-wallpaper.png" alt="Featured image of post 🧰工具箱｜一些常用的Linux命令" /&gt;&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;以下命令适用于Ubuntu 22.04系统，其他系统自行修改。&lt;/li&gt;
+&lt;li&gt;可以透过右侧Widget目录快速查找。&lt;/li&gt;
+&lt;li&gt;本文的命令大多是一键脚本，有其他顾虑请自行打开脚本审阅。&lt;/li&gt;
+&lt;li&gt;因为要常更新，所以不做多语言支持。&lt;/li&gt;
+&lt;li&gt;来源于互联网，有侵权请联系我删除。&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://149366088.v2.pressablecdn.com/wp-content/uploads/2022/03/jammy-jellyfish-wallpaper.jpg&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;featured image&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;开机&#34;&gt;开机&lt;/h2&gt;
+&lt;h3 id=&#34;修改为root密码登录ssh&#34;&gt;修改为root密码登录ssh&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;#!/bin/bash
+echo root:改我 |sudo chpasswd root
+sudo sed -i &#39;s/^#\?PermitRootLogin.*/PermitRootLogin yes/g&#39; /etc/ssh/sshd_config;
+sudo sed -i &#39;s/^#\?PasswordAuthentication.*/PasswordAuthentication yes/g&#39; /etc/ssh/sshd_config;
+sudo service sshd restart
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;将汉字部分替换成你要修改的ssh登录密码，建议使用密码管理器生成随机强密码。&lt;/li&gt;
+&lt;li&gt;「适用于甲骨文」: 粘贴到开机页面 &lt;code&gt;高级选项&lt;/code&gt; &amp;ndash;&amp;gt; &lt;code&gt;粘贴Cloud-init脚本&lt;/code&gt; 里面&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;关闭系统防火墙&#34;&gt;关闭系统防火墙&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;iptables -P INPUT ACCEPT
+iptables -P OUTPUT ACCEPT
+iptables -P FORWARD ACCEPT
+iptables -F
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;一般的VPS输入这四行就行，&lt;strong&gt;甲骨文&lt;/strong&gt;还要输入下面两行：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;iptables-save &amp;gt; /etc/iptables/rules.v4      
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ip6tables-save &amp;gt; /etc/iptables/rules.v6  
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h3 id=&#34;修改ssh端口&#34;&gt;修改ssh端口&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;公网高强度扫描爆破ssh主要针对默认的22端口，为了防止一些不必要的损失，按照下面的指令修改为35768端口吧！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;sed -i &#39;s/#Port 22/Port 35768/&#39; /etc/ssh/sshd_config
+service ssh restart
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;Port 35768&lt;/code&gt; 可替换为 1-65535 之间的任何数字&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果没把握，可以再处理一遍防火墙。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;检查一下ssh监听端口是否更改成功。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install netstat -antp |grep ssh 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;如果操作iptables后发现和docker相关的服务不能访问，记得运行 &lt;code&gt;systemctl stop docker&lt;/code&gt; &lt;code&gt;systemctl start docker&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;增强&#34;&gt;增强&lt;/h2&gt;
+&lt;h3 id=&#34;bbr加速&#34;&gt;BBR加速&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;wget -N --no-check-certificate &amp;quot;https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh&amp;quot; &amp;amp;&amp;amp; chmod +x tcp.sh &amp;amp;&amp;amp; ./tcp.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;如果没效果可以试试下面的不卸载内核版本：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wget -N --no-check-certificate &amp;#34;https://github.000060000.xyz/tcpx.sh&amp;#34; &amp;amp;&amp;amp; chmod +x tcpx.sh &amp;amp;&amp;amp; ./tcpx.sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/google/bbr&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;什么是BBR加速?&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;宝塔面板&#34;&gt;宝塔面板&lt;/h3&gt;
+&lt;h4 id=&#34;官方版&#34;&gt;官方版&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh &amp;amp;&amp;amp; sudo bash install.sh ed8484bec
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;开心版&#34;&gt;开心版&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;wget -O install.sh http://io.bt.sy/install/install-ubuntu_6.0.sh &amp;amp;&amp;amp; sudo bash install.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;国外版aapanel&#34;&gt;国外版（aaPanel）&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;wget -O install.sh http://www.aapanel.com/script/install-ubuntu_6.0_en.sh &amp;amp;&amp;amp; sudo bash install.sh aapanel
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;dd&#34;&gt;DD&lt;/h3&gt;
+&lt;p&gt;先安装必需依赖&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;apt-get install -y xz-utils openssl gawk file wget screen &amp;amp;&amp;amp; screen -S os
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后在screen下运行&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wget --no-check-certificate -O NewReinstall.sh https://git.io/newbetags &amp;amp;&amp;amp; chmod a+x NewReinstall.sh &amp;amp;&amp;amp; bash NewReinstall.sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;脚本里面有很多系统版本，按照脚本注释选择。&lt;/li&gt;
+&lt;li&gt;如果10分钟以后连不上主机，请去控制台处理一遍防火墙。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;查看流媒体解锁情况&#34;&gt;查看流媒体解锁情况&lt;/h3&gt;
+&lt;h4 id=&#34;经典永流传版&#34;&gt;经典永流传版&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;bash &amp;lt;(curl -L -s https://raw.githubusercontent.com/lmc999/RegionRestrictionCheck/main/check.sh)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;由neko提供的更快的脚本&#34;&gt;由Neko提供的更快的脚本&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;bash &amp;lt;(curl -Ls unlock.moe)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;只检测IPv4结果:  &lt;code&gt;bash &amp;lt;(curl -Ls unlock.moe) -m 4&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;只检测IPv6结果:  &lt;code&gt;bash &amp;lt;(curl -Ls unlock.moe) -m 6&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;测速&#34;&gt;测速&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wget -qO- --no-check-certificate https://raw.githubusercontent.com/oooldking/script/master/superbench.sh | bash
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h3 id=&#34;查看线路信息&#34;&gt;查看线路信息&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;curl https://raw.githubusercontent.com/zhucaidan/mtr_trace/main/mtr_trace.sh|bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;安全&#34;&gt;安全&lt;/h2&gt;
+&lt;h3 id=&#34;查看ssh登陆日志&#34;&gt;查看SSH登陆日志&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;grep &amp;quot;Failed password&amp;quot; /var/log/auth.log | wc -l
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;这个命令的输出即为SSH登陆失败的次数。&lt;/li&gt;
+&lt;li&gt;更多推荐阅读： &lt;a class=&#34;link&#34; href=&#34;https://blog.hlhasd.com/archives/skill/18/830/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;记一次树莓派(Raspbetty)系统ssh被爆破攻击日志分析&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;搭建&#34;&gt;搭建&lt;/h2&gt;
+&lt;h3 id=&#34;snell&#34;&gt;Snell&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;wget -O snell.sh --no-check-certificate https://git.io/Snell.sh &amp;amp;&amp;amp; chmod +x snell.sh &amp;amp;&amp;amp; ./snell.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;mtproto代理&#34;&gt;MTProto代理&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;curl -o MTProtoProxyInstall.sh -L https://git.io/fjo34 &amp;amp;&amp;amp; bash MTProtoProxyInstall.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;http代理&#34;&gt;http代理&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;curl -L https://raw.githubusercontent.com/snail007/proxy_admin_free/master/install_auto.sh | bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;socks5代理&#34;&gt;Socks5代理&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;wget -q -N --no-check-certificate https://raw.githubusercontent.com/wyx176/nps-socks5/master/install.sh &amp;amp;&amp;amp; chmod 777 install.sh &amp;amp;&amp;amp; bash install.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;附带管理面板
+&lt;ul&gt;
+&lt;li&gt;面板地址：&lt;code&gt;yourIP:18080&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;默认账号密码：&lt;code&gt;admin admin&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;GitHub地址：&lt;a class=&#34;link&#34; href=&#34;https://github.com/wyx176/nps-socks5&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;NPS-Socks5&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;一键转发&#34;&gt;一键转发&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;wget --no-check-certificate -qO natcfg.sh https://raw.githubusercontent.com/arloor/iptablesUtils/master/natcfg.sh &amp;amp;&amp;amp; bash natcfg.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;more-to-be-continued&#34;&gt;More to be continued..&lt;/h1&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;欢迎加入我的telegram聊天群httpstmehututu0005-&#34;&gt;欢迎加入我的Telegram聊天群：&lt;a class=&#34;link&#34; href=&#34;https://t.me/hututu000&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://t.me/hututu000&lt;/a&gt; 😻&lt;/h2&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;感谢&#34;&gt;感谢&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://t.me/Luca_VPS&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Luca的频道&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://t.me/rsakuras&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;rSakuras&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         </item>

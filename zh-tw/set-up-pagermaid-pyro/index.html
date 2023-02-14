@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="zh-tw" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='十五分鐘擁有一個最棒的聊天工具箱'>
+<title>搭建開源的Telegram人形Bot👾｜PagerMaid-Pyro</title>
+
+<link rel='canonical' href='https://tutuis.me/zh-tw/set-up-pagermaid-pyro/'>
+
+<link rel="stylesheet" href="/scss/style.min.6b6b3ce5067d8bf84adb5c1f9f475f36f0129e0d40c033dc5bc23ac9460395e2.css"><meta property='og:title' content='搭建開源的Telegram人形Bot👾｜PagerMaid-Pyro'>
+<meta property='og:description' content='十五分鐘擁有一個最棒的聊天工具箱'>
+<meta property='og:url' content='https://tutuis.me/zh-tw/set-up-pagermaid-pyro/'>
+<meta property='og:site_name' content='tutuのBlog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='教程' /><meta property='article:tag' content='Pagermaid' /><meta property='article:published_time' content='2022-10-02T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-10-02T00:00:00&#43;00:00'/><meta property='og:image' content='https://tutuis.me/set-up-pagermaid-pyro.webp' />
+<meta name="twitter:title" content="搭建開源的Telegram人形Bot👾｜PagerMaid-Pyro">
+<meta name="twitter:description" content="十五分鐘擁有一個最棒的聊天工具箱"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://tutuis.me/set-up-pagermaid-pyro.webp' />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-87YR7FP2Q3"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-87YR7FP2Q3', { 'anonymize_ip': false });
+}
+</script>
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切換選單">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/zh-tw">
+                
+                    <img src="https://avatars.githubusercontent.com/u/102936102?v=4" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+                    <span class="emoji">🫧</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/zh-tw">tutuのBlog</a></h1>
+            <h2 class="site-description">A rose by any other name would smell as sweet.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='/index.xml'
+                        target="_blank"
+                        title="RSS Feed"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/bunizao'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://t.me/hututu0'
+                        target="_blank"
+                        title="Telegram"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-telegram" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/zh-tw/Mine' >
+                
+                
+                    
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M9.828 9.172a4 4 0 1 0 0 5.656 a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828 a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
+</svg>
+
+
+
+                
+                <span>Mine</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/zh-tw/links' >
+                
+                
+                    
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://tutuis.me/" >🇨🇳简体中文</option>
+                        
+                            <option value="https://tutuis.me/zh-hk/" >🇭🇰繁體中文</option>
+                        
+                            <option value="https://tutuis.me/zh-tw/" selected>🇹🇼正體中文</option>
+                        
+                            <option value="https://tutuis.me/en/" >🇬🇧English</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>夜晚模式</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目錄</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#前言">前言</a>
+      <ol>
+        <li><a href="#在搭建之前您需要知道">在搭建之前您需要知道</a></li>
+      </ol>
+    </li>
+    <li><a href="#您需要的基礎知識">您需要的基礎知識</a></li>
+    <li><a href="#讓我們開始吧">讓我們開始吧!</a>
+      <ol>
+        <li><a href="#開放端口">開放端口</a></li>
+        <li><a href="#拉取項目">拉取項目</a></li>
+        <li><a href="#安裝依賴">安裝依賴</a>
+          <ol>
+            <li><a href="#完整安裝依賴包">完整安裝依賴包</a></li>
+            <li><a href="#繼續安裝python依賴">繼續安裝Python依賴</a></li>
+          </ol>
+        </li>
+        <li><a href="#修改配置文件">修改配置文件</a></li>
+        <li><a href="#申請telegram-api">申請Telegram API</a></li>
+        <li><a href="#運行pagermaid_pyro">運行Pagermaid_Pyro</a></li>
+        <li><a href="#寫入守護進程">寫入守護進程</a>
+          <ol>
+            <li><a href="#至此-pagermaid-pyro-搭建完成enjoy-it">至此 Pagermaid-Pyro 搭建完成，enjoy it~🤪</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#插件說明">插件說明</a></li>
+    <li><a href="#感謝閱讀我是tutu歡迎加入我的telegram聊天群httpstmehututu000-">感謝閱讀，我是Tutu，歡迎加入我的Telegram聊天群：<a href="https://t.me/hututu000">https://t.me/hututu000</a> 😻</a></li>
+    <li><a href="#感謝">感謝</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/zh-tw/set-up-pagermaid-pyro/">
+                
+                    <img src="/set-up-pagermaid-pyro.webp" loading="lazy" alt="Featured image of post 搭建開源的Telegram人形Bot👾｜PagerMaid-Pyro" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/zh-tw/categories/Linux/" >
+                Linux
+            </a>
+        
+            <a href="/zh-tw/categories/%E6%8A%98%E9%A8%B0%E5%95%A5/" >
+                折騰啥
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/zh-tw/set-up-pagermaid-pyro/">搭建開源的Telegram人形Bot👾｜PagerMaid-Pyro</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            十五分鐘擁有一個最棒的聊天工具箱
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Oct 02, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    閱讀時間: 5 分鐘
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+        <footer class="article-translations">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+            <div>
+                
+                    <a href="https://tutuis.me/set-up-pagermaid-pyro/" class="link">🇨🇳简体中文</a>
+                
+                    <a href="https://tutuis.me/zh-hk/set-up-pagermaid-pyro/" class="link">🇭🇰繁體中文</a>
+                
+            </div>
+        </footer>
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <blockquote>
+<h2 id="前言">前言</h2>
+<ul>
+<li>最近的Telegram私聊廣告莫名很多，使用這個bot的防私聊插件可以很好的<strong>緩解廣告的打擾</strong>。剛好手頭有閒置的VPS，索性按照教程簡單搭建下。 （其實好早就搭建好了🤪</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>本教程基於 <strong>Ubuntu 22.04</strong> 系統，搭建 Pagermaid-Pyro 的演示環境為AWS-Lightsail機器，其他系統或IDC請自行修改命令安裝。</p>
+<ul>
+<li>Github 開源地址：<code>https://github.com/TeamPGM/PagerMaid-Pyro</code></li>
+<li>官方博客：<code>https://xtaolabs.com</code></li>
+<li>官方 Telegram 頻道：<code>@PagerMaid_Modify</code></li>
+</ul>
+</blockquote>
+<blockquote>
+<h3 id="在搭建之前您需要知道">在搭建之前您需要知道</h3>
+<ul>
+<li>Telegram沒有明確說明支持Userbot的行為，被杜叔叔分遺產以及導致的任何損失和後果均與PagerMaid項目作者和<a class="link" href="https://tutuis.me"  target="_blank" rel="noopener"
+    ><strong>本站</strong></a>無關。</li>
+<li>您在使用本項目代碼時即表示您已經同意本隱私協議並且允許我們以評估負載和修復代碼的目的記錄您 Bot 的在線狀態和報錯文件（除可能使用的信息之外，我們不會記錄與收集任何信息）。</li>
+</ul>
+</blockquote>
+<h2 id="您需要的基礎知識">您需要的基礎知識</h2>
+<ul>
+<li>
+<p>SSH 連接Linux服務器</p>
+</li>
+<li>
+<p>切換用戶為 root  <code>sudo -i</code></p>
+</li>
+<li>
+<p>略懂一些 <code>Vim</code></p>
+</li>
+</ul>
+<hr>
+<h2 id="讓我們開始吧">讓我們開始吧!</h2>
+<h3 id="開放端口">開放端口</h3>
+<p>由於需要和telegram服務器通信，我們需要關閉系統內部的防火牆。執行以下代碼關閉：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo iptables -P INPUT ACCEPT
+</span></span><span class="line"><span class="cl">sudo iptables -P FORWARD ACCEPT
+</span></span><span class="line"><span class="cl">sudo iptables -P OUTPUT ACCEPT
+</span></span><span class="line"><span class="cl">sudo iptables -F
+</span></span></code></pre></div><p>如果您使用了雲服務，請去您的雲服務商控制台裡開放所有端口。 （以AWS-Lightsail為例）</p>
+<p><img src="https://3o.hk/images/2022/10/02/2022-10-02-10.09.17.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="截屏2022 10 02 下午10.09.17"
+	
+	
+></p>
+<p>Oracle請移步 <code>網絡</code>-<code>虛擬云網絡</code>-<code>vcn-2022xxxx-xxxx</code>-<code>安全列表詳細信息</code>-<code>入站規則</code>-<code>添加入站規則</code></p>
+<ul>
+<li>請你像我這樣寫：</li>
+</ul>
+<p><img src="https://3o.hk/images/2022/10/02/2022-10-02-10.16.23.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="截屏2022 10 02 下午10.16.23"
+	
+	
+></p>
+<p>Azure在<code>設置</code>-<code>網絡</code>-<code>入站端口規則</code>，請添加：</p>
+<ul>
+<li>源：Any</li>
+<li>源端口範圍：*</li>
+<li>目標：Any</li>
+<li>服務：Custom</li>
+<li>目標端口範圍：*</li>
+<li>協議：Any</li>
+<li>操作：允許</li>
+<li>優先級：100</li>
+<li>名稱：隨便寫</li>
+</ul>
+<p>其他的IDC請自行探索規律尋找，有些IDC是默認給開的。</p>
+<h3 id="拉取項目">拉取項目</h3>
+<p>先切換為Root用戶。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo -i
+</span></span></code></pre></div><p>在拉取項目之前，首先更新 git ，否則之後可能出現無法更新的情況。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo apt install --upgrade git -y
+</span></span></code></pre></div><p>這步就報錯請自行Google：<code>Ubuntu安裝git</code>。</p>
+<p>拉取項目至 /var/lib/pagermaid_pyro 目錄。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cd /var/lib &amp;&amp; git clone https://github.com/TeamPGM/PagerMaid-Pyro.git pagermaid_pyro &amp;&amp; cd pagermaid_pyro
+</span></span></code></pre></div><p>很快就拉取完了。
+<a class="link" href="https://3o.hk/image/0mIrT"  target="_blank" rel="noopener"
+    ><img src="https://3o.hk/images/2022/10/02/2022-10-02-10.28.18.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="2022-10-02-10.28.18.png"
+	
+	
+></a></p>
+<h3 id="安裝依賴">安裝依賴</h3>
+<p>首先更新下apt軟件包，安裝過程中可能會出現OK確認界面，直接確認即可，如果出現斷開連接，必須重新登錄root訪問pagermaid_pyro目錄。
+（命令 <code>cd /var/lib/pagermaid_pyro</code>)</p>
+<h4 id="完整安裝依賴包">完整安裝依賴包</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo apt install python3-pip imagemagick libwebp-dev neofetch libzbar-dev libxml2-dev libxslt-dev tesseract-ocr tesseract-ocr-all -y
+</span></span></code></pre></div><p>安裝軟件包過程中，請喝杯咖啡稍等一會兒，安裝完成後，繼續安裝 Python 依賴包，所有的操作都是在<code>/var/lib/pagermaid_pyro</code>目錄下進行的，出現報錯檢查是否在此目錄中。
+<a class="link" href="https://3o.hk/image/0mbom"  target="_blank" rel="noopener"
+    ><img src="https://3o.hk/images/2022/10/02/2022-10-02-10.38.46.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="2022-10-02-10.38.46.png"
+	
+	
+></a></p>
+<p>done</p>
+<h4 id="繼續安裝python依賴">繼續安裝Python依賴</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pip3 install -r requirements.txt
+</span></span></code></pre></div><blockquote>
+<p>如果出現 <code>ERROR: Could not open requirements file: [Errno 2] No such file or directory: 'requirements.txt'</code> 報錯，請先檢查當前目錄是否為 <code>/var/lib/pagermaid_pyro</code> ，如果位於該目錄仍然報錯，請重新執行 <strong>拉取項目</strong> 步驟。</p>
+</blockquote>
+<p><img src="https://3o.hk/images/2022/10/02/2022-10-02-10.42.12.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="2022-10-02-10.42.12.png"
+	
+	
+></p>
+<p>Success!</p>
+<h3 id="修改配置文件">修改配置文件</h3>
+<p>執行以下命令，將配置文件 <code>config.gen.yml</code> 複製一份並且命名為 <code>config.yml</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cp config.gen.yml config.yml
+</span></span></code></pre></div><h3 id="申請telegram-api">申請Telegram API</h3>
+<ul>
+<li>在 <a class="link" href="https://my.telegram.org"  target="_blank" rel="noopener"
+    >https://my.telegram.org</a> 登陸後點擊<code>API development tools</code>
+<img src="https://3o.hk/images/2022/10/02/2022-10-02-10.48.40.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="2022-10-02-10.48.40.png"
+	
+	
+></li>
+<li>按圖中這樣非常隨意的填好（越隨意越好），然後點擊<code>Create appication</code>.</li>
+<li>保存好得到的<code>App api_id</code> 和<code>App api_hash</code>。</li>
+</ul>
+<p>回到ssh工具裡面，執行命令：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cd /var/lib/pagermaid_pyro &amp;&amp; vim config.yml
+</span></span></code></pre></div><p>不會vim的請自行Google:<code>Vim使用教程</code></p>
+<blockquote>
+<p>如果你看到的是一片空白：</p>
+<ul>
+<li>你可能不是root用戶</li>
+<li>你可能不在正確目錄</li>
+<li>確定你執行過<code>cp config.gen.yml config.yml</code>?</li>
+</ul>
+</blockquote>
+<p>使用你強大的Vim基礎知識，將這裡替換成你剛剛獲取的。 （<strong>千萬不要刪除引號</strong>！）</p>
+<p><img src="https://3o.hk/images/2022/10/02/2022-10-02-10.57.34.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="2022-10-02-10.57.34.png"
+	
+	
+></p>
+<h3 id="運行pagermaid_pyro">運行Pagermaid_Pyro</h3>
+<p>輸入以下指令：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  python3 -m pagermaid
+</span></span></code></pre></div><p>此步需要填入完整的電話號碼（eg：+8611451419198，<strong>需要帶上國際區號</strong>）然後 Telegram 會向你的其他客戶端發送驗證碼，填入驗證碼後，回車，如有兩步驗證密碼，則再輸入兩步驗證密碼即可。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Enter phone number or bot token:    #此處填入手機號
+</span></span><span class="line"><span class="cl">Is &#34;+8611451419198&#34; correct? (y/N): y   # 號碼顯示正確輸入 y ,錯誤輸入 
+</span></span><span class="line"><span class="cl">The confirmation code has been sent via Telegram app
+</span></span><span class="line"><span class="cl">Enter confirmation code:    # 此處輸入 Telegram APP 中收到的驗證碼
+</span></span><span class="line"><span class="cl"># 如果設置了兩步驗證，則會出現以下提示
+</span></span><span class="line"><span class="cl">The two-step verification is enabled and a password is required
+</span></span><span class="line"><span class="cl">Password hint: None
+</span></span><span class="line"><span class="cl">Enter password (empty to recover):    # 此處輸入兩步驗證密碼
+</span></span></code></pre></div><p>出現已啟動提示，代表登錄成功，此時可以去 Telegram 任意聊天發送 <code>,help</code> 進行測試。
+<a class="link" href="https://3o.hk/image/0mMIj"  target="_blank" rel="noopener"
+    ><img src="https://3o.hk/images/2022/10/02/2022-10-02-11.03.18.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="2022-10-02-11.03.18.png"
+	
+	
+></a></p>
+<ul>
+<li>
+<p>你的應該沒有我這麼多，查看 <a class="link" href="https://telegra.ph/PagerMaid-Plugins-11-27"  target="_blank" rel="noopener"
+    ><strong>官方插件列表</strong></a> 按需安裝。</p>
+</li>
+<li>
+<p>**請選擇 v2 分支，master 分支為 Pagermaid-Modify（舊版）的插件，二者插件不兼容。 **</p>
+<ul>
+<li>
+<p>命令是 <code>,apt install xxxx</code>，發在tg任意一個聊天中即可。</p>
+</li>
+<li>
+<p>防私聊插件的名字是 <code>pmcaptcha</code>，我們可以用<code>,apt install pmcaptcha</code>的命令發送到任何聊天中來安裝它。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="寫入守護進程">寫入守護進程</h3>
+<p>首先按下 <code>Ctrl</code> 鍵和 <code>C</code> 鍵停止運行，然後輸入以下命令：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cat &lt;&lt;&#39;TEXT&#39; &gt; /etc/systemd/system/pagermaid_pyro.service
+</span></span><span class="line"><span class="cl">[Unit]
+</span></span><span class="line"><span class="cl">Description=PagerMaid-Pyro telegram utility daemon
+</span></span><span class="line"><span class="cl">After=network.target
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[Install]
+</span></span><span class="line"><span class="cl">WantedBy=multi-user.target
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[Service]
+</span></span><span class="line"><span class="cl">Type=simple
+</span></span><span class="line"><span class="cl">WorkingDirectory=/var/lib/pagermaid_pyro
+</span></span><span class="line"><span class="cl">ExecStart=/usr/bin/python3 -m pagermaid
+</span></span><span class="line"><span class="cl">Restart=always
+</span></span><span class="line"><span class="cl">TEXT
+</span></span></code></pre></div><p>設置完成後啟動程序：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">systemctl start pagermaid_pyro
+</span></span></code></pre></div><p>設置為開機自啟：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">systemctl enable pagermaid_pyro
+</span></span></code></pre></div><h4 id="至此-pagermaid-pyro-搭建完成enjoy-it">至此 Pagermaid-Pyro 搭建完成，enjoy it~🤪</h4>
+<p>如需停止程序，使用以下命令即可：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">systemctl stop pagermaid_pyro
+</span></span></code></pre></div><blockquote>
+<h2 id="插件說明">插件說明</h2>
+<blockquote>
+<p>如安裝插件後遇到插件加載失敗的情況，請按照以下步驟解決：</p>
+</blockquote>
+<ul>
+<li>重新安裝插件。</li>
+<li>使用 <code>,restart</code> 命令或在終端中輸入 <code>systemctl restart pagermaid_pyro</code> 使程序重啟。</li>
+<li>在任意對話中發送 <code>,sh rm -rf ./plugins/*</code> ，然後重新安裝插件。</li>
+<li>檢查環境 Python 版本是否為 Python 3.8+ 。</li>
+<li>如仍然不能解決，請重新搭建 PagerMaid-Pyro 。</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="感謝閱讀我是tutu歡迎加入我的telegram聊天群httpstmehututu000-">感謝閱讀，我是Tutu，歡迎加入我的Telegram聊天群：<a class="link" href="https://t.me/hututu000"  target="_blank" rel="noopener"
+    >https://t.me/hututu000</a> 😻</h2>
+<h2 id="感謝">感謝</h2>
+<ul>
+<li>本文的featured image(pagermaid-logo) 來自 <a class="link" href="https://daydayday.day/posts/3282828936/"  target="_blank" rel="noopener"
+    ><strong>Wow&rsquo;s Studio</strong></a>。</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/zh-tw/tags/%E6%95%99%E7%A8%8B/">教程</a>
+        
+            <a href="/zh-tw/tags/Pagermaid/">Pagermaid</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <link rel="stylesheet" href="/scss/partials/comments/disqusjs.min.css">
+
+<div class="disqus-container">
+    <div id="disqus_thread"></div>
+    <script type="application/javascript">
+        let disqusjs;
+        function loadDisqusJS() {
+            disqusjs = new DisqusJS({
+                shortname: "tutublog",
+                siteName: "tutuのBlog",
+                apikey: "ZjJbuwr61CDRqKHU28cfZYMz4o56oeyN2ukLbWmO1UbUl0hzKkmREQFt5nARPYFh",
+                
+                admin: "bunizao",
+                
+            });
+        }
+
+        function lazyLoadDisqusJS() {
+            if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+                document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+                return;
+            }
+
+            let d = document.createElement('script');
+            d.src = 'https://cdn.jsdelivr.net/npm/disqusjs@1.3/dist/disqus.js';
+            d.async = false;
+            document.body.appendChild(d);
+            d.onload = () => {
+                loadDisqusJS();
+                window.addEventListener('onColorSchemeChange', (e) => {
+                    if (disqusjs) {
+                        loadDisqusJS();
+                    }
+                })
+            }
+        }
+
+        let runningOnBrowser = typeof window !== "undefined";
+        let isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+        let supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+
+        if (!isBot && supportsIntersectionObserver) {
+            let disqus_observer = new IntersectionObserver(function(entries) {
+                if (entries[0].isIntersecting) {
+                    lazyLoadDisqusJS();
+                    disqus_observer.disconnect();
+                }
+            });
+            disqus_observer.observe(document.getElementById('disqus_thread'));
+        } else {
+            lazyLoadDisqusJS();
+        }
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2022 - 
+        
+        2023 tutuのBlog
+    </section>
+    
+    <section class="powerby">
+        
+            Supports IPv6, HTTP/3, TLS 1.3 & DNSSEC <br/>
+        </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
