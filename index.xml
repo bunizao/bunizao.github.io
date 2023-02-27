@@ -6,7 +6,7 @@
         <description>Recent content on tutuのBlog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Mon, 09 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://tutuis.me/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 27 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://tutuis.me/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>假如你遭到了DNS碎片攻击，三个小妙招教你如何解决</title>
         <link>https://tutuis.me/FlushDNS/</link>
         <pubDate>Mon, 09 Jan 2023 00:00:00 +0000</pubDate>
@@ -134,6 +134,162 @@
 &lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.freecodecamp.org/chinese/news/how-to-flush-dns-on-mac-macos-clear-dns-cache&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;如何刷新 Mac 上的 DNS——MacOS 清除 DNS 缓存&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>将Hugo博客部署到Cloudflare Pages上的体验与踩坑小记</title>
+        <link>https://tutuis.me/Hugo-build/</link>
+        <pubDate>Mon, 27 Feb 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://tutuis.me/Hugo-build/</guid>
+        <description>&lt;img src="https://tutuis.me/cloudflare-pages.webp" alt="Featured image of post 将Hugo博客部署到Cloudflare Pages上的体验与踩坑小记" /&gt;&lt;iframe allow=&#34;autoplay *; encrypted-media *; fullscreen *; clipboard-write&#34; frameborder=&#34;0&#34; height=&#34;175&#34; style=&#34;width:100%;max-width:1200px;overflow:hidden;background:transparent;&#34; sandbox=&#34;allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation&#34; src=&#34;https://embed.music.apple.com/album/venice-bitch/1474669063?i=1474669067&#34;&gt;&lt;/iframe&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;我的博客的前身使用Hexo架构并且部署在 &lt;a class=&#34;link&#34; href=&#34;https://pages.github.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;GitHub Pages&lt;/strong&gt;&lt;/a&gt; 上面，可惜GitHub经常收到功夫网的影响，对来自中国大陆的访客可谓是苦不堪言（虽然也没多少阅读量）。于是本着博客是写给自己看的原则，我又套上了Cloudflare CDN，速度仍然不太理想。恰好遇到了一个好看的Hugo主题，决定将博客迁移到Hugo架构，并且使用 &lt;a class=&#34;link&#34; href=&#34;https://pages.cloudflare.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Cloudflare Pages&lt;/strong&gt;&lt;/a&gt; 托管静态页面。一气呵成。得益于原生的Cloudflare CDN，所以在全球范围内访问速度都还不错。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;博客是写给自己看的。 &amp;ndash; ceru&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;优势&#34;&gt;优势&lt;/h2&gt;
+&lt;p&gt;托管我为什么不选择 &lt;a class=&#34;link&#34; href=&#34;https://pages.github.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;GitHub Pages&lt;/strong&gt;&lt;/a&gt; ？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Cloudflare Pages的 CI/CD 非常丝滑稳定，基本上本地push到GitHub仓库，几秒钟后就可以进行部署，两分钟后更改就可以上线。每个月免费构建额度是500次，但是我觉得99%的人都够用了吧（（&lt;/li&gt;
+&lt;li&gt;Cloudflare Pages在中国大陆的连通性还算不错。至少比GitHub好多了（&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cloudflare Pages可以从Github私有仓库拉取博客源文件&lt;/strong&gt;，而且不需要配置麻烦的公钥和Token。更别说复杂的GitHub Action了，构建博客的过程相当丝滑。&lt;/li&gt;
+&lt;li&gt;可以绑定多个自定义域名，也会直接送你一个 &lt;code&gt;xxxx.pages.dev&lt;/code&gt; 的三级域名（类似于 xxxx.github.io，不过这个可以定制不是吗（&lt;/li&gt;
+&lt;li&gt;每一次构建都会保留存档，方便回味（bushi&lt;/li&gt;
+&lt;li&gt;构建飞快，支持&lt;code&gt;fast build&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;教程&#34;&gt;教程&lt;/h2&gt;
+&lt;h2 id=&#34;push&#34;&gt;push&lt;/h2&gt;
+&lt;h3 id=&#34;github-desktop&#34;&gt;Github Desktop&lt;/h3&gt;
+&lt;p&gt;我们需要将博客的源文件push到GitHub或GitLab，个人喜欢GitHub。&lt;br&gt;
+可以在本地电脑下载 &lt;a class=&#34;link&#34; href=&#34;https://desktop.github.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;GitHub Desktop&lt;/strong&gt;&lt;/a&gt; , UI化连接GitHub仓库，不需要ssh操作，方便很多。&lt;/p&gt;
+&lt;p&gt;我这里使用MacOS演示。&lt;/p&gt;
+&lt;p&gt;下载好之后根据提示连接你的GitHub账号，然后在左上角点击 &lt;code&gt;Add&lt;/code&gt; -&amp;gt; &lt;code&gt;Create New Repository...&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;我们将创建一个叫&lt;code&gt;Blog&lt;/code&gt;的私有仓库，按照图片更改你喜欢的名字，以及你自己的博客文件路径。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pub-f461ef2c6b1b403a9a714cd3db4a1ad0.r2.dev/CleanShot-2023-02-27-at-22.27.19.webp&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;p1&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Local Path一定要修改成你自己的！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;然后我们会得到如下界面：&lt;br&gt;
+&lt;img src=&#34;https://pub-f461ef2c6b1b403a9a714cd3db4a1ad0.r2.dev/CleanShot-2023-02-27-at-22.28.59.webp&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;p2&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果你的Local Path 正确，左面的Changes部分应该有很多文件。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;点击右边的&lt;code&gt;Publish Repository&lt;/code&gt;,会弹出如下界面：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pub-f461ef2c6b1b403a9a714cd3db4a1ad0.r2.dev/CleanShot-2023-02-27-at-22.29.18.webp&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;p3&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;为了保护博客的源文件，请tick✔️上&lt;code&gt;Keep this code private&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;然后publish即可。下次更新博客只需要打开&lt;code&gt;GitHub Desktop&lt;/code&gt; 然后 &lt;code&gt;command + P&lt;/code&gt;即可。&lt;/p&gt;
+&lt;h3 id=&#34;ssh&#34;&gt;SSH&lt;/h3&gt;
+&lt;p&gt;在进行之前，我们需要配置GitHub鉴权使用的SSH Key。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;## 先切换到博客目录，更改成你自己的
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cd ~/home/blog
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;## 初始化本地Git仓库
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git init
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;## 设置名为Origin的远端Git仓库，同样更改成你自己的
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git remote add origin git@github.com:username/reponame:git
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;## 选择所有文件
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git add -A
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;## 为本次commit写一个summery
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git commit -m &amp;#34;initial commit&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;## Push到github
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git push -u origin main
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我这里写了一个&lt;code&gt;deploy.sh&lt;/code&gt;，方便大家后续更新博客使用。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;使用 &lt;a class=&#34;link&#34; href=&#34;https://www.dropbox.com/s/oth9jf9ovfx7hqu/deploy.sh?dl=1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Dropbox&lt;/strong&gt;&lt;/a&gt; 下载&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;特性：
+&lt;ul&gt;
+&lt;li&gt;commit为当前发布的时间&lt;/li&gt;
+&lt;li&gt;发布时可以优雅地 &lt;code&gt;bash deploy.sh&lt;/code&gt;，而不需要敲5行命令。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;pull&#34;&gt;Pull&lt;/h2&gt;
+&lt;p&gt;登录到 &lt;a class=&#34;link&#34; href=&#34;https://dash.cloudflare.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Cloudflare 控制台&lt;/strong&gt;&lt;/a&gt;，在左侧即可看到&lt;code&gt;Pages&lt;/code&gt;。点击并且&lt;code&gt;创建一个项目&lt;/code&gt; -&amp;gt; &lt;code&gt;连接到Git&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pub-f461ef2c6b1b403a9a714cd3db4a1ad0.r2.dev/CleanShot-2023-02-27-at-22.52.40.webp&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;p4&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;登录到GitHub账户，选择我们刚刚创建的repo，这里可能需要一些权限。&lt;/p&gt;
+&lt;p&gt;填写项目名称，Cloudflare Pages会生成一个&lt;code&gt;progressname.pages.dev&lt;/code&gt; 的三级域名，我们之后的自定义域名会被CNAME到这个三级域名上。&lt;/p&gt;
+&lt;p&gt;这里我使用的是hugo构建，会遇到一个小坑，解决方式也很简单，在环境变量的部分指定 &lt;code&gt;HUGO_VERSION = 0.110.0&lt;/code&gt;即可。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;v0.110.0&lt;/code&gt;是截止发稿时的hugo最新版本，可以在 &lt;a class=&#34;link&#34; href=&#34;https://github.com/gohugoio/hugo/releases&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;hugo的Github发布页&lt;/strong&gt;&lt;/a&gt; 查看最新版本。或者在命令行中输入&lt;code&gt;hugo version&lt;/code&gt;查看当前使用的版本。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如图：&lt;br&gt;
+&lt;img src=&#34;https://pub-f461ef2c6b1b403a9a714cd3db4a1ad0.r2.dev/CleanShot-2023-02-27-at-23.04.20.webp&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;p5&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;然后我们开心构建即可！&lt;/p&gt;
+&lt;p&gt;这里可以绑定好多个自定义域名，均采用CNAME的形式。
+&lt;img src=&#34;https://pub-f461ef2c6b1b403a9a714cd3db4a1ad0.r2.dev/CleanShot-2023-02-27-at-23.10.03.webp&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;p6&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;我们还可以使用Cloudflare自选ip，让博客更快一步。互联网上已经有很多轮子，这里不再介绍。&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -348,14 +504,14 @@ If you have an account balance, all lines will convert to Pay As You Go for 30 d
         
         <guid>https://tutuis.me/links/</guid>
         <description>&lt;h2 id=&#34;himy-friends&#34;&gt;Hi!My Friends!👋&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://isagood.day&#34; title=&#34;Sebastian Luo&#34; class=&#34;friend-link&#34; target=&#34;_blank&#34; rel=&#34;friend&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://isagood.day&#34; title=&#34;Sebastian on7&#34; class=&#34;friend-link&#34; target=&#34;_blank&#34; rel=&#34;friend&#34;&gt;
     &lt;div class=&#34;friend-link-div&#34;&gt;
         &lt;div class=&#34;friend-link-avatar&#34;&gt;
             &lt;img src=https://isagood.day/img/mc.JPG class=&#34;friend-avatar&#34; loading=&#34;lazy&#34; alt=&#34;Avatar&#34;&gt;
         &lt;/div&gt;
         &lt;div class=&#34;friend-link-info&#34;&gt;
             &lt;i class=&#34;fa fa-link&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;
-            &lt;i class=&#34;friend-name&#34;&gt;Sebastian Luo&lt;/i&gt;
+            &lt;i class=&#34;friend-name&#34;&gt;Sebastian on7&lt;/i&gt;
             &lt;p class=&#34;friend-bio&#34;&gt;🧏 go stupid go crazy&lt;/p&gt;
         &lt;/div&gt;
     &lt;/div&gt;
@@ -390,12 +546,25 @@ If you have an account balance, all lines will convert to Pay As You Go for 30 d
 &lt;a href=&#34;https://loveur.life&#34; title=&#34;Marszy&#34; class=&#34;friend-link&#34; target=&#34;_blank&#34; rel=&#34;friend&#34;&gt;
     &lt;div class=&#34;friend-link-div&#34;&gt;
         &lt;div class=&#34;friend-link-avatar&#34;&gt;
-            &lt;img src=https://pic4.58cdn.com.cn/nowater/webim/big/n_v208c487a0ba574e7bab247f1d39432208.jpg class=&#34;friend-avatar&#34; loading=&#34;lazy&#34; alt=&#34;Avatar&#34;&gt;
+            &lt;img src=https://pub-f461ef2c6b1b403a9a714cd3db4a1ad0.r2.dev/2023-02-08-21.48.12.webp class=&#34;friend-avatar&#34; loading=&#34;lazy&#34; alt=&#34;Avatar&#34;&gt;
         &lt;/div&gt;
         &lt;div class=&#34;friend-link-info&#34;&gt;
             &lt;i class=&#34;fa fa-link&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;
             &lt;i class=&#34;friend-name&#34;&gt;Marszy&lt;/i&gt;
             &lt;p class=&#34;friend-bio&#34;&gt;爱你所爱&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/a&gt;
+
+&lt;a href=&#34;https://lalalalisa.me&#34; title=&#34;Troy&#34; class=&#34;friend-link&#34; target=&#34;_blank&#34; rel=&#34;friend&#34;&gt;
+    &lt;div class=&#34;friend-link-div&#34;&gt;
+        &lt;div class=&#34;friend-link-avatar&#34;&gt;
+            &lt;img src=https://pub-f461ef2c6b1b403a9a714cd3db4a1ad0.r2.dev/111b6afbdfd4854ef11509fcbf8931a.webp class=&#34;friend-avatar&#34; loading=&#34;lazy&#34; alt=&#34;Avatar&#34;&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;friend-link-info&#34;&gt;
+            &lt;i class=&#34;fa fa-link&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;
+            &lt;i class=&#34;friend-name&#34;&gt;Troy&lt;/i&gt;
+            &lt;p class=&#34;friend-bio&#34;&gt;Crying will not solve the problem.&lt;/p&gt;
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/a&gt;

@@ -748,6 +748,25 @@ if (!doNotTrack) {
 </article>
 
             
+                
+<article class="has-image">
+    <a href="/Hugo-build/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/cloudflare-pages.webp" loading="lazy" data-key="" data-hash="/cloudflare-pages.webp"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">将Hugo博客部署到Cloudflare Pages上的体验与踩坑小记</h2>
+        </div>
+    </a>
+</article>
+
+            
         </div>
     </div>
 </aside>
@@ -755,61 +774,55 @@ if (!doNotTrack) {
      
     
         
-    <link rel="stylesheet" href="/scss/partials/comments/disqusjs.min.css">
-
-<div class="disqus-container">
-    <div id="disqus_thread"></div>
-    <script type="application/javascript">
-        let disqusjs;
-        function loadDisqusJS() {
-            disqusjs = new DisqusJS({
-                shortname: "tutublog",
-                siteName: "tutuのBlog",
-                apikey: "ZjJbuwr61CDRqKHU28cfZYMz4o56oeyN2ukLbWmO1UbUl0hzKkmREQFt5nARPYFh",
-                
-                admin: "bunizao",
-                
-            });
+    <script
+    src="https://giscus.app/client.js"
+    data-repo="bunizao/discussion"
+    data-repo-id="R_kgDOJDHU-A"
+    data-category="General"
+    data-category-id="DIC_kwDOJDHU-M4CUh1C"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="en"
+    crossorigin="anonymous"
+    async
+></script>
+<script>
+    function setGiscusTheme(theme) {
+        let giscus = document.querySelector("iframe.giscus-frame");
+        if (giscus) {
+            giscus.contentWindow.postMessage(
+                {
+                    giscus: {
+                        setConfig: {
+                            theme: theme,
+                        },
+                    },
+                },
+                "https://giscus.app"
+            );
         }
+    }
 
-        function lazyLoadDisqusJS() {
-            if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-                document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-                return;
+    (function () {
+        addEventListener("message", (e) => {
+            if (event.origin !== "https://giscus.app") return;
+            handler();
+        });
+        window.addEventListener("onColorSchemeChange", handler);
+
+        function handler() {
+            if (document.documentElement.dataset.scheme === "light") {
+                setGiscusTheme('light');
+            } else {
+                setGiscusTheme('dark_dimmed');
             }
-
-            let d = document.createElement('script');
-            d.src = 'https://cdn.jsdelivr.net/npm/disqusjs@1.3/dist/disqus.js';
-            d.async = false;
-            document.body.appendChild(d);
-            d.onload = () => {
-                loadDisqusJS();
-                window.addEventListener('onColorSchemeChange', (e) => {
-                    if (disqusjs) {
-                        loadDisqusJS();
-                    }
-                })
-            }
         }
-
-        let runningOnBrowser = typeof window !== "undefined";
-        let isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
-        let supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
-
-        if (!isBot && supportsIntersectionObserver) {
-            let disqus_observer = new IntersectionObserver(function(entries) {
-                if (entries[0].isIntersecting) {
-                    lazyLoadDisqusJS();
-                    disqus_observer.disconnect();
-                }
-            });
-            disqus_observer.observe(document.getElementById('disqus_thread'));
-        } else {
-            lazyLoadDisqusJS();
-        }
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
+    })();
+</script>
 
     
 

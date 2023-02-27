@@ -13,14 +13,14 @@
         
         <guid>https://tutuis.me/links/</guid>
         <description>&lt;h2 id=&#34;himy-friends&#34;&gt;Hi!My Friends!👋&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://isagood.day&#34; title=&#34;Sebastian Luo&#34; class=&#34;friend-link&#34; target=&#34;_blank&#34; rel=&#34;friend&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://isagood.day&#34; title=&#34;Sebastian on7&#34; class=&#34;friend-link&#34; target=&#34;_blank&#34; rel=&#34;friend&#34;&gt;
     &lt;div class=&#34;friend-link-div&#34;&gt;
         &lt;div class=&#34;friend-link-avatar&#34;&gt;
             &lt;img src=https://isagood.day/img/mc.JPG class=&#34;friend-avatar&#34; loading=&#34;lazy&#34; alt=&#34;Avatar&#34;&gt;
         &lt;/div&gt;
         &lt;div class=&#34;friend-link-info&#34;&gt;
             &lt;i class=&#34;fa fa-link&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;
-            &lt;i class=&#34;friend-name&#34;&gt;Sebastian Luo&lt;/i&gt;
+            &lt;i class=&#34;friend-name&#34;&gt;Sebastian on7&lt;/i&gt;
             &lt;p class=&#34;friend-bio&#34;&gt;🧏 go stupid go crazy&lt;/p&gt;
         &lt;/div&gt;
     &lt;/div&gt;
@@ -55,12 +55,25 @@
 &lt;a href=&#34;https://loveur.life&#34; title=&#34;Marszy&#34; class=&#34;friend-link&#34; target=&#34;_blank&#34; rel=&#34;friend&#34;&gt;
     &lt;div class=&#34;friend-link-div&#34;&gt;
         &lt;div class=&#34;friend-link-avatar&#34;&gt;
-            &lt;img src=https://pic4.58cdn.com.cn/nowater/webim/big/n_v208c487a0ba574e7bab247f1d39432208.jpg class=&#34;friend-avatar&#34; loading=&#34;lazy&#34; alt=&#34;Avatar&#34;&gt;
+            &lt;img src=https://pub-f461ef2c6b1b403a9a714cd3db4a1ad0.r2.dev/2023-02-08-21.48.12.webp class=&#34;friend-avatar&#34; loading=&#34;lazy&#34; alt=&#34;Avatar&#34;&gt;
         &lt;/div&gt;
         &lt;div class=&#34;friend-link-info&#34;&gt;
             &lt;i class=&#34;fa fa-link&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;
             &lt;i class=&#34;friend-name&#34;&gt;Marszy&lt;/i&gt;
             &lt;p class=&#34;friend-bio&#34;&gt;爱你所爱&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/a&gt;
+
+&lt;a href=&#34;https://lalalalisa.me&#34; title=&#34;Troy&#34; class=&#34;friend-link&#34; target=&#34;_blank&#34; rel=&#34;friend&#34;&gt;
+    &lt;div class=&#34;friend-link-div&#34;&gt;
+        &lt;div class=&#34;friend-link-avatar&#34;&gt;
+            &lt;img src=https://pub-f461ef2c6b1b403a9a714cd3db4a1ad0.r2.dev/111b6afbdfd4854ef11509fcbf8931a.webp class=&#34;friend-avatar&#34; loading=&#34;lazy&#34; alt=&#34;Avatar&#34;&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;friend-link-info&#34;&gt;
+            &lt;i class=&#34;fa fa-link&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;
+            &lt;i class=&#34;friend-name&#34;&gt;Troy&lt;/i&gt;
+            &lt;p class=&#34;friend-bio&#34;&gt;Crying will not solve the problem.&lt;/p&gt;
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/a&gt;
