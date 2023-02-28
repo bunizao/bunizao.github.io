@@ -12,7 +12,7 @@
         <pubDate>Mon, 27 Feb 2023 00:00:00 +0000</pubDate>
         
         <guid>https://tutuis.me/Hugo-build/</guid>
-        <description>&lt;img src="https://tutuis.me/cloudflare-pages.webp" alt="Featured image of post 将Hugo博客部署到Cloudflare Pages上的体验与踩坑小记" /&gt;&lt;iframe allow=&#34;autoplay *; encrypted-media *; fullscreen *; clipboard-write&#34; frameborder=&#34;0&#34; height=&#34;175&#34; style=&#34;width:100%;max-width:1200px;overflow:hidden;background:transparent;&#34; sandbox=&#34;allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation&#34; src=&#34;https://embed.music.apple.com/album/venice-bitch/1474669063?i=1474669067&#34;&gt;&lt;/iframe&gt;
+        <description>&lt;img src="https://tutuis.me/cloudflare-pages.webp" alt="Featured image of post 将Hugo博客部署到Cloudflare Pages上的体验与踩坑小记" /&gt;&lt;iframe allow=&#34;autoplay *; encrypted-media *; fullscreen *; clipboard-write&#34; frameborder=&#34;0&#34; height=&#34;175&#34; style=&#34;width:100%;max-width:1200px;overflow:hidden;background:transparent;&#34; sandbox=&#34;allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation&#34; src=&#34;https://embed.music.apple.com/us/album/venice-bitch/1474669063?i=1474669067&#34;&gt;&lt;/iframe&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;我的博客的前身使用Hexo架构并且部署在 &lt;a class=&#34;link&#34; href=&#34;https://pages.github.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
