@@ -41,7 +41,7 @@
 &lt;p&gt;我这里使用MacOS演示。&lt;/p&gt;
 &lt;p&gt;下载好之后根据提示连接你的GitHub账号，然后在左上角点击 &lt;code&gt;Add&lt;/code&gt; -&amp;gt; &lt;code&gt;Create New Repository...&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;我们将创建一个叫&lt;code&gt;Blog&lt;/code&gt;的私有仓库，按照图片更改你喜欢的名字，以及你自己的博客文件路径。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://pub-f461ef2c6b1b403a9a714cd3db4a1ad0.r2.dev/CleanShot-2023-02-27-at-22.27.19.webp&#34;
+&lt;p&gt;&lt;img src=&#34;https://image.tutuis.me/CleanShot-2023-02-27-at-22.27.19.webp&#34;
 	
 	
 	
@@ -55,7 +55,7 @@
 &lt;li&gt;Local Path一定要修改成你自己的！&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;然后我们会得到如下界面：&lt;br&gt;
-&lt;img src=&#34;https://pub-f461ef2c6b1b403a9a714cd3db4a1ad0.r2.dev/CleanShot-2023-02-27-at-22.28.59.webp&#34;
+&lt;img src=&#34;https://image.tutuis.me/CleanShot-2023-02-27-at-22.28.59.webp&#34;
 	
 	
 	
@@ -69,7 +69,7 @@
 &lt;li&gt;如果你的Local Path 正确，左面的Changes部分应该有很多文件。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;点击右边的&lt;code&gt;Publish Repository&lt;/code&gt;,会弹出如下界面：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://pub-f461ef2c6b1b403a9a714cd3db4a1ad0.r2.dev/CleanShot-2023-02-27-at-22.29.18.webp&#34;
+&lt;p&gt;&lt;img src=&#34;https://image.tutuis.me/CleanShot-2023-02-27-at-22.29.18.webp&#34;
 	
 	
 	
@@ -119,7 +119,7 @@
 &lt;h2 id=&#34;pull&#34;&gt;Pull&lt;/h2&gt;
 &lt;p&gt;登录到 &lt;a class=&#34;link&#34; href=&#34;https://dash.cloudflare.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;&lt;strong&gt;Cloudflare 控制台&lt;/strong&gt;&lt;/a&gt;，在左侧即可看到&lt;code&gt;Pages&lt;/code&gt;。点击并且&lt;code&gt;创建一个项目&lt;/code&gt; -&amp;gt; &lt;code&gt;连接到Git&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://pub-f461ef2c6b1b403a9a714cd3db4a1ad0.r2.dev/CleanShot-2023-02-27-at-22.52.40.webp&#34;
+&lt;p&gt;&lt;img src=&#34;https://image.tutuis.me/CleanShot-2023-02-27-at-22.52.40.webp&#34;
 	
 	
 	
@@ -137,7 +137,7 @@
     &gt;&lt;strong&gt;hugo的Github发布页&lt;/strong&gt;&lt;/a&gt; 查看最新版本。或者在命令行中输入&lt;code&gt;hugo version&lt;/code&gt;查看当前使用的版本。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;如图：&lt;br&gt;
-&lt;img src=&#34;https://pub-f461ef2c6b1b403a9a714cd3db4a1ad0.r2.dev/CleanShot-2023-02-27-at-23.04.20.webp&#34;
+&lt;img src=&#34;https://image.tutuis.me/CleanShot-2023-02-27-at-23.04.20.webp&#34;
 	
 	
 	
@@ -149,7 +149,7 @@
 &gt;&lt;/p&gt;
 &lt;p&gt;然后我们开心构建即可！&lt;/p&gt;
 &lt;p&gt;这里可以绑定好多个自定义域名，均采用CNAME的形式。
-&lt;img src=&#34;https://pub-f461ef2c6b1b403a9a714cd3db4a1ad0.r2.dev/CleanShot-2023-02-27-at-23.10.03.webp&#34;
+&lt;img src=&#34;https://image.tutuis.me/CleanShot-2023-02-27-at-23.10.03.webp&#34;
 	
 	
 	
