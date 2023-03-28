@@ -10,7 +10,7 @@
 <meta property='og:description' content='Worked well on Ubuntu 22.04'>
 <meta property='og:url' content='https://tutuis.me/Command-on-Ubuntu/'>
 <meta property='og:site_name' content='tutuのBlog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='🧰Toolbox' /><meta property='article:published_time' content='2022-02-14T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-02-14T21:25:46&#43;08:00'/><meta property='og:image' content='https://tutuis.me/jammy-jellyfish-wallpaper.png' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='🧰Toolbox' /><meta property='article:published_time' content='2022-02-14T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-03-28T19:41:19&#43;08:00'/><meta property='og:image' content='https://tutuis.me/jammy-jellyfish-wallpaper.png' />
 <meta name="twitter:title" content="🧰工具箱｜一些常用的Linux命令">
 <meta name="twitter:description" content="Worked well on Ubuntu 22.04"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://tutuis.me/jammy-jellyfish-wallpaper.png' />
@@ -543,7 +543,8 @@ service ssh restart
 <p>检查一下ssh监听端口是否更改成功。</p>
 </li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo apt install netstat -antp |grep ssh 
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo apt install netstat 
+</span></span><span class="line"><span class="cl">netstat -antp |grep ssh 
 </span></span></code></pre></div><ul>
 <li>如果操作iptables后发现和docker相关的服务不能访问，记得运行 <code>systemctl stop docker</code> <code>systemctl start docker</code></li>
 </ul>
@@ -684,7 +685,7 @@ service ssh restart
 
 
         <span>
-            Last updated on Feb 14, 2023 21:25 &#43;0800
+            Last updated on Mar 28, 2023 19:41 &#43;0800
         </span>
     </section></footer>
 

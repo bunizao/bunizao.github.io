@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>journal on tutuのBlog</title>
-        <link>https://tutuis.me/tags/journal/</link>
-        <description>Recent content in journal on tutuのBlog</description>
+        <title>Diary on tutuのBlog</title>
+        <link>https://tutuis.me/categories/Diary/</link>
+        <description>Recent content in Diary on tutuのBlog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Mon, 27 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://tutuis.me/tags/journal/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 27 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://tutuis.me/categories/Diary/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>厦门漫记｜听夕阳与潮汐的奏鸣</title>
         <link>https://tutuis.me/Meet-Amoy/</link>
         <pubDate>Mon, 27 Feb 2023 00:00:00 +0000</pubDate>

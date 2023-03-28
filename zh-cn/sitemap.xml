@@ -2,11 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://tutuis.me/FlushDNS/</loc>
-    <lastmod>2023-01-10T10:33:51+08:00</lastmod>
-  </url><url>
     <loc>https://tutuis.me/categories/</loc>
-    <lastmod>2023-03-28T15:06:53+08:00</lastmod>
+    <lastmod>2023-03-28T19:41:19+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-hk"
@@ -29,7 +26,7 @@
                 />
   </url><url>
     <loc>https://tutuis.me/post/</loc>
-    <lastmod>2023-03-28T15:06:53+08:00</lastmod>
+    <lastmod>2023-03-28T19:41:19+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-hk"
@@ -52,7 +49,7 @@
                 />
   </url><url>
     <loc>https://tutuis.me/tags/</loc>
-    <lastmod>2023-03-28T15:06:53+08:00</lastmod>
+    <lastmod>2023-03-28T19:41:19+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-hk"
@@ -75,7 +72,7 @@
                 />
   </url><url>
     <loc>https://tutuis.me/tags/Toolbox/</loc>
-    <lastmod>2023-03-28T15:06:53+08:00</lastmod>
+    <lastmod>2023-03-28T19:41:19+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-hk"
@@ -103,20 +100,26 @@
     <loc>https://tutuis.me/categories/%E6%8A%98%E8%85%BE%E5%95%A5/</loc>
     <lastmod>2023-03-28T15:06:53+08:00</lastmod>
   </url><url>
+    <loc>https://tutuis.me/categories/Diary/</loc>
+    <lastmod>2023-03-28T19:41:19+08:00</lastmod>
+  </url><url>
     <loc>https://tutuis.me/tags/journal/</loc>
-    <lastmod>2023-03-28T15:06:53+08:00</lastmod>
+    <lastmod>2023-03-28T19:41:19+08:00</lastmod>
   </url><url>
     <loc>https://tutuis.me/Hugo-build/</loc>
     <lastmod>2023-03-28T15:06:53+08:00</lastmod>
   </url><url>
     <loc>https://tutuis.me/Meet-Amoy/</loc>
-    <lastmod>2023-03-28T15:06:53+08:00</lastmod>
+    <lastmod>2023-03-28T19:41:19+08:00</lastmod>
   </url><url>
     <loc>https://tutuis.me/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/</loc>
-    <lastmod>2023-03-28T15:06:53+08:00</lastmod>
+    <lastmod>2023-03-28T19:41:19+08:00</lastmod>
+  </url><url>
+    <loc>https://tutuis.me/FlushDNS/</loc>
+    <lastmod>2023-03-28T19:41:19+08:00</lastmod>
   </url><url>
     <loc>https://tutuis.me/tags/%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2023-02-14T21:25:46+08:00</lastmod>
+    <lastmod>2023-03-28T19:41:19+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-hk"
@@ -264,7 +267,7 @@
                 />
   </url><url>
     <loc>https://tutuis.me/categories/Linux/</loc>
-    <lastmod>2023-02-14T21:25:46+08:00</lastmod>
+    <lastmod>2023-03-28T19:41:19+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-hk"
@@ -318,7 +321,7 @@
                 />
   </url><url>
     <loc>https://tutuis.me/Command-on-Ubuntu/</loc>
-    <lastmod>2023-02-14T21:25:46+08:00</lastmod>
+    <lastmod>2023-03-28T19:41:19+08:00</lastmod>
   </url><url>
     <loc>https://tutuis.me/archives/</loc>
     <lastmod>2023-01-08T22:14:07+08:00</lastmod>
