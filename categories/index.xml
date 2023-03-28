@@ -6,12 +6,20 @@
         <description>Recent content in Categories on tutuのBlog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Mon, 27 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://tutuis.me/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 26 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://tutuis.me/categories/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>折腾啥</title>
         <link>https://tutuis.me/categories/%E6%8A%98%E8%85%BE%E5%95%A5/</link>
-        <pubDate>Mon, 27 Feb 2023 00:00:00 +0000</pubDate>
+        <pubDate>Sun, 26 Mar 2023 00:00:00 +0000</pubDate>
         
         <guid>https://tutuis.me/categories/%E6%8A%98%E8%85%BE%E5%95%A5/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>碎碎念</title>
+        <link>https://tutuis.me/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/</link>
+        <pubDate>Mon, 27 Feb 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://tutuis.me/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/</guid>
         <description></description>
         </item>
         <item>
