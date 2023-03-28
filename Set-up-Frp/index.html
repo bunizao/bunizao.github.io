@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='设置Frp工具内网穿透，以及使用.plist文件在MacOS守护进程。'>
-<title>简单的Frp内网穿透教程</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='设置Frp工具内网穿透，以及在MacOS / Windows守护进程。'>
+<title>使用Frp工具进行内网穿透</title>
 
 <link rel='canonical' href='https://tutuis.me/Set-up-Frp/'>
 
-<link rel="stylesheet" href="/scss/style.min.a78df0aceb5cc75ee0d8d0f1b761b3994dc644b4193f481e5c168bd216317957.css"><meta property='og:title' content='简单的Frp内网穿透教程'>
-<meta property='og:description' content='设置Frp工具内网穿透，以及使用.plist文件在MacOS守护进程。'>
+<link rel="stylesheet" href="/scss/style.min.a78df0aceb5cc75ee0d8d0f1b761b3994dc644b4193f481e5c168bd216317957.css"><meta property='og:title' content='使用Frp工具进行内网穿透'>
+<meta property='og:description' content='设置Frp工具内网穿透，以及在MacOS / Windows守护进程。'>
 <meta property='og:url' content='https://tutuis.me/Set-up-Frp/'>
 <meta property='og:site_name' content='tutuのBlog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='🧰Toolbox' /><meta property='article:published_time' content='2023-03-26T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-03-28T15:06:53&#43;08:00'/>
-<meta name="twitter:title" content="简单的Frp内网穿透教程">
-<meta name="twitter:description" content="设置Frp工具内网穿透，以及使用.plist文件在MacOS守护进程。">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='🧰Toolbox' /><meta property='article:published_time' content='2023-03-28T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-03-28T22:52:46&#43;08:00'/><meta property='og:image' content='https://image.tutuis.me/frp.gif' />
+<meta name="twitter:title" content="使用Frp工具进行内网穿透">
+<meta name="twitter:description" content="设置Frp工具内网穿透，以及在MacOS / Windows守护进程。"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://image.tutuis.me/frp.gif' />
     <link rel="shortcut icon" href="/favicon.ico" />
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-87YR7FP2Q3"></script>
@@ -349,15 +350,27 @@ if (!doNotTrack) {
             <nav id="TableOfContents">
   <ol>
     <li><a href="#前言">前言</a></li>
-    <li><a href="#优势">优势</a></li>
-    <li><a href="#教程">教程</a></li>
-    <li><a href="#push">push</a>
+    <li><a href="#准备">准备</a></li>
+    <li><a href="#搭建-frps">搭建 Frps</a>
       <ol>
-        <li><a href="#github-desktop">Github Desktop</a></li>
-        <li><a href="#ssh">SSH</a></li>
+        <li><a href="#下载安装">下载、安装</a></li>
+        <li><a href="#守护进程">守护进程</a></li>
       </ol>
     </li>
-    <li><a href="#pull">Pull</a></li>
+    <li><a href="#搭建frpc">搭建Frpc</a>
+      <ol>
+        <li><a href="#macos">MacOS</a>
+          <ol>
+            <li><a href="#守护进程-1">守护进程</a></li>
+          </ol>
+        </li>
+        <li><a href="#windows">Windows</a>
+          <ol>
+            <li><a href="#守护进程-2">守护进程</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -369,8 +382,16 @@ if (!doNotTrack) {
 
 
             <main class="main full-width">
-    <article class="main-article">
+    <article class="has-image main-article">
     <header class="article-header">
+        <div class="article-image">
+            <a href="/Set-up-Frp/">
+                
+                    <img src="https://image.tutuis.me/frp.gif" loading="lazy" alt="Featured image of post 使用Frp工具进行内网穿透" />
+                
+            </a>
+        </div>
+    
 
     <div class="article-details">
     
@@ -385,12 +406,12 @@ if (!doNotTrack) {
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/Set-up-Frp/">简单的Frp内网穿透教程</a>
+            <a href="/Set-up-Frp/">使用Frp工具进行内网穿透</a>
         </h2>
     
         
         <h3 class="article-subtitle">
-            设置Frp工具内网穿透，以及使用.plist文件在MacOS守护进程。
+            设置Frp工具内网穿透，以及在MacOS / Windows守护进程。
         </h3>
         
     </div>
@@ -411,7 +432,7 @@ if (!doNotTrack) {
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Mar 26, 2023</time>
+                <time class="article-time--published">Mar 28, 2023</time>
             </div>
         
 
@@ -426,7 +447,7 @@ if (!doNotTrack) {
 
 
                 <time class="article-time--reading">
-                    3 minute read
+                    6 minute read
                 </time>
             </div>
         
@@ -441,154 +462,243 @@ if (!doNotTrack) {
     <section class="article-content">
     
     
-    <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="175" style="width:100%;max-width:1200px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/us/album/venice-bitch/1474669063?i=1474669067"></iframe>
+    <h2 id="前言">前言</h2>
+<p>适逢 Surge Mac 5 新增内网穿透工具 <a class="link" href="https://blankwonder.medium.com/surge-ponte-%E7%A0%94%E5%8F%91%E6%89%8B%E8%AE%B0-c145726fc07c"  target="_blank" rel="noopener"
+    ><strong>Surge Ponte</strong></a>，我为什么要反其道而行之，在Mac上折腾 Frp呢？</p>
+<ul>
+<li><code>Surge Ponte</code> 在大多数用户侧均使用UDP代理转发的形式实现内网穿透，实际体验下来与Frp的速度相差不少。</li>
+<li>我曾经做过一次不那么严谨的测试：在局域网外分别通过 Ponte 与 Frp 访问 Surge的 <code>Remote Controller</code> ，从Surge主界面进入到 <code>Recent Requests</code> 内，Ponte用时7秒，而 Frp仅仅2秒。由于不是那么严谨，我只能大概估计动画、代理服务器到我本地的RTT、以及我的手速等影响因素。</li>
+<li>由于Cloudflare Pages对视频流托管的限制，我将这段视频发到了我的 <a class="link" href="https://t.me/hututu00/514"  target="_blank" rel="noopener"
+    ><strong>Telegram频道。</strong></a></li>
+</ul>
+<p>接下来，让我们开始吧！</p>
+<h2 id="准备">准备</h2>
+<p>你需要拥有一台有公网IP的服务器，我这里使用腾讯云作为Frps客户端。</p>
+<ul>
+<li>
+<p>这台服务器到你地区的延迟越低越好，带宽不应小于<code>5Mbps</code>。</p>
+</li>
+<li>
+<p>下文所指的Frps(Server)指的是服务端，而Frpc(Client)则为客户端。</p>
+</li>
+</ul>
+<p>你还需要一些Linux基础命令，以及最基本的对MacOS的熟悉。</p>
 <hr>
-<h2 id="前言">前言</h2>
-<p>我的博客的前身使用Hexo架构并且部署在 <a class="link" href="https://pages.github.com/"  target="_blank" rel="noopener"
-    ><strong>GitHub Pages</strong></a> 上面，可惜GitHub经常收到功夫网的影响，对来自中国大陆的访客可谓是苦不堪言（虽然也没多少阅读量）。于是本着博客是写给自己看的原则，我又套上了Cloudflare CDN，速度仍然不太理想。恰好遇到了一个好看的Hugo主题，决定将博客迁移到Hugo架构，并且使用 <a class="link" href="https://pages.cloudflare.com/"  target="_blank" rel="noopener"
-    ><strong>Cloudflare Pages</strong></a> 托管静态页面。一气呵成。得益于原生的Cloudflare CDN，所以在全球范围内访问速度都还不错。</p>
-<blockquote>
-<p>博客是写给自己看的。 &ndash; ceru</p>
-</blockquote>
-<h2 id="优势">优势</h2>
-<p>托管我为什么不选择 <a class="link" href="https://pages.github.com/"  target="_blank" rel="noopener"
-    ><strong>GitHub Pages</strong></a> ？</p>
-<ul>
-<li>Cloudflare Pages的 CI/CD 非常丝滑稳定，基本上本地push到GitHub仓库，几秒钟后就可以进行部署，两分钟后更改就可以上线。每个月免费构建额度是500次，但是我觉得99%的人都够用了吧（（</li>
-<li>Cloudflare Pages在中国大陆的连通性还算不错。至少比GitHub好多了（</li>
-<li><strong>Cloudflare Pages可以从Github私有仓库拉取博客源文件</strong>，而且不需要配置麻烦的公钥和Token。更别说复杂的GitHub Action了，构建博客的过程相当丝滑。</li>
-<li>可以绑定多个自定义域名，也会直接送你一个 <code>xxxx.pages.dev</code> 的三级域名（类似于 xxxx.github.io，不过这个可以定制不是吗（</li>
-<li>每一次构建都会保留存档，方便回味（bushi</li>
-<li>构建飞快，支持<code>fast build</code>。</li>
+<h2 id="搭建-frps">搭建 Frps</h2>
+<h3 id="下载安装">下载、安装</h3>
+<p>使用SSH连接远程服务器。可以输入以下命令来查看系统架构：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">arch
+</span></span></code></pre></div><p>查看结果，如果是<code>X86_64</code>即可选择<code>amd64</code>。</p>
+<p>执行以下命令下载并解压Frp：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">wget https://github.com/fatedier/frp/releases/download/v0.48.0/frp_0.48.0_linux_amd64.tar.gz
+</span></span><span class="line"><span class="cl">tar -zxvf frp_0.48.0_linux_amd64.tar.gz
+</span></span></code></pre></div><ul>
+<li>注：这里的 <a class="link" href="https://github.com/fatedier/frp/releases/download/v0.48.0/frp_0.48.0_linux_amd64.tar.gz"  target="_blank" rel="noopener"
+    ><code>frp_0.48.0</code></a> 为发稿前的最新版本，请前往 <a class="link" href="https://github.com/fatedier/frp/releases"  target="_blank" rel="noopener"
+    ><strong>Release 页面</strong></a> 查看并下载最新版本。</li>
 </ul>
-<h2 id="教程">教程</h2>
-<h2 id="push">push</h2>
-<h3 id="github-desktop">Github Desktop</h3>
-<p>我们需要将博客的源文件push到GitHub或GitLab，个人喜欢GitHub。<br>
-可以在本地电脑下载 <a class="link" href="https://desktop.github.com/"  target="_blank" rel="noopener"
-    ><strong>GitHub Desktop</strong></a> , UI化连接GitHub仓库，不需要ssh操作，方便很多。</p>
-<p>我这里使用MacOS演示。</p>
-<p>下载好之后根据提示连接你的GitHub账号，然后在左上角点击 <code>Add</code> -&gt; <code>Create New Repository...</code></p>
-<p>我们将创建一个叫<code>Blog</code>的私有仓库，按照图片更改你喜欢的名字，以及你自己的博客文件路径。</p>
-<p><img src="https://image.tutuis.me/CleanShot-2023-02-27-at-22.27.19.webp"
-	
-	
-	
-	loading="lazy"
-	
-		alt="p1"
-	
-	
-></p>
-<ul>
-<li>Local Path一定要修改成你自己的！</li>
+<p>改个名字，方便cd:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cp -r frp_0.48.0_linux_amd64 frps
+</span></span><span class="line"><span class="cl">cd frps
+</span></span></code></pre></div><p>如果正确，/frps 内的文件树应该是这样子的：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">root@ubuntu:~# tree frps
+</span></span><span class="line"><span class="cl">frps
+</span></span><span class="line"><span class="cl">├── LICENSE
+</span></span><span class="line"><span class="cl">├── frpc
+</span></span><span class="line"><span class="cl">├── frpc.ini
+</span></span><span class="line"><span class="cl">├── frpc_full.ini
+</span></span><span class="line"><span class="cl">├── frps
+</span></span><span class="line"><span class="cl">├── frps.ini
+</span></span><span class="line"><span class="cl">└── frps_full.ini
+</span></span></code></pre></div><p>这里多余了frpc的相关文件，我们可以将其删去：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">rm frpc frpc.ini frpc_full.ini LICENSE
+</span></span></code></pre></div><p>接着，使用你喜欢的方式修改 <code>frps.ini</code> 文件，这个文件为frps的配置文件，应有如下格式：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[common]
+</span></span><span class="line"><span class="cl">bind_addr = 0.0.0.0
+</span></span><span class="line"><span class="cl">bind_port = 37000
+</span></span><span class="line"><span class="cl">token = [RANDOM_PASSWORD]
+</span></span><span class="line"><span class="cl">dashboard_addr = 0.0.0.0
+</span></span><span class="line"><span class="cl">dashboard_port = 37500
+</span></span><span class="line"><span class="cl">dashboard_user = admin
+</span></span><span class="line"><span class="cl">dashboard_pwd = admin
+</span></span></code></pre></div><ul>
+<li><code>bind_port</code>表示用于客户端和服务端连接的端口，这个端口号我们之后在配置客户端的时候要用到。</li>
+<li><code>token</code>是用于客户端和服务端连接鉴权的密钥，请务必修改为**随机强字符，**以减少爆破风险。</li>
+<li><code>dashboard_port</code>是frps控制面板的端口，如果使用该配置请访问 <code>IP:37500</code>查看控制面板。</li>
+<li><code>dashboard_user</code> 和<code>dashboard_pwd</code> 为访问控制面板时的登录用户名和密码，设置成自己喜欢的。</li>
 </ul>
-<p>然后我们会得到如下界面：<br>
-<img src="https://image.tutuis.me/CleanShot-2023-02-27-at-22.28.59.webp"
-	
-	
-	
-	loading="lazy"
-	
-		alt="p2"
-	
-	
-></p>
+<p>编辑完成之后记得保存。</p>
+<p>输入以下命令启动frps：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">./frps -c frps.ini
+</span></span></code></pre></div><p>如果一切配置正确，屏幕上会显示：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1970/01/01 23:59:59 [I] [service.go:130] frps tcp listen on 0.0.0.0:37000
+</span></span><span class="line"><span class="cl">1970/01/01 23:59:59 [I] [service.go:193] https service listen on 0.0.0.0:10443
+</span></span><span class="line"><span class="cl">1970/01/01 23:59:59 [I] [service.go:216] Dashboard listen on 0.0.0.0:37500
+</span></span><span class="line"><span class="cl">1970/01/01 23:59:59 [I] [root.go:210] Start frps success
+</span></span></code></pre></div><p>现在在浏览器访问 <code>IP:37500</code> 即可打开控制面板。</p>
+<h3 id="守护进程">守护进程</h3>
+<p>我们使用<code>nohup</code> 守护frps进程。这个工具可以帮助我们在系统重启时自动运行frps程序。</p>
+<p>我们使用<code>Ctrl + C</code> 结束当前的进程 然后输入：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">nohup ./frps -c frps.ini &amp;
+</span></span></code></pre></div><p>如果看到输出结果为：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">nohup: ignoring input and appending output to &#39;nohup.out&#39;
+</span></span></code></pre></div><p>则成功，可以按<code>Ctrl + C</code> 退出。</p>
+<p>可以刷新下frps面板，看看是否能继续访问。或者使用<code>jobs</code> 命令：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[1]+  Running                 nohup ./frps -c frps.ini &amp;
+</span></span></code></pre></div><p>如果输出的是以上结果，则表示frps搭建成功。</p>
+<hr>
+<h2 id="搭建frpc">搭建Frpc</h2>
+<h3 id="macos">MacOS</h3>
+<p>我们仍需要下载Frp的可执行文件，不同于Linux，我们可以在MacOS上前往 <a class="link" href="https://github.com/fatedier/frp/releases"  target="_blank" rel="noopener"
+    ><strong>Release 页面</strong></a> 查看并下载最新版本。</p>
 <ul>
-<li>如果你的Local Path 正确，左面的Changes部分应该有很多文件。</li>
+<li><a class="link" href="https://github.com/fatedier/frp/releases/download/v0.48.0/frp_0.48.0_darwin_amd64.tar.gz"  target="_blank" rel="noopener"
+    >frp_0.48.0_darwin_amd64.tar.gz</a> 适用于搭载 Intel 芯片的 Mac 设备。</li>
+<li><a class="link" href="https://github.com/fatedier/frp/releases/download/v0.48.0/frp_0.48.0_darwin_arm64.tar.gz"  target="_blank" rel="noopener"
+    >frp_0.48.0_darwin_arm64.tar.gz</a> 适用于搭载 Apple Silicon(M1/M2) 芯片的 Mac 设备。</li>
 </ul>
-<p>点击右边的<code>Publish Repository</code>,会弹出如下界面：</p>
-<p><img src="https://image.tutuis.me/CleanShot-2023-02-27-at-22.29.18.webp"
-	
-	
-	
-	loading="lazy"
-	
-		alt="p3"
-	
-	
-></p>
+<p>下载完成后解压，我将这个文件夹命名为<code>frpc</code> 且移动到了<code>~/users/$(whoami)</code> 目录下。</p>
+<p>然后删除与frps有关的文件：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">rm frps frps.ini frps_full.ini LICENSE
+</span></span></code></pre></div><p>之后就可以编辑<code>frpc.ini</code> 配置文件了。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[common]
+</span></span><span class="line"><span class="cl">server_addr = 
+</span></span><span class="line"><span class="cl">server_port = 
+</span></span><span class="line"><span class="cl">token = 
+</span></span><span class="line"><span class="cl">log_level = info
+</span></span><span class="line"><span class="cl">log_max_days = 3
+</span></span><span class="line"><span class="cl">admin_addr = 127.0.0.1
+</span></span><span class="line"><span class="cl">admin_port = 7400
+</span></span><span class="line"><span class="cl">admin_user = admin
+</span></span><span class="line"><span class="cl">admin_pwd = admin
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[Surge-SnellServer]
+</span></span><span class="line"><span class="cl">type = tcp
+</span></span><span class="line"><span class="cl">local_ip =127.0.0.1
+</span></span><span class="line"><span class="cl">local_port = 6160
+</span></span><span class="line"><span class="cl">remote_port = 7001
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[Surge-RemoteController]
+</span></span><span class="line"><span class="cl">type = tcp
+</span></span><span class="line"><span class="cl">local_ip =127.0.0.1
+</span></span><span class="line"><span class="cl">local_port = 6170
+</span></span><span class="line"><span class="cl">remote_port = 6170
+</span></span></code></pre></div><ul>
+<li><code>server_addr</code>、<code>server_port</code> 、<code>token</code>这三项我们需要到<code>frps.ini</code>中寻找答案。
 <ul>
-<li>为了保护博客的源文件，请tick✔️上<code>Keep this code private</code>。</li>
-</ul>
-<p>然后publish即可。下次更新博客只需要打开<code>GitHub Desktop</code> 然后 <code>command + P</code>即可。</p>
-<h3 id="ssh">SSH</h3>
-<p>在进行之前，我们需要配置GitHub鉴权使用的SSH Key。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## 先切换到博客目录，更改成你自己的
-</span></span><span class="line"><span class="cl">cd ~/home/blog
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">## 初始化本地Git仓库
-</span></span><span class="line"><span class="cl">git init
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">## 设置名为Origin的远端Git仓库，同样更改成你自己的
-</span></span><span class="line"><span class="cl">git remote add origin git@github.com:username/reponame:git
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">## 选择所有文件
-</span></span><span class="line"><span class="cl">git add -A
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">## 为本次commit写一个summary
-</span></span><span class="line"><span class="cl">git commit -m &#34;initial commit&#34;
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">## Push到github
-</span></span><span class="line"><span class="cl">git push -u origin main
-</span></span></code></pre></div><p>我这里写了一个<code>deploy.sh</code>，方便大家后续更新博客使用。</p>
-<blockquote>
-<p>使用 <a class="link" href="https://www.dropbox.com/s/oth9jf9ovfx7hqu/deploy.sh?dl=1"  target="_blank" rel="noopener"
-    ><strong>Dropbox</strong></a> 下载</p>
-</blockquote>
-<ul>
-<li>特性：
-<ul>
-<li>commit为当前发布的时间</li>
-<li>发布时可以优雅地 <code>bash deploy.sh</code>，而不需要敲5行命令。</li>
+<li>分别填你服务器的地址、端口、以及设置的token。</li>
 </ul>
 </li>
 </ul>
-<hr>
-<h2 id="pull">Pull</h2>
-<p>登录到 <a class="link" href="https://dash.cloudflare.com/"  target="_blank" rel="noopener"
-    ><strong>Cloudflare 控制台</strong></a>，在左侧即可看到<code>Pages</code>。点击并且<code>创建一个项目</code> -&gt; <code>连接到Git</code>。</p>
-<p><img src="https://image.tutuis.me/CleanShot-2023-02-27-at-22.52.40.webp"
-	
-	
-	
-	loading="lazy"
-	
-		alt="p4"
-	
-	
-></p>
-<p>登录到GitHub账户，选择我们刚刚创建的repo，这里可能需要一些权限。</p>
-<p>填写项目名称，Cloudflare Pages会生成一个<code>progressname.pages.dev</code> 的三级域名，我们之后的自定义域名会被CNAME到这个三级域名上。</p>
-<p>这里我使用的是hugo构建，会遇到一个小坑，解决方式也很简单，在环境变量的部分指定 <code>HUGO_VERSION = 0.110.0</code>即可。</p>
-<ul>
-<li><code>v0.110.0</code>是截止发稿时的hugo最新版本，可以在 <a class="link" href="https://github.com/gohugoio/hugo/releases"  target="_blank" rel="noopener"
-    ><strong>hugo的Github发布页</strong></a> 查看最新版本。或者在命令行中输入<code>hugo version</code>查看当前使用的版本。</li>
+<p>我开放了两个端口。以<code>Surge-SnellServer</code> 为例 ，这会将我内网中的 6160端口转发给远端的7001端口，也就是说，我直接访问<code>IP:7001</code> 即可通过Snell加密协议连回家中。</p>
+<p>我们需要在Surge for Mac的配置文件中编辑：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[Snell Server]
+</span></span><span class="line"><span class="cl">interface = 0.0.0.0
+</span></span><span class="line"><span class="cl">port = 6160
+</span></span><span class="line"><span class="cl">psk = {RAMDOM_PASSWORD}
+</span></span><span class="line"><span class="cl">obfs = off
+</span></span></code></pre></div><ul>
+<li><code>psk =</code>  也应填写随机字符串。</li>
 </ul>
-<p>如图：<br>
-<img src="https://image.tutuis.me/CleanShot-2023-02-27-at-23.04.20.webp"
+<p>如果成功，Surge for Mac会弹出这样一条通知：</p>
+<p><img src="https://image.tutuis.me/%E6%88%AA%E5%B1%8F2023-03-28%20%E4%B8%8B%E5%8D%886.36.11.png"
 	
 	
 	
 	loading="lazy"
 	
-		alt="p5"
+		alt="截屏2023-03-28 下午6.36.11.png"
 	
 	
 ></p>
-<p>然后我们开心构建即可！</p>
-<p>这里可以绑定好多个自定义域名，均采用CNAME的形式。
-<img src="https://image.tutuis.me/CleanShot-2023-02-27-at-23.10.03.webp"
-	
-	
-	
-	loading="lazy"
-	
-		alt="p6"
-	
-	
-></p>
-<p>我们还可以使用Cloudflare自选ip，让博客更快一步。互联网上已经有很多轮子，这里不再介绍。</p>
+<p>我们在其他的Surge设备上添加代理：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[Proxy]
+</span></span><span class="line"><span class="cl">Home = snell, YOUR_IP, 7001, psk={psk}, test-url=http://wifi.vivo.com.cn/generate_204
+</span></span></code></pre></div><ul>
+<li>注意：这里的端口号请填写<code>frpc.ini</code> 中的<code>remote_port</code> 。</li>
+</ul>
+<p>这样就会将Surge for Mac作为Snell的代理服务端，然后通过frp服务中转到公网上面。我们连接这个Snell代理之后，就可以连接 <code>192.168.*.*</code> 或者<code>Macbook.local</code> 之类的的内网设备了。</p>
+<p>都配置好后，我们可以执行 <code>./frpc -c frpc.ini</code> 来观察是否可以成功启动服务。</p>
+<p>讲了这么多，如何在MacOS守护frp进程呢？</p>
+<h4 id="守护进程-1">守护进程</h4>
+<p>我们需要前往 <code>设置</code>  → <code>用户与群组</code> 中将<code>自动以此身份登录</code> 开启。frpc则需要进一步地通过在<code>launchd</code> 下编写.plist启动文件实现开机自启。</p>
+<p>我们需要在 ~<code>/Library/LaunchAgents</code> 目录下创建f<code>rpc.plist</code> 文件。这个过程可能需要root权限。由于MacOS系统自带的权限混乱问题，想要编辑这个目录下的文件还是有些难度的。我们可以在SSH下通过v<code>im</code> 编辑，也可以直接下载我提供的文件，编辑后再拖入文件夹。</p>
+<ul>
+<li><code>~/Library/LaunchAgents</code>在Finder里面是被隐藏的，我们需要快捷键<code>Command + Shift + G</code>进入该目录。请千万不要忘记前面的**「~」**。</li>
+<li>如果还遇到了权限问题，我们可以使用以下命令给这个文件赋权：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">chmod +x /path/to/frpc.list
+</span></span></code></pre></div><p>需要注意的是，赋予权限可能会导致文件被意外修改或删除。因此，只有在非常必要的情况下才应该赋予权限。在使用时，需谨慎操作。</p>
+<p>以下为<code>frpc.plist</code> 的内容：</p>
+<blockquote>
+<p><a class="link" href="https://www.dropbox.com/s/nxitffqffh2o7cv/frpc.plist?dl=1"  target="_blank" rel="noopener"
+    ><strong>使用Dropbox下载</strong></a></p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;
+</span></span><span class="line"><span class="cl">&lt;!DOCTYPE plist PUBLIC -//Apple Computer//DTD PLIST 1.0//EN
+</span></span><span class="line"><span class="cl">http://www.apple.com/DTDs/PropertyList-1.0.dtd &gt;
+</span></span><span class="line"><span class="cl">&lt;plist version=&#34;1.0&#34;&gt;
+</span></span><span class="line"><span class="cl">&lt;dict&gt;
+</span></span><span class="line"><span class="cl">    &lt;key&gt;Label&lt;/key&gt;
+</span></span><span class="line"><span class="cl">    &lt;string&gt;frpc&lt;/string&gt;
+</span></span><span class="line"><span class="cl">    &lt;key&gt;ProgramArguments&lt;/key&gt;
+</span></span><span class="line"><span class="cl">    &lt;array&gt;
+</span></span><span class="line"><span class="cl">         &lt;string&gt;/Users/$(whoami)/frpc/frpc&lt;/string&gt;
+</span></span><span class="line"><span class="cl">         &lt;string&gt;-c&lt;/string&gt;
+</span></span><span class="line"><span class="cl">         &lt;string&gt;/Users/$(whoami)/frpc/frpc.ini&lt;/string&gt;
+</span></span><span class="line"><span class="cl">    &lt;/array&gt;
+</span></span><span class="line"><span class="cl">    &lt;key&gt;KeepAlive&lt;/key&gt;
+</span></span><span class="line"><span class="cl">    &lt;true/&gt;
+</span></span><span class="line"><span class="cl">    &lt;key&gt;RunAtLoad&lt;/key&gt;
+</span></span><span class="line"><span class="cl">    &lt;true/&gt;
+</span></span><span class="line"><span class="cl">&lt;/dict&gt;
+</span></span><span class="line"><span class="cl">&lt;/plist&gt;
+</span></span></code></pre></div><ul>
+<li>注意：这个配置文件中默认将frp的目录放在了<code>/Users/$(whoami)/frpc</code> 下，请核对并修改为你自己的目录。</li>
+</ul>
+<p>最后，在终端输入下面的两段命令给<code>frpc.plist</code> 赋予权限，并加载配置到系统使配置生效。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo chown root ~/Library/LaunchAgents/frpc.plist
+</span></span><span class="line"><span class="cl">sudo launchctl load -w ~/Library/LaunchAgents/frpc.plist
+</span></span></code></pre></div><p>如果不想开机自启，只需要输入下面的命令即可。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo launchctl unload -w ~/Library/LaunchAgents/frpc.plist
+</span></span></code></pre></div><hr>
+<h3 id="windows">Windows</h3>
+<p>同样地，可以根据客户端的不同前往<a class="link" href="https://github.com/fatedier/frp/releases"  target="_blank" rel="noopener"
+    ><strong>Release 页面</strong></a> 选择不同的版本进行下载，Windows下载和解压等步骤不再描述。</p>
+<p>本文将 <code>/frpc</code> 放在C盘根目录下。</p>
+<p>使用命令提示符或Powershell执行：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cd C:\frpc
+</span></span><span class="line"><span class="cl">./frpc -c frpc.ini
+</span></span></code></pre></div><p>可以观察到frp程序已成功运行。</p>
+<h4 id="守护进程-2">守护进程</h4>
+<p>我们使用一个批处理文件<code>frpc.bat</code> 将frpc挂在后台运行。</p>
+<blockquote>
+<p><a class="link" href="https://www.dropbox.com/s/zpyg8lumoroajgq/frpc.bat?dl=1"  target="_blank" rel="noopener"
+    ><strong>使用Dropbox下载</strong></a></p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">@echo off
+</span></span><span class="line"><span class="cl">if &#34;%1&#34; == &#34;h&#34; goto begin
+</span></span><span class="line"><span class="cl">mshta vbscript:createobject(&#34;wscript.shell&#34;).run(&#34;&#34;&#34;%~nx0&#34;&#34; h&#34;,0)(window.close)&amp;&amp;exit
+</span></span><span class="line"><span class="cl">:begin
+</span></span><span class="line"><span class="cl">REM
+</span></span><span class="line"><span class="cl">cd C:\frpc
+</span></span><span class="line"><span class="cl">frpc -c frpc.ini
+</span></span><span class="line"><span class="cl">exit
+</span></span></code></pre></div><ul>
+<li>注意：这个配置文件中默认将frp的目录放在了<code>C:\frpc</code> 下，请核对并修改为你自己的目录。</li>
+</ul>
+<p>如果需要开机启动，将<code>frpc.bat</code>丢到Windows的开机启动文件夹即可。</p>
+<p>强烈建议你在使用frp直接测试内网穿透前，先在局域网内测试好相关功能的正常使用，并配置好可能会影响的Windows防火墙等内容，在内网调试通过后再使用frp进行内网穿透测试。</p>
+<hr>
+<h1 id="reference">Reference:</h1>
+<ul>
+<li><a class="link" href="https://sspai.com/post/52523"  target="_blank" rel="noopener"
+    >使用frp进行内网穿透 - 少数派</a></li>
+<li><a class="link" href="https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html"  target="_blank" rel="noopener"
+    >Creating Launch Daemons and Agents</a></li>
+<li><a class="link" href="https://gofrp.org/"  target="_blank" rel="noopener"
+    >frp</a></li>
+</ul>
 
 </section>
 
@@ -624,7 +734,7 @@ if (!doNotTrack) {
 
 
         <span>
-            Last updated on Mar 28, 2023 15:06 &#43;0800
+            Last updated on Mar 28, 2023 22:52 &#43;0800
         </span>
     </section></footer>
 
