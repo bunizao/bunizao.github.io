@@ -1,10 +1,976 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
-  <head>
-    <title>https://tutuis.me/surge-gateway/</title>
-    <link rel="canonical" href="https://tutuis.me/surge-gateway/">
-    <meta name="robots" content="noindex">
-    <meta charset="utf-8">
-    <meta http-equiv="refresh" content="0; url=https://tutuis.me/surge-gateway/">
-  </head>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Mac &#43; Surge = Homelab Mini'>
+<title>配置Surge网关接管家庭网络，让老旧Mac也能成为Homelab</title>
+
+<link rel='canonical' href='https://tutuis.me/SurgeGateway/'>
+
+<link rel="stylesheet" href="/scss/style.min.a78df0aceb5cc75ee0d8d0f1b761b3994dc644b4193f481e5c168bd216317957.css"><meta property='og:title' content='配置Surge网关接管家庭网络，让老旧Mac也能成为Homelab'>
+<meta property='og:description' content='Mac &#43; Surge = Homelab Mini'>
+<meta property='og:url' content='https://tutuis.me/SurgeGateway/'>
+<meta property='og:site_name' content='tutuのBlog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='教程' /><meta property='article:published_time' content='2022-12-09T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-01-12T14:26:21&#43;08:00'/><meta property='og:image' content='https://tutuis.me/ce5792552b8a496daecc793dccbfeadd.webp' />
+<meta name="twitter:title" content="配置Surge网关接管家庭网络，让老旧Mac也能成为Homelab">
+<meta name="twitter:description" content="Mac &#43; Surge = Homelab Mini"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://tutuis.me/ce5792552b8a496daecc793dccbfeadd.webp' />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-87YR7FP2Q3"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-87YR7FP2Q3', { 'anonymize_ip': false });
+}
+</script>
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    <img src="https://avatars.githubusercontent.com/u/102936102?v=4" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+                    <span class="emoji">🫧</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">tutuのBlog</a></h1>
+            <h2 class="site-description">A rose by any other name would smell as sweet.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='/index.xml'
+                        target="_blank"
+                        title="RSS Feed"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/bunizao'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://t.me/hututu0'
+                        target="_blank"
+                        title="Telegram"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-telegram" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/About' >
+                
+                
+                    
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/Mine' >
+                
+                
+                    
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M9.828 9.172a4 4 0 1 0 0 5.656 a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828 a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
+</svg>
+
+
+
+                
+                <span>Mine</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/links' >
+                
+                
+                    
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://tutuis.me/" selected>🇨🇳简体中文</option>
+                        
+                            <option value="https://tutuis.me/zh-hk/" >🇭🇰繁體中文</option>
+                        
+                            <option value="https://tutuis.me/zh-tw/" >🇹🇼正體中文</option>
+                        
+                            <option value="https://tutuis.me/en/" >🇬🇧English</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#前言的前言">前言的前言</a></li>
+        <li><a href="#进入正题">进入正题</a></li>
+        <li><a href="#我准备了什么">我准备了什么</a></li>
+        <li><a href="#我的部署方案">我的部署方案</a></li>
+      </ol>
+    </li>
+    <li><a href="#surge网关">Surge网关</a>
+      <ol>
+        <li><a href="#在有显示器的条件下操作">在有显示器的条件下操作：</a></li>
+        <li><a href="#在vnc上操作">在VNC上操作：</a></li>
+        <li><a href="#增强内容">增强内容</a>
+          <ol>
+            <li><a href="#surge远程控制器">Surge远程控制器</a></li>
+            <li><a href="#web-dashboard">Web Dashboard</a></li>
+            <li><a href="#mitm">MitM</a></li>
+            <li><a href="#我遇到的问题和解决办法">我遇到的问题和解决办法</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#nas-mini">NAS Mini</a>
+      <ol>
+        <li><a href="#timemachine">TimeMachine</a>
+          <ol>
+            <li><a href="#常见问题">常见问题</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#docker">Docker</a>
+      <ol>
+        <li><a href="#安装">安装</a></li>
+        <li><a href="#使用">使用</a></li>
+      </ol>
+    </li>
+    <li><a href="#后记">后记</a>
+      <ol>
+        <li><a href="#欢迎加入我的telegram交流群图图の翻斗後花園httpstmehututu000">欢迎加入我的telegram交流群:<a href="https://t.me/hututu000"><strong>图图の翻斗後花園</strong></a></a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/SurgeGateway/">
+                
+                    <img src="/ce5792552b8a496daecc793dccbfeadd.webp" loading="lazy" alt="Featured image of post 配置Surge网关接管家庭网络，让老旧Mac也能成为Homelab" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E6%8A%98%E8%85%BE%E5%95%A5/" >
+                折腾啥
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/SurgeGateway/">配置Surge网关接管家庭网络，让老旧Mac也能成为Homelab</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Mac &#43; Surge = Homelab Mini
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Dec 09, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    5 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="前言">前言</h1>
+<h3 id="前言的前言">前言的前言</h3>
+<blockquote>
+<p>此篇文章的图片以WebP格式托管在中国大陆的服务器上，WebP格式可以以很小的体积展示出惊艳的显示效果。这极大地减轻了您的设备的加载负担。我们已经尽最大努力保证您的访问体验。</p>
+</blockquote>
+<blockquote>
+<p>本篇博客也是一个测试项目。</p>
+</blockquote>
+<ul>
+<li><a class="link" href="https://dribbble.com/shots/2557494-Surge-for-Mac-redesign"  target="_blank" rel="noopener"
+    ><strong>Featured image</strong></a></li>
+</ul>
+<h3 id="进入正题">进入正题</h3>
+<blockquote>
+<p>由于疫情隔离在家很是无聊，突然在压箱底儿找到了个屏幕坏掉的Macbook。经过在<a class="link" href="https://t.me/GetSomeFries"  target="_blank" rel="noopener"
+    ><strong>🍟整点薯条</strong></a>群组内的灵魂交流，突然灵感迸发。调试了一段时间很是满意。下面我将会介绍我是如何利用 <a class="link" href="https://nssurge.com"  target="_blank" rel="noopener"
+    ><strong>Surge for Mac</strong></a> 这个 SUPER POWERFUL 的代理软件优化我家里的网络，以及遇到的一些困难，并且我是如何解决的。</p>
+</blockquote>
+<h3 id="我准备了什么">我准备了什么</h3>
+<ul>
+<li>一台 Macbook Pro 2013 ｜CNY 0</li>
+<li>Apple官网购买的 <a class="link" href="https://store.apple.com/cn/xc/product/MD463FE/A"  target="_blank" rel="noopener"
+    ><strong>雷雳2转千兆以太网转换器</strong></a> | CNY 223</li>
+<li>Surge for Mac License ｜ CNY 145</li>
+<li>这是我电脑的配置</li>
+</ul>
+<img src="https://m1.im5i.com/2022/12/09/U5fu6M.webp" alt="U5fu6M.webp" border="0" />
+<h3 id="我的部署方案">我的部署方案</h3>
+<p>因为我们是想让这台旧Mac作旁路由， 所以直接将Mac连到路由器上就OK。</p>
+<ul>
+<li>我的MacBook屏幕是坏掉的，所以在初次部署的时候会有很多困难！</li>
+<li>为了方便以后操控电脑，我推荐使用Apple官方推出的VNC工具：<a class="link" href="https://apps.apple.com/tw/app/apple-remote-desktop/id409907375?mt=12"  target="_blank" rel="noopener"
+    ><strong>Apple Remote Desktop</strong></a>
+<ul>
+<li>这个工具超级超级好用，延迟很低很丝滑。</li>
+<li>别看到价格就劝退，要勤于Google。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="surge网关">Surge网关</h2>
+<p>相信看到我这篇文章的你已经是一位 <strong>power user of Surge</strong>。所以我们不对具体细节进行介绍。</p>
+<h3 id="在有显示器的条件下操作">在有显示器的条件下操作：</h3>
+<ul>
+<li>去官网获取<a class="link" href="https://dl.nssurge.com/mac/v4/Surge-latest.zip"  target="_blank" rel="noopener"
+    ><strong>free trial</strong></a>安装包</li>
+<li>倒入配置
+<ul>
+<li>推荐使用 <a class="link" href="https://github.com/bunizao/TutuBetterRules/blob/tutu/Surge/README.md"  target="_blank" rel="noopener"
+    ><strong>TutuBetterRules</strong></a>！</li>
+</ul>
+</li>
+<li>MacOS仅在熄屏时才会开启VNC通道，所以你需要将其熄屏才能脱离显示器操作。</li>
+<li>记得关闭所有电池选项
+<ul>
+<li>低电量模式选择 <code>永不</code></li>
+<li>点击右下角的<code>选项...</code>，请按下图设置：</li>
+</ul>
+</li>
+</ul>
+<img src="https://m1.im5i.com/2022/12/09/U5JKFF.webp" alt="U5JKFF.webp" border="0">
+<h3 id="在vnc上操作">在VNC上操作：</h3>
+<p>把电脑和路由器连接好后：</p>
+<ul>
+<li>进入Surge主界面，按照指引开启Surge的DHCP服务器。</li>
+<li>网络设备选择：<code>Ethernet</code></li>
+<li>根据指引关闭路由器的DHCP服务器。</li>
+</ul>
+<p>推荐观看这个视频，了解更详细的Surge部署技巧，本文不作详细介绍。
+<div class="video-wrapper">
+    <iframe loading="lazy" 
+            src="https://www.youtube.com/embed/68lcT7ItyP4" 
+            allowfullscreen 
+            title="YouTube Video"
+    >
+    </iframe>
+</div>
+</p>
+<hr>
+<h3 id="增强内容">增强内容</h3>
+<h4 id="surge远程控制器">Surge远程控制器</h4>
+<ul>
+<li>我们可以在<code>Surge主界面</code> -&gt; <code>更多</code> -&gt; <code>通用</code> -&gt; <code>远程控制器</code> 内设置。</li>
+<li>然后在Surge iOS内，通过UI操作控制你的Surge网关。</li>
+<li>出门在外怎么办？自行google搭建<code>FRP</code>。</li>
+</ul>
+<h4 id="web-dashboard">Web Dashboard</h4>
+<ul>
+<li>Surge for Mac 提供了一个网页管理面板，这个面板可以比远程控制器操作更多内容。</li>
+<li>同样在<code>Surge主界面</code> -&gt; <code>更多</code> -&gt; <code>通用</code> -&gt; <code>远程控制器</code> 内设置。</li>
+<li>出门在外怎么办？自行google搭建<code>FRP</code>。</li>
+</ul>
+<h4 id="mitm">MitM</h4>
+<ul>
+<li>
+<p>Surge网关可以作为一个amazing MitM Tool，我们需要先给想要被MitM的设备安装与网关相同的根证书。</p>
+<ul>
+<li>这里我推荐使用Airdrop安装（因为他不需要多余的步骤，直接就可以安装）。</li>
+<li>Apple TV可以借助Surge网关的MitM功能，运行脚本为流媒体开启双字幕。这里不详细介绍。（因为我没有Apple TV！）
+<ul>
+<li>How to?  <a class="link" href="https://github.com/DualSubs/DualSubs"  target="_blank" rel="noopener"
+    >🍿️DualSubs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="我遇到的问题和解决办法">我遇到的问题和解决办法</h4>
+<ul>
+<li>在Surge网关下观看YouTube会变得超级无敌慢，目前探索出了以下影响因素：
+<ul>
+<li>模块：<code>Block HTTP/3 &amp; QUIC</code>
+<ul>
+<li>如果有类似问题的可以试试反复开关这个模块，观察是否有变化。</li>
+</ul>
+</li>
+<li>规则：<code>AND,((PROTOCOL,UDP), (DOMAIN-SUFFIX,googlevideo.com)),REJECT-NO-DROP</code>
+<ul>
+<li>这曾是老刘在推特力推的规则，但我观察到我的问题出现在这条规则上。</li>
+<li>同样的，如果有类似问题的可以试试反复开关这个模块，观察是否有变化。</li>
+</ul>
+</li>
+<li>参数：<code>udp-policy-not-supported-behaviour = REJECT</code>
+<ul>
+<li>援引官方文档：</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">如果没有代理服务器支持 UDP 转发，可修改为「 direct 」或注释下条，但需注意同一目标主机名 TCP 请求与 UDP 请求的源地址不同所造成的隐私及安全风险。
+</span></span></code></pre></div><p>这些问题显然都与<code>UDP</code>有关，如果还有问题出现，请自检本地或者咨询代理提供商。</p>
+<hr>
+<h2 id="nas-mini">NAS Mini</h2>
+<h3 id="timemachine">TimeMachine</h3>
+<ul>
+<li>在同一个局域网下，你的另外一台Mac上的<code>Finder</code> -&gt; <code>位置</code> 应该会显示作为Surge网关Mac的名称。</li>
+<li>打开 <code>TimeMachine设置</code> -&gt; <code>添加备份磁盘..</code> ，Mac会自动检索到备份位置。</li>
+<li>这里有两个位置即两个注册用户，我们以 <code>tutu</code> 为例。
+<img src="https://3o.hk/images/2022/12/09/2022-12-09-9.30.15.jpg" alt="截屏2022 12 09 上午9.30.15" border="0"></li>
+<li>输入密码。这里的密码即为<code>tutu</code>用户的锁屏密码。
+<img src="https://m1.im5i.com/2022/12/09/U5JOOd.webp" alt="U5JOOd.webp" border="0"></li>
+<li>输入密码之后就会自动配置时间机器，我们等待即可。</li>
+</ul>
+<h4 id="常见问题">常见问题</h4>
+<ul>
+<li>如果你的被备份电脑开启了Surge而显示<code>连接失败</code>，请尝试在Surge配置文件增加：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">tun-excluded-routes = 239.255.255.250/32
+</span></span></code></pre></div><ul>
+<li><code>239.255.255.250/32</code>是组播地址，如果在连接VNC出现问题，也应尝试配置该参数。</li>
+<li>如果你嫌备份太慢，这是因为 MacOS 本身对其进行了限流的措施, 使用以下命令解除限制：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo sysctl debug.lowpri_throttle_enabled=0
+</span></span></code></pre></div><ul>
+<li>推荐第一次备份结束后重新开启限流，以免出现硬盘读写高占用影响正常使用的情况。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo sysctl debug.lowpri_throttle_enabled=1
+</span></span></code></pre></div><h2 id="docker">Docker</h2>
+<p>MacOS可以完美运行Docker，所以运行一些脚本，搭建私人影音库等等NAS能做的事他也能做到。</p>
+<h3 id="安装">安装</h3>
+<ul>
+<li>我们首先需要<strong>连接SSH</strong>，我这里使用<code>NextSSH</code>为例，<code>FinalShell</code>同理。
+<img src="https://m1.im5i.com/2022/12/09/U5JNfH.webp" alt="U5JNfH.webp" border="0" />
+<ul>
+<li>地址为Surge网关在内网中的地址，你的可能和我不一样。</li>
+<li>端口填写默认的22端口，如果使用<code>FRP</code>工具，我不建议在公网暴露22端口。</li>
+<li>密码即为锁屏密码。</li>
+</ul>
+</li>
+<li>我们使用<code>homebrew</code>安装<code>docker</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">brew install docker
+</span></span></code></pre></div><ul>
+<li>什么？你还没有<code>homebrew</code>?</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/bin/bash -c &#34;$(curl -fsSL https://raw.iqiq.io/Homebrew/install/HEAD/install.sh)&#34;
+</span></span></code></pre></div><h3 id="使用">使用</h3>
+<ul>
+<li>和其他系统一样，我们可以通过命令行控制docker。不过MacOS提供了一个图形管理界面（就是一个app）。</li>
+<li>自己折腾吧！</li>
+</ul>
+<hr>
+<h2 id="后记">后记</h2>
+<h3 id="欢迎加入我的telegram交流群图图の翻斗後花園httpstmehututu000">欢迎加入我的telegram交流群:<a class="link" href="https://t.me/hututu000"  target="_blank" rel="noopener"
+    ><strong>图图の翻斗後花園</strong></a></h3>
+<ul>
+<li>本文只是提供一种思路，所有项目均为学习和研究目的，不得将本项目中任何内容用于违反国家/地区/组织等的法律法规或相关规定的其他用途。</li>
+<li>所有直接或间接使用本项目的个人和组织，应24小时内完成学习和研究，并及时删除本项目中的所有内容。如对本项目的功能有需求，应自行开发相关功能。</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E6%95%99%E7%A8%8B/">教程</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Jan 12, 2023 14:26 &#43;0800
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/T-Mobile-Esim/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/tmo.webp" loading="lazy" data-key="" data-hash="/tmo.webp"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">美国T-Mobile保号卡获取攻略 | 免费无限换号0月租</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/set-up-pagermaid-pyro/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/set-up-pagermaid-pyro.webp" loading="lazy" data-key="" data-hash="/set-up-pagermaid-pyro.webp"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">搭建开源的Telegram人形Bot👾｜PagerMaid-Pyro</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/Set-up-Frp/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://image.tutuis.me/frp.gif" loading="lazy" data-key="" data-hash="https://image.tutuis.me/frp.gif"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">使用Frp工具进行内网穿透</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/Hugo-build/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/cloudflare-pages.webp" loading="lazy" data-key="" data-hash="/cloudflare-pages.webp"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">将Hugo博客部署到Cloudflare Pages上的体验与踩坑小记</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script
+    src="https://giscus.app/client.js"
+    data-repo="bunizao/discussion"
+    data-repo-id="R_kgDOJDHU-A"
+    data-category="General"
+    data-category-id="DIC_kwDOJDHU-M4CUh1C"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="en"
+    crossorigin="anonymous"
+    async
+></script>
+<script>
+    function setGiscusTheme(theme) {
+        let giscus = document.querySelector("iframe.giscus-frame");
+        if (giscus) {
+            giscus.contentWindow.postMessage(
+                {
+                    giscus: {
+                        setConfig: {
+                            theme: theme,
+                        },
+                    },
+                },
+                "https://giscus.app"
+            );
+        }
+    }
+
+    (function () {
+        addEventListener("message", (e) => {
+            if (event.origin !== "https://giscus.app") return;
+            handler();
+        });
+        window.addEventListener("onColorSchemeChange", handler);
+
+        function handler() {
+            if (document.documentElement.dataset.scheme === "light") {
+                setGiscusTheme('light');
+            } else {
+                setGiscusTheme('dark_dimmed');
+            }
+        }
+    })();
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2022 - 
+        
+        2023 tutuのBlog
+    </section>
+    
+    <section class="powerby">
+        
+            Supports IPv6, HTTP/3, TLS 1.3 & DNSSEC <br/>
+        </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
 </html>

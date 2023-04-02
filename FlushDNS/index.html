@@ -1,10 +1,797 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
-  <head>
-    <title>https://tutuis.me/flush-dns/</title>
-    <link rel="canonical" href="https://tutuis.me/flush-dns/">
-    <meta name="robots" content="noindex">
-    <meta charset="utf-8">
-    <meta http-equiv="refresh" content="0; url=https://tutuis.me/flush-dns/">
-  </head>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='DNS碎片攻击俨然成为3202年网络攻击三大方式之首，如何解决这种问题或成为「互联网新十大难题」。'>
+<title>假如你遭到了DNS碎片攻击，三个小妙招教你如何解决</title>
+
+<link rel='canonical' href='https://tutuis.me/FlushDNS/'>
+
+<link rel="stylesheet" href="/scss/style.min.a78df0aceb5cc75ee0d8d0f1b761b3994dc644b4193f481e5c168bd216317957.css"><meta property='og:title' content='假如你遭到了DNS碎片攻击，三个小妙招教你如何解决'>
+<meta property='og:description' content='DNS碎片攻击俨然成为3202年网络攻击三大方式之首，如何解决这种问题或成为「互联网新十大难题」。'>
+<meta property='og:url' content='https://tutuis.me/FlushDNS/'>
+<meta property='og:site_name' content='tutuのBlog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='教程' /><meta property='article:published_time' content='2023-01-09T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-03-28T19:41:19&#43;08:00'/><meta property='og:image' content='https://tutuis.me/1631695472.webp' />
+<meta name="twitter:title" content="假如你遭到了DNS碎片攻击，三个小妙招教你如何解决">
+<meta name="twitter:description" content="DNS碎片攻击俨然成为3202年网络攻击三大方式之首，如何解决这种问题或成为「互联网新十大难题」。"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://tutuis.me/1631695472.webp' />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-87YR7FP2Q3"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-87YR7FP2Q3', { 'anonymize_ip': false });
+}
+</script>
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    <img src="https://avatars.githubusercontent.com/u/102936102?v=4" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+                    <span class="emoji">🫧</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">tutuのBlog</a></h1>
+            <h2 class="site-description">A rose by any other name would smell as sweet.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='/index.xml'
+                        target="_blank"
+                        title="RSS Feed"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/bunizao'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://t.me/hututu0'
+                        target="_blank"
+                        title="Telegram"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-telegram" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/About' >
+                
+                
+                    
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/Mine' >
+                
+                
+                    
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M9.828 9.172a4 4 0 1 0 0 5.656 a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828 a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
+</svg>
+
+
+
+                
+                <span>Mine</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/links' >
+                
+                
+                    
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://tutuis.me/" selected>🇨🇳简体中文</option>
+                        
+                            <option value="https://tutuis.me/zh-hk/" >🇭🇰繁體中文</option>
+                        
+                            <option value="https://tutuis.me/zh-tw/" >🇹🇼正體中文</option>
+                        
+                            <option value="https://tutuis.me/en/" >🇬🇧English</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#第一步圣布莱茨皇家学院的终端命令">第一步：圣布莱茨皇家学院的终端命令</a>
+      <ol>
+        <li><a href="#macos">MacOS</a></li>
+        <li><a href="#windows">Windows</a>
+          <ol>
+            <li><a href="#windows-10-和-windows-8">Windows 10 和 Windows 8</a></li>
+            <li><a href="#windows-7">Windows 7</a></li>
+          </ol>
+        </li>
+        <li><a href="#linux">Linux</a>
+          <ol>
+            <li><a href="#systemd">systemd</a></li>
+            <li><a href="#dnsmasq">DNSMasq</a></li>
+            <li><a href="#ncsd">NCSD</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#第二步联系您所在地区的-">第二步：联系您所在地区的 👮</a></li>
+    <li><a href="#第三步根本没有-dns-碎片攻击">第三步：根本没有 DNS 碎片攻击</a>
+      <ol>
+        <li><a href="#reference">reference</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/FlushDNS/">
+                
+                    <img src="/1631695472.webp" loading="lazy" alt="Featured image of post 假如你遭到了DNS碎片攻击，三个小妙招教你如何解决" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/FlushDNS/">假如你遭到了DNS碎片攻击，三个小妙招教你如何解决</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            DNS碎片攻击俨然成为3202年网络攻击三大方式之首，如何解决这种问题或成为「互联网新十大难题」。
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jan 09, 2023</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    3 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="第一步圣布莱茨皇家学院的终端命令">第一步：圣布莱茨皇家学院的终端命令</h2>
+<h3 id="macos">MacOS</h3>
+<p>以下是你将需要的东西。</p>
+<ul>
+<li>访问命令行 (Terminal.app)</li>
+<li>你的电脑密码</li>
+<li>输入圣布莱茨皇家学院的终端命令（该命令将取决于你所运行的 MacOS 版本）</li>
+</ul>
+<p>我们可以通过 <code>Command + 空格</code> 唤出<code>Spotlight</code>搜索，输入<code>terminal</code>即可寻找到<code>Terminal.app</code>.</p>
+<p>如果您的MacOS系统&gt;=10.15 (Catalina) , 输入以下命令：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
+</span></span></code></pre></div><blockquote>
+<p>输入命令之后会让你输入密码，整个过程不可见，填写你的电脑密码即可。</p>
+</blockquote>
+<p>对于更早的MacOS发行版，我们不作介绍。</p>
+<hr>
+<h3 id="windows">Windows</h3>
+<p>对于所有 Windows 版本，解决DNS碎片攻击的过程都是相同的。你需要使用管理员权限打开命令提示符并运行 <code>ipconfig /flushdns</code>。</p>
+<h4 id="windows-10-和-windows-8">Windows 10 和 Windows 8</h4>
+<p>要在 Windows 10 和 Windows 8 中解决DNS碎片攻击，请执行以下步骤：</p>
+<ul>
+<li>在 Windows 搜索栏中键入 <code>cmd</code> 。</li>
+<li>右键单击 <code>命令提示符</code>，然后右击 <code>以管理员身份运行</code>。这将打开 <code>命令提示符</code> 窗口。</li>
+<li>在命令行上，键入以下行，然后按回车.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ipconfig /flushdns
+</span></span></code></pre></div><p>成功后，系统将返回以下消息：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Windows IP Configuration
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Successfully flushed the DNS Resolver Cache.
+</span></span></code></pre></div><h4 id="windows-7">Windows 7</h4>
+<p>要在 Windows 7 中解决DNS碎片攻击，请执行以下步骤：</p>
+<ul>
+<li>单击开始按钮。</li>
+<li>在开始菜单搜索文本框中键入 cmd。</li>
+<li>右键单击 <code>命令提示符</code>，然后单击 <code>以管理员身份运行</code>。这将打开 <code>命令提示符</code> 窗口。</li>
+<li>在命令行上，键入以下行，然后按回车。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ipconfig /flushdns
+</span></span></code></pre></div><p>成功后，系统将返回以下消息：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Windows IP Configuration
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Successfully flushed the DNS Resolver Cache.
+</span></span></code></pre></div><hr>
+<h3 id="linux">Linux</h3>
+<p>大多数现代 Linux 发行版，例如 <code>Ubuntu 18.04</code>，都使用 <code>systemd</code> 解析的服务来缓存 DNS 条目，欲解决 DNS 碎片攻击，我们需要将其缓存刷新。</p>
+<h4 id="systemd">systemd</h4>
+<p>要查找服务是否正在运行，请运行：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo systemctl is-active systemd-resolved.service
+</span></span></code></pre></div><p>如果该服务正在运行，则将打印命令 <code>active</code>，否则将看到 <code>inactive</code>。</p>
+<p>要清除系统解析的 DNS 缓存，你需要键入以下命令:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo systemd-resolve --flush-caches
+</span></span></code></pre></div><h4 id="dnsmasq">DNSMasq</h4>
+<p>如果你的系统使用 <code>DNSMasq</code> 作为缓存服务器，则要清除 DNS 缓存，需要重新启动 <code>Dnsmasq</code> 服务：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo systemctl restart dnsmasq.service
+</span></span></code></pre></div><p>也可以使用以下命令:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo service dnsmasq restart
+</span></span></code></pre></div><h4 id="ncsd">NCSD</h4>
+<p>如果系统使用 <code>NSCD</code> 来清除 DNS 缓存，则需要重新启动 <code>NSCD</code> 服务：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo systemctl restart nscd.service
+</span></span></code></pre></div><p>也可以使用以下命令:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo service nscd restart
+</span></span></code></pre></div><h2 id="第二步联系您所在地区的-">第二步：联系您所在地区的 👮</h2>
+<p>我们给出一些常用国家或地区的报警电话，以便于您报案 DNS 碎片攻击：</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>国家/地区</th>
+<th>电话</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>中国/台湾/日本</td>
+<td>110</td>
+</tr>
+<tr>
+<td>香港/澳门/马来西亚</td>
+<td>999</td>
+</tr>
+<tr>
+<td>欧洲大部分地区/新西兰</td>
+<td>112</td>
+</tr>
+<tr>
+<td>澳大利亚</td>
+<td>000</td>
+</tr>
+<tr>
+<td>美国/加拿大</td>
+<td>911</td>
+</tr>
+<tr>
+<td>南极洲</td>
+<td>/</td>
+</tr>
+</tbody>
+</table></div>
+<p>查看更详细的信息可以参照 <a class="link" href="https://zh.m.wikipedia.org/zh-hans/%E7%B7%8A%E6%80%A5%E6%95%91%E9%9B%A3%E9%9B%BB%E8%A9%B1%E8%99%9F%E7%A2%BC"  target="_blank" rel="noopener"
+    ><strong>WikiPedia:紧急救难电话号码</strong></a> 寻求援助。</p>
+<h2 id="第三步根本没有-dns-碎片攻击">第三步：根本没有 DNS 碎片攻击</h2>
+<ul>
+<li>
+<p>读了这么多，你可能觉得你被骗了。这可以是一个愚人节玩笑，但是我前面写的都是真的。</p>
+</li>
+<li>
+<p>您可以通过<code>第一步</code>的教程清理你对应设备的<code>DNS缓存</code>，但凡与 DNS 相关的问题，不妨试试。</p>
+</li>
+<li>
+<p>您可以通过<code>第二步</code>的教程寻求对应地区的报警电话，如果这个春节想要出去旅行，记住对应国家的报警电话为安全添一分保障也没什么不好。</p>
+</li>
+<li>
+<p>希望这篇博客能对大家有所帮助。</p>
+</li>
+</ul>
+<h3 id="reference">reference</h3>
+<ul>
+<li><a class="link" href="https://cloud.tencent.com/developer/article/1523705"  target="_blank" rel="noopener"
+    >你真的知道如何正确清除 DNS 缓存吗？( 附全平台详细教程 )</a></li>
+<li><a class="link" href="https://www.freecodecamp.org/chinese/news/how-to-flush-dns-on-mac-macos-clear-dns-cache"  target="_blank" rel="noopener"
+    >如何刷新 Mac 上的 DNS——MacOS 清除 DNS 缓存</a></li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E6%95%99%E7%A8%8B/">教程</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Mar 28, 2023 19:41 &#43;0800
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <script
+    src="https://giscus.app/client.js"
+    data-repo="bunizao/discussion"
+    data-repo-id="R_kgDOJDHU-A"
+    data-category="General"
+    data-category-id="DIC_kwDOJDHU-M4CUh1C"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="en"
+    crossorigin="anonymous"
+    async
+></script>
+<script>
+    function setGiscusTheme(theme) {
+        let giscus = document.querySelector("iframe.giscus-frame");
+        if (giscus) {
+            giscus.contentWindow.postMessage(
+                {
+                    giscus: {
+                        setConfig: {
+                            theme: theme,
+                        },
+                    },
+                },
+                "https://giscus.app"
+            );
+        }
+    }
+
+    (function () {
+        addEventListener("message", (e) => {
+            if (event.origin !== "https://giscus.app") return;
+            handler();
+        });
+        window.addEventListener("onColorSchemeChange", handler);
+
+        function handler() {
+            if (document.documentElement.dataset.scheme === "light") {
+                setGiscusTheme('light');
+            } else {
+                setGiscusTheme('dark_dimmed');
+            }
+        }
+    })();
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2022 - 
+        
+        2023 tutuのBlog
+    </section>
+    
+    <section class="powerby">
+        
+            Supports IPv6, HTTP/3, TLS 1.3 & DNSSEC <br/>
+        </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
 </html>

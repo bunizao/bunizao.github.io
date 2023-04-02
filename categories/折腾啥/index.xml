@@ -8,10 +8,10 @@
         <language>zh-cn</language>
         <lastBuildDate>Tue, 28 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://tutuis.me/categories/%E6%8A%98%E8%85%BE%E5%95%A5/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>使用Frp工具进行内网穿透</title>
-        <link>https://tutuis.me/set-up-frp-tunnel/</link>
+        <link>https://tutuis.me/Set-up-Frp/</link>
         <pubDate>Tue, 28 Mar 2023 00:00:00 +0000</pubDate>
         
-        <guid>https://tutuis.me/set-up-frp-tunnel/</guid>
+        <guid>https://tutuis.me/Set-up-Frp/</guid>
         <description>&lt;img src="https://image.tutuis.me/frp.gif" alt="Featured image of post 使用Frp工具进行内网穿透" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;适逢 Surge Mac 5 新增内网穿透工具 &lt;a class=&#34;link&#34; href=&#34;https://blankwonder.medium.com/surge-ponte-%E7%A0%94%E5%8F%91%E6%89%8B%E8%AE%B0-c145726fc07c&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;&lt;strong&gt;Surge Ponte&lt;/strong&gt;&lt;/a&gt;，我为什么要反其道而行之，在Mac上折腾 Frp呢？&lt;/p&gt;
@@ -239,10 +239,6 @@
 &lt;/ul&gt;
 &lt;p&gt;如果需要开机启动，将&lt;code&gt;frpc.bat&lt;/code&gt;丢到Windows的开机启动文件夹即可。&lt;/p&gt;
 &lt;p&gt;强烈建议你在使用frp直接测试内网穿透前，先在局域网内测试好相关功能的正常使用，并配置好可能会影响的Windows防火墙等内容，在内网调试通过后再使用frp进行内网穿透测试。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;这个 &lt;a class=&#34;link&#34; href=&#34;https://github.com/fatedier/frp/issues/2860&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;&lt;strong&gt;issue&lt;/strong&gt;&lt;/a&gt; 报告了 Windows Defender 将frp&lt;strong&gt;误报&lt;/strong&gt;为病毒的问题。&lt;/li&gt;
-&lt;/ul&gt;
 &lt;hr&gt;
 &lt;h1 id=&#34;reference&#34;&gt;Reference:&lt;/h1&gt;
 &lt;ul&gt;
@@ -257,10 +253,10 @@
         </item>
         <item>
         <title>将Hugo博客部署到Cloudflare Pages上的体验与踩坑小记</title>
-        <link>https://tutuis.me/deploy-blog-to-cloudflare-pages/</link>
+        <link>https://tutuis.me/Hugo-build/</link>
         <pubDate>Mon, 27 Feb 2023 00:00:00 +0000</pubDate>
         
-        <guid>https://tutuis.me/deploy-blog-to-cloudflare-pages/</guid>
+        <guid>https://tutuis.me/Hugo-build/</guid>
         <description>&lt;img src="https://tutuis.me/cloudflare-pages.webp" alt="Featured image of post 将Hugo博客部署到Cloudflare Pages上的体验与踩坑小记" /&gt;&lt;iframe allow=&#34;autoplay *; encrypted-media *; fullscreen *; clipboard-write&#34; frameborder=&#34;0&#34; height=&#34;175&#34; style=&#34;width:100%;max-width:1200px;overflow:hidden;background:transparent;&#34; sandbox=&#34;allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation&#34; src=&#34;https://embed.music.apple.com/us/album/venice-bitch/1474669063?i=1474669067&#34;&gt;&lt;/iframe&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
@@ -413,10 +409,10 @@
         </item>
         <item>
         <title>美国T-Mobile保号卡获取攻略 | 免费无限换号0月租</title>
-        <link>https://tutuis.me/get-with-t-mobile/</link>
+        <link>https://tutuis.me/T-Mobile-Esim/</link>
         <pubDate>Mon, 09 Jan 2023 00:00:00 +0000</pubDate>
         
-        <guid>https://tutuis.me/get-with-t-mobile/</guid>
+        <guid>https://tutuis.me/T-Mobile-Esim/</guid>
         <description>&lt;img src="https://tutuis.me/tmo.webp" alt="Featured image of post 美国T-Mobile保号卡获取攻略 | 免费无限换号0月租" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;T-Mobile是美国第三大移动通信运营商，其产品可谓是&lt;strong&gt;非常良心&lt;/strong&gt;。支持&lt;strong&gt;国际漫游&lt;/strong&gt;以及&lt;strong&gt;漫游 WiFi-Calling&lt;/strong&gt;，使得你在美国境外，只要有Wi-Fi存在或者接收到漫游信号也可以等同于在美国境内拨打电话、收发短信。这让我们这些☁️用户能够以非常低廉的成本维持一个美国实体号码。&lt;/p&gt;
 &lt;p&gt;本文将介绍两大良心套餐：&lt;code&gt;$0 Lagacy Pay As You Go&lt;/code&gt; 以及 &lt;code&gt;$3 Prepaid Pay Go&lt;/code&gt;。&lt;/p&gt;
@@ -618,10 +614,10 @@ If you have an account balance, all lines will convert to Pay As You Go for 30 d
         </item>
         <item>
         <title>配置Surge网关接管家庭网络，让老旧Mac也能成为Homelab</title>
-        <link>https://tutuis.me/surge-gateway/</link>
+        <link>https://tutuis.me/SurgeGateway/</link>
         <pubDate>Fri, 09 Dec 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://tutuis.me/surge-gateway/</guid>
+        <guid>https://tutuis.me/SurgeGateway/</guid>
         <description>&lt;img src="https://tutuis.me/ce5792552b8a496daecc793dccbfeadd.webp" alt="Featured image of post 配置Surge网关接管家庭网络，让老旧Mac也能成为Homelab" /&gt;&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;
 &lt;h3 id=&#34;前言的前言&#34;&gt;前言的前言&lt;/h3&gt;
 &lt;blockquote&gt;
