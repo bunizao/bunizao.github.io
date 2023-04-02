@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Projects on tutuのBlog</title>
+        <link>https://tutuis.me/zh-hk/tags/Projects/</link>
+        <description>Recent content in Projects on tutuのBlog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-hk</language>
+        <lastBuildDate>Tue, 06 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tutuis.me/zh-hk/tags/Projects/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>私の折騰項目大公開!</title>
+        <link>https://tutuis.me/zh-hk/Projects/</link>
+        <pubDate>Tue, 06 Dec 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://tutuis.me/zh-hk/Projects/</guid>
+        <description>&lt;img src="https://tutuis.me/102424922_p0_master1200.webp" alt="Featured image of post 私の折騰項目大公開!" /&gt;&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;本人非常喜歡折騰，於是有了這些項目。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;這些項目的鏈接都放在這篇文章的大標題裏面&lt;/strong&gt;，也可以通過右邊的目錄快速導航。&lt;/li&gt;
+&lt;li&gt;我保證這些項目都是純淨的並且&lt;strong&gt;不加日誌&lt;/strong&gt;，首先我不缺訂閲，其次我並不想了解你的隱私。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;All for FREEEEEEEEEEEEEE.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;關於 SLA: 我們不對SLA做任何保障，但是我們會盡最大努力保證可用度。&lt;/li&gt;
+&lt;li&gt;關於 ToS: 我們把ToS託管在了 👉🏻&lt;a class=&#34;link&#34; href=&#34;https://github.com/bunizao/TutuBetterRules/blob/tutu/ToS.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Github&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;這是一個公益項目，歡迎關注我的telegram Channel 👉🏻&lt;a class=&#34;link&#34; href=&#34;https://t.me/hututu00&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;胡圖圖粉絲全球後援會&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;這也是一個自由的項目，歡迎大家加入同樣自由的telegram group 👉🏻&lt;a class=&#34;link&#34; href=&#34;https://t.me/hututu000&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;圖圖の翻鬥後花園&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;urlshortenerhttpstuucat&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://tuu.cat&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;URLShortener&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;它可以做什麼&#34;&gt;它可以做什麼？&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;將一個超長鏈接縮短為 &lt;a class=&#34;link&#34; href=&#34;https://tuu.cat/xxxx&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://tuu.cat/xxxx&lt;/a&gt; 的形式。
+&lt;ul&gt;
+&lt;li&gt;非常適合AFF等需要優雅域名的場景。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;注意事項&#34;&gt;注意事項&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;xxxx&lt;/code&gt;是一個隨機字母與數字的組合，並不一定是4個字符(有可能更多)。&lt;/li&gt;
+&lt;li&gt;本着自由的宗旨，我們開放自定義短鏈接後綴，但要注意：&lt;strong&gt;過於簡單的後綴可能會招致別有用心的網絡攻擊者掃描爆破，對隱私造成的不必要風險本站不負責任&lt;/strong&gt;。
+&lt;ul&gt;
+&lt;li&gt;自定義後綴審計一些帶有攻擊性的詞語，例如 &lt;code&gt;d*ck&lt;/code&gt;、&lt;code&gt;f*ck&lt;/code&gt;、&lt;code&gt;p**sy&lt;/code&gt;、&lt;code&gt;sb&lt;/code&gt;等。&lt;/li&gt;
+&lt;li&gt;本站有權拒絕菠菜、色情、詐騙等違法業務使用我們的服務。&lt;/li&gt;
+&lt;li&gt;我們保護您的隱私，只要您在合法合理的使用範圍內，我們保證您的原鏈接不會被泄露。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;本站使用Google的&lt;code&gt;reCAPTCHA&lt;/code&gt;鑑權，初次訪問可能會加載緩慢。&lt;/li&gt;
+&lt;li&gt;我們不保證SLA，但我們會盡最大努力維持可用度。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;我們不會收費，永遠不會。&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;tutubetterruleshttpswwwgithubcombunizaotutubetterrules&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.github.com/bunizao/TutuBetterRules&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;TutuBetterRules&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;可能是最好用的&lt;strong&gt;全平台代理軟件分流配置&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;我們正在對其進行持續完善更新，進入&lt;a class=&#34;link&#34; href=&#34;https://www.github.com/bunizao/TutuBetterRules&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;GitHub&lt;/strong&gt;&lt;/a&gt; 詳細瞭解。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;subconverterhttpssubtutuasia&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://sub.tutu.asia&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;SubConverter&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;它可以做什麼-1&#34;&gt;它可以做什麼？&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;功能：將不同平台的訂閲鏈接互相轉換。&lt;/li&gt;
+&lt;li&gt;安全性：我們擁有一個&lt;strong&gt;無任何日誌的純淨後端&lt;/strong&gt;，您的訂閲鏈接將非常安全地儲存在您的本地，並不經手我們的服務器，我們保證這個過程是完全私密的。&lt;/li&gt;
+&lt;li&gt;特點：可以一鍵套取&lt;a class=&#34;link&#34; href=&#34;https://www.github.com/bunizao/TutuBetterRules&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;TutuBetterRules&lt;/strong&gt;&lt;/a&gt;分流配置，這可能是最好用的iOS &amp;amp; MacOS的分流配置。
+&lt;ul&gt;
+&lt;li&gt;同樣的，這個過程也不經手我們的服務器。&lt;/li&gt;
+&lt;li&gt;為了避免隱私風險，我們移除了集成在面板內的短鏈接服務。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;注意事項-1&#34;&gt;注意事項&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;本站&lt;a class=&#34;link&#34; href=&#34;https://sub.tutu.asia&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;前端&lt;/a&gt;以及&lt;a class=&#34;link&#34; href=&#34;https://love.tutu.asia&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;後端1&lt;/a&gt;、&lt;a class=&#34;link&#34; href=&#34;https://api.tutu.asia&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;後端2&lt;/a&gt;均由&lt;a class=&#34;link&#34; href=&#34;https://www.cloudflare.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Cloudflare&lt;/a&gt;進行路由（我愛Cloudflare！）。可能在特殊時期會遭到特殊的制裁，所以不保證大陸方向的可用性（但是正常時期是可以用的）。
+&lt;ul&gt;
+&lt;li&gt;我們仍推薦您使用代理訪問。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;telegrambot&#34;&gt;TelegramBot&lt;/h1&gt;
+&lt;h2 id=&#34;rssub_bothttpstmetuturss_bot&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://t.me/tutuRSS_bot&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;RSSub_Bot&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;這是一款可以幫助你監聽RSS訂閲更新的Bot，支持在羣組和頻道中發佈。&lt;/li&gt;
+&lt;li&gt;特點：
+&lt;ul&gt;
+&lt;li&gt;支持telegraph應用內預覽。&lt;/li&gt;
+&lt;li&gt;更多的定製化選擇。&lt;/li&gt;
+&lt;li&gt;無限個RSS訂閲，超快的解析速度。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;我們換了一個超快的服務器。歡迎大家使用！&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

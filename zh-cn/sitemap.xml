@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://tutuis.me/categories/</loc>
-    <lastmod>2023-03-28T22:52:46+08:00</lastmod>
+    <lastmod>2023-04-02T18:43:52+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-hk"
@@ -26,7 +26,7 @@
                 />
   </url><url>
     <loc>https://tutuis.me/post/</loc>
-    <lastmod>2023-03-28T22:52:46+08:00</lastmod>
+    <lastmod>2023-04-02T18:43:52+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-hk"
@@ -39,17 +39,12 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="https://tutuis.me/en/post/"
-                />
-    <xhtml:link
-                rel="alternate"
                 hreflang="zh-cn"
                 href="https://tutuis.me/post/"
                 />
   </url><url>
     <loc>https://tutuis.me/tags/</loc>
-    <lastmod>2023-03-28T22:52:46+08:00</lastmod>
+    <lastmod>2023-04-02T18:43:52+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-hk"
@@ -72,7 +67,7 @@
                 />
   </url><url>
     <loc>https://tutuis.me/tags/Toolbox/</loc>
-    <lastmod>2023-03-28T22:52:46+08:00</lastmod>
+    <lastmod>2023-04-02T18:43:52+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-hk"
@@ -94,20 +89,20 @@
                 href="https://tutuis.me/tags/Toolbox/"
                 />
   </url><url>
-    <loc>https://tutuis.me/Set-up-Frp/</loc>
-    <lastmod>2023-03-28T22:52:46+08:00</lastmod>
+    <loc>https://tutuis.me/set-up-frp-tunnel/</loc>
+    <lastmod>2023-04-02T18:43:52+08:00</lastmod>
   </url><url>
     <loc>https://tutuis.me/categories/%E6%8A%98%E8%85%BE%E5%95%A5/</loc>
-    <lastmod>2023-03-28T22:52:46+08:00</lastmod>
+    <lastmod>2023-04-02T18:43:52+08:00</lastmod>
   </url><url>
-    <loc>https://tutuis.me/Hugo-build/</loc>
-    <lastmod>2023-03-28T15:06:53+08:00</lastmod>
+    <loc>https://tutuis.me/deploy-blog-to-cloudflare-pages/</loc>
+    <lastmod>2023-04-02T18:43:52+08:00</lastmod>
   </url><url>
-    <loc>https://tutuis.me/FlushDNS/</loc>
-    <lastmod>2023-03-28T19:41:19+08:00</lastmod>
+    <loc>https://tutuis.me/flush-dns/</loc>
+    <lastmod>2023-04-02T18:43:52+08:00</lastmod>
   </url><url>
     <loc>https://tutuis.me/tags/%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2023-03-28T19:41:19+08:00</lastmod>
+    <lastmod>2023-04-02T18:43:52+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-hk"
@@ -124,11 +119,11 @@
                 href="https://tutuis.me/tags/%E6%95%99%E7%A8%8B/"
                 />
   </url><url>
-    <loc>https://tutuis.me/T-Mobile-Esim/</loc>
-    <lastmod>2023-01-10T16:20:20+08:00</lastmod>
+    <loc>https://tutuis.me/get-with-t-mobile/</loc>
+    <lastmod>2023-04-02T18:43:52+08:00</lastmod>
   </url><url>
     <loc>https://tutuis.me/page/</loc>
-    <lastmod>2023-04-01T20:58:46+08:00</lastmod>
+    <lastmod>2023-04-02T18:43:52+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-hk"
@@ -150,86 +145,73 @@
                 href="https://tutuis.me/page/"
                 />
   </url><url>
-    <loc>https://tutuis.me/links/</loc>
-    <lastmod>2023-04-01T20:58:46+08:00</lastmod>
+    <loc>https://tutuis.me/Friends/</loc>
+    <lastmod>2023-04-02T18:43:52+08:00</lastmod>
   </url><url>
-    <loc>https://tutuis.me/SurgeGateway/</loc>
-    <lastmod>2023-01-12T14:26:21+08:00</lastmod>
+    <loc>https://tutuis.me/surge-gateway/</loc>
+    <lastmod>2023-04-02T18:43:52+08:00</lastmod>
   </url><url>
-    <loc>https://tutuis.me/tags/MyProjects/</loc>
-    <lastmod>2023-01-08T23:36:29+08:00</lastmod>
+    <loc>https://tutuis.me/tags/Projects/</loc>
+    <lastmod>2023-04-02T18:43:52+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-hk"
-                href="https://tutuis.me/zh-hk/tags/MyProjects/"
+                href="https://tutuis.me/zh-hk/tags/Projects/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-tw"
-                href="https://tutuis.me/zh-tw/tags/MyProjects/"
+                href="https://tutuis.me/zh-tw/tags/Projects/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://tutuis.me/en/tags/MyProjects/"
+                href="https://tutuis.me/en/tags/Projects/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://tutuis.me/tags/MyProjects/"
+                href="https://tutuis.me/tags/Projects/"
                 />
   </url><url>
-    <loc>https://tutuis.me/categories/MyProjects/</loc>
-    <lastmod>2023-01-08T23:36:29+08:00</lastmod>
+    <loc>https://tutuis.me/categories/Projects/</loc>
+    <lastmod>2023-04-02T18:43:52+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-hk"
-                href="https://tutuis.me/zh-hk/categories/MyProjects/"
+                href="https://tutuis.me/zh-hk/categories/Projects/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-tw"
-                href="https://tutuis.me/zh-tw/categories/MyProjects/"
+                href="https://tutuis.me/zh-tw/categories/Projects/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://tutuis.me/en/categories/MyProjects/"
+                href="https://tutuis.me/en/categories/Projects/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://tutuis.me/categories/MyProjects/"
+                href="https://tutuis.me/categories/Projects/"
                 />
   </url><url>
-    <loc>https://tutuis.me/Mine/</loc>
-    <lastmod>2023-01-08T23:36:29+08:00</lastmod>
-  </url><url>
-    <loc>https://tutuis.me/MyProject/</loc>
-    <lastmod>2023-01-08T22:14:07+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-tw"
-                href="https://tutuis.me/zh-tw/MyProject/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-hk"
-                href="https://tutuis.me/zh-hk/MyProject/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://tutuis.me/en/MyProject/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://tutuis.me/MyProject/"
-                />
+    <loc>https://tutuis.me/Projects/</loc>
+    <lastmod>2023-04-02T18:43:52+08:00</lastmod>
   </url><url>
     <loc>https://tutuis.me/categories/%E6%95%B4%E7%82%B9%E6%96%B0%E6%B4%BB/</loc>
-    <lastmod>2023-01-08T23:36:29+08:00</lastmod>
+    <lastmod>2023-04-02T18:43:52+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-hk"
+                href="https://tutuis.me/zh-hk/categories/%E6%95%B4%E7%82%B9%E6%96%B0%E6%B4%BB/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://tutuis.me/zh-tw/categories/%E6%95%B4%E7%82%B9%E6%96%B0%E6%B4%BB/"
+                />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -242,7 +224,7 @@
                 />
   </url><url>
     <loc>https://tutuis.me/categories/Linux/</loc>
-    <lastmod>2023-03-28T19:41:19+08:00</lastmod>
+    <lastmod>2023-04-02T18:43:52+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-hk"
@@ -295,11 +277,11 @@
                 href="https://tutuis.me/set-up-pagermaid-pyro/"
                 />
   </url><url>
-    <loc>https://tutuis.me/Command-on-Ubuntu/</loc>
-    <lastmod>2023-03-28T19:41:19+08:00</lastmod>
+    <loc>https://tutuis.me/linux-command-category/</loc>
+    <lastmod>2023-04-02T18:43:52+08:00</lastmod>
   </url><url>
-    <loc>https://tutuis.me/archives/</loc>
-    <lastmod>2023-01-08T22:14:07+08:00</lastmod>
+    <loc>https://tutuis.me/Archives/</loc>
+    <lastmod>2023-04-02T18:43:52+08:00</lastmod>
   </url><url>
     <loc>https://tutuis.me/</loc>
     <lastmod>2023-03-28T15:06:53+08:00</lastmod>
@@ -325,9 +307,12 @@
                 />
   </url><url>
     <loc>https://tutuis.me/About/</loc>
-    <lastmod>2023-03-28T22:52:46+08:00</lastmod>
+    <lastmod>2023-04-02T18:43:52+08:00</lastmod>
   </url><url>
-    <loc>https://tutuis.me/search/</loc>
-    <lastmod>2023-01-08T22:14:07+08:00</lastmod>
+    <loc>https://tutuis.me/Search/</loc>
+    <lastmod>2023-04-02T18:43:52+08:00</lastmod>
+  </url><url>
+    <loc>https://tutuis.me/logs/</loc>
+    <lastmod>2023-04-02T18:43:52+08:00</lastmod>
   </url>
 </urlset>
