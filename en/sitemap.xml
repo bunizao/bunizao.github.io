@@ -2,6 +2,52 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://tutuis.me/en/page/</loc>
+    <lastmod>2023-04-02T18:43:52+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://tutuis.me/page/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-hk"
+                href="https://tutuis.me/zh-hk/page/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://tutuis.me/zh-tw/page/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://tutuis.me/en/page/"
+                />
+  </url><url>
+    <loc>https://tutuis.me/en/</loc>
+    <lastmod>2023-04-02T18:43:52+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://tutuis.me/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-hk"
+                href="https://tutuis.me/zh-hk/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://tutuis.me/zh-tw/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://tutuis.me/en/"
+                />
+  </url><url>
     <loc>https://tutuis.me/en/categories/</loc>
     <lastmod>2023-04-02T18:43:52+08:00</lastmod>
     <xhtml:link
@@ -29,6 +75,11 @@
     <lastmod>2023-04-02T18:43:52+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
+                hreflang="zh-cn"
+                href="https://tutuis.me/Projects/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="zh-tw"
                 href="https://tutuis.me/zh-tw/Projects/"
                 />
@@ -41,29 +92,6 @@
                 rel="alternate"
                 hreflang="zh-cn"
                 href="https://tutuis.me/en/Projects/"
-                />
-  </url><url>
-    <loc>https://tutuis.me/en/page/</loc>
-    <lastmod>2023-04-02T18:43:52+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://tutuis.me/page/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-hk"
-                href="https://tutuis.me/zh-hk/page/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-tw"
-                href="https://tutuis.me/zh-tw/page/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://tutuis.me/en/page/"
                 />
   </url><url>
     <loc>https://tutuis.me/en/tags/Projects/</loc>
@@ -133,29 +161,6 @@
                 rel="alternate"
                 hreflang="zh-cn"
                 href="https://tutuis.me/en/tags/"
-                />
-  </url><url>
-    <loc>https://tutuis.me/en/</loc>
-    <lastmod>2023-04-02T18:43:52+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://tutuis.me/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-hk"
-                href="https://tutuis.me/zh-hk/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-tw"
-                href="https://tutuis.me/zh-tw/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://tutuis.me/en/"
                 />
   </url><url>
     <loc>https://tutuis.me/en/categories/%E6%95%B4%E7%82%B9%E6%96%B0%E6%B4%BB/</loc>
